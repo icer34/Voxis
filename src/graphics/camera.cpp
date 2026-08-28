@@ -62,7 +62,7 @@ void Camera::rotate(float xOffset, float yOffset)
 void Camera::zoom(float scrollOffset)
 {
     // scroll up (positive offset) zooms in -> smaller FOV
-    _fovDeg -= scrollOffset * ZOOM_STEP;
+    _fovDeg -= static_cast<int>(scrollOffset * ZOOM_STEP);
     _fovDeg = std::clamp(_fovDeg, MIN_FOV, MAX_FOV);
 }
 

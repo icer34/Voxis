@@ -3,8 +3,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_vulkan.h>
 
-#include <chrono>
-
 #include "log.h"
 
 Window::Window(uint32_t width, uint32_t height, const std::string& title)
@@ -63,9 +61,6 @@ const char** Window::getVulkanInstanceExtensions(uint32_t* count)
 
 void Window::update()
 {
-    using clock = std::chrono::steady_clock;
-    auto tStart = clock::now();
-
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
@@ -129,11 +124,6 @@ void Window::update()
             break;
         }
     }
-
-    auto tEnd = clock::now();
-    double ms = std::chrono::duration<double, std::milli>(tEnd - tStart).count();
-    if (ms > 50.0)
-        VoxisLog::info("SDL_PollEvent took {:.3f}ms", ms);
 }
 
 bool Window::shouldClose()
