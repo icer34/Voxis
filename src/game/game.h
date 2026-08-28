@@ -6,6 +6,10 @@
 #include "graphics/renderer.h"
 #include "graphics/camera.h"
 
+/**
+ * @brief Owns the window, renderer and camera, and drives the main game loop
+ *
+ */
 class Game
 {
 public:

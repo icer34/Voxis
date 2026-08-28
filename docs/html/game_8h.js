@@ -1,4 +1,4 @@
 var game_8h =
 [
-    [ "Game", "classGame.html", "classGame" ]
+    [ "Game", "class_game.html", "class_game" ]
 ];

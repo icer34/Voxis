@@ -1,0 +1,7 @@
+<map id="Texture::descriptorInfo" name="Texture::descriptorInfo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="217,31,368,56"/>
+<area shape="rect" id="Node000002" href="$class_texture.html#a52c7fa68d67170b18a290ae18792240a" title=" " alt="" coords="23,5,151,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,33,151,29,151,23,204,32"/>
+<area shape="rect" id="Node000003" href="$class_renderer.html#aadb5466d680c17784ef02678cb0dc5f3" title="Assign a previously created texture to the block atlas." alt="" coords="5,55,169,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,54,169,61,169,55,204,54"/>
+</map>

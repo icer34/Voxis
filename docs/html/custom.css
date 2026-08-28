@@ -1,0 +1,43 @@
+/* Hide the redundant "Voxis" title bar on the main page: the logo already
+   carries the game name, so the auto-generated page title is dropped there. */
+body:has(#mainpage) .headertitle {
+    display: none;
+}
+
+/* Clarify ownership of brief descriptions in member summary tables:
+   fuse each signature with its own description into a single card,
+   and widen the gap before the next, unrelated member. */
+
+table.memberdecls tr[class^='memitem']:has(+ tr[class^='memdesc']) td.memItemLeft {
+    border-bottom: 0;
+    border-radius: var(--border-radius-small) 0 0 0;
+}
+
+table.memberdecls tr[class^='memitem']:has(+ tr[class^='memdesc']) td.memItemRight {
+    border-bottom: 0;
+    border-radius: 0 var(--border-radius-small) 0 0;
+}
+
+table.memberdecls tr[class^='memdesc'] td.mdescLeft,
+table.memberdecls tr[class^='memdesc'] td.mdescRight {
+    background-color: var(--fragment-background);
+    border-bottom: 1px solid var(--separator-color);
+    padding: 0 var(--spacing-medium) var(--spacing-small);
+}
+
+table.memberdecls tr[class^='memdesc'] td.mdescLeft {
+    border-left: 1px solid var(--separator-color);
+    border-radius: 0 0 0 var(--border-radius-small);
+}
+
+table.memberdecls tr[class^='memdesc'] td.mdescRight {
+    border-right: 1px solid var(--separator-color);
+    border-radius: 0 0 var(--border-radius-small) 0;
+}
+
+table.memberdecls tr[class^='memitem'] + tr[class^='memitem'] td.memItemLeft,
+table.memberdecls tr[class^='memitem'] + tr[class^='memitem'] td.memItemRight,
+table.memberdecls tr[class^='memdesc'] + tr[class^='memitem'] td.memItemLeft,
+table.memberdecls tr[class^='memdesc'] + tr[class^='memitem'] td.memItemRight {
+    border-top: var(--spacing-medium) solid var(--page-background-color);
+}

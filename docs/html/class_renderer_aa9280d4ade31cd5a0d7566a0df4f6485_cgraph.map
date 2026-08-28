@@ -1,0 +1,17 @@
+<map id="Renderer::recreateSwapchain" name="Renderer::recreateSwapchain">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,140,199,166"/>
+<area shape="rect" id="Node000002" href="$class_renderer.html#a1fc6f7cfe2232035a1a141daeb57b0d7" title=" " alt="" coords="250,65,432,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,137,246,100,273,94,268,96,247,105,139,142"/>
+<area shape="rect" id="Node000005" href="$class_renderer.html#aeed852feacbc81c0eaa6143591370ebd" title=" " alt="" coords="247,115,436,140"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="199,140,234,138,229,140,200,145"/>
+<area shape="rect" id="Node000006" href="$class_window.html#a6f2f3057137e0d60e4872074985d2e0e" title=" " alt="" coords="286,164,397,190"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="199,160,273,169,268,170,199,165"/>
+<area shape="rect" id="Node000007" href="$class_window.html#ad5d81fac36040b78aa002c11b04c21ca" title=" " alt="" coords="288,213,395,239"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="140,164,247,200,275,210,270,209,246,205,139,169"/>
+<area shape="rect" id="Node000003" href="$namespace_voxis_log.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="484,29,605,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="417,62,471,55,466,56,418,67"/>
+<area shape="rect" id="Node000004" href="$namespace_voxis_log.html#a526ecbcf25e08613a82d0cfae9ac048f" title=" " alt="" coords="492,103,597,128"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="415,89,480,103,475,104,415,94"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="510,28,504,21,508,11,522,5,545,3,570,5,584,15,578,14,568,10,545,8,523,10,512,15,509,20,515,30"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="510,101,504,94,508,84,522,78,545,76,570,79,584,88,578,88,568,84,545,81,523,83,512,88,509,93,515,103"/>
+</map>

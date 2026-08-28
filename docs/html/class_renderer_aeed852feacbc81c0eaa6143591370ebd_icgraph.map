@@ -1,0 +1,13 @@
+<map id="Renderer::destroySwapchain" name="Renderer::destroySwapchain">
+<area shape="rect" id="Node000001" title=" " alt="" coords="657,31,847,56"/>
+<area shape="rect" id="Node000002" href="$class_renderer.html#aa9280d4ade31cd5a0d7566a0df4f6485" title=" " alt="" coords="416,5,609,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="639,32,610,31,610,26,644,32"/>
+<area shape="rect" id="Node000005" href="$class_renderer.html#a96d1aa977deba76f5196ade7ff7ce247" title=" " alt="" coords="424,55,602,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="645,54,603,61,602,56,639,55"/>
+<area shape="rect" id="Node000003" href="$class_renderer.html#a56bc319fd0b183616fe4b7caec5a5356" title=" " alt="" coords="172,5,368,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,18,369,21,368,16,403,18"/>
+<area shape="rect" id="Node000004" href="$class_renderer.html#aedebec5eda045c72cdea13a438ed75eb" title="Renders the desired meshes for the given camera." alt="" coords="5,5,124,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="154,19,124,21,123,16,159,17"/>
+<area shape="rect" id="Node000006" href="$class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd" title=" " alt="" coords="198,55,342,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="405,68,342,70,342,65,410,67"/>
+</map>

@@ -1,4 +1,4 @@
 var camera_8h =
 [
-    [ "Camera", "classCamera.html", "classCamera" ]
+    [ "Camera", "class_camera.html", "class_camera" ]
 ];

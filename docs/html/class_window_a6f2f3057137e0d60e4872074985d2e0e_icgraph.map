@@ -1,0 +1,17 @@
+<map id="Window::height" name="Window::height">
+<area shape="rect" id="Node000001" title=" " alt="" coords="657,85,769,111"/>
+<area shape="rect" id="Node000002" href="$class_renderer.html#a56bc319fd0b183616fe4b7caec5a5356" title=" " alt="" coords="172,35,368,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="686,74,652,47,608,25,570,15,529,10,448,11,374,22,314,37,313,32,372,17,447,6,529,5,571,10,610,20,655,43,691,75"/>
+<area shape="rect" id="Node000003" href="$class_renderer.html#aedebec5eda045c72cdea13a438ed75eb" title="Renders the desired meshes for the given camera." alt="" coords="5,60,124,86"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="641,98,124,78,124,72,642,93"/>
+<area shape="rect" id="Node000004" href="$class_renderer.html#a2a27b8335ab77cd2939eafd54bad3587" title=" " alt="" coords="443,136,582,162"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="647,115,567,138,566,133,642,116"/>
+<area shape="rect" id="Node000006" href="$class_renderer.html#aa9280d4ade31cd5a0d7566a0df4f6485" title=" " alt="" coords="416,35,609,60"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="642,81,566,64,566,58,647,81"/>
+<area shape="rect" id="Node000007" href="$class_window.html#a823f4f107d2bd8b07d44207e2af936be" title=" " alt="" coords="451,185,574,211"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="689,120,653,151,610,177,575,189,574,184,608,172,650,147,684,122"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="154,63,125,68,123,63,158,60"/>
+<area shape="rect" id="Node000005" href="$class_renderer.html#ab754154ec14584667ea0319d69c438f9" title=" " alt="" coords="202,136,338,162"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="425,149,338,152,338,146,430,149"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="397,48,369,50,368,45,403,47"/>
+</map>

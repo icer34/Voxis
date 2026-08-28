@@ -7,6 +7,10 @@ typedef struct VmaAllocator_T* VmaAllocator;
 struct VmaAllocation_T;
 typedef struct VmaAllocation_T* VmaAllocation;
 
+/**
+ * @brief GPU-side texture: owns the Vulkan image, image view and sampler, allocated via VMA
+ *
+ */
 class Texture
 {
 public:

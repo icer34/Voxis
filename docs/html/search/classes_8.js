@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['window_0',['Window',['../classWindow.html',1,'']]],
-  ['world_1',['World',['../classWorld.html',1,'']]]
+  ['window_0',['Window',['../class_window.html',1,'']]],
+  ['world_1',['World',['../class_world.html',1,'']]]
 ];

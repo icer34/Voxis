@@ -8,11 +8,8 @@
 #define VMA_DYNAMIC_VULKAN_FUNCTIONS 1
 #include <vk_mem_alloc.h>
 
-#include <glm/gtc/matrix_transform.hpp>
-
 #include <algorithm>
 
-#include "chunk_mesher.h"
 #include "plateform/window.h"
 #include "camera.h"
 #include "log.h"

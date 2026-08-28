@@ -1,18 +1,40 @@
 PROJECT_NAME            = "Voxis"
+PROJECT_BRIEF           = "Small RPG minecraft like game"
+PROJECT_LOGO            = docs/logo.png
+
 OUTPUT_DIRECTORY        = docs
 
-INPUT                   = src
+INPUT                   = README.md src
 RECURSIVE               = YES
-FILE_PATTERNS           = *.h *.hpp *.cpp
+FILE_PATTERNS           = *.h *.hpp *.cpp *.md
+USE_MDFILE_AS_MAINPAGE  = README.md
 
 EXTRACT_ALL             = YES
 EXTRACT_PRIVATE         = YES
 EXTRACT_STATIC          = YES
 JAVADOC_AUTOBRIEF       = YES
 
+DISABLE_INDEX           = NO
+FULL_SIDEBAR            = NO
+HTML_EXTRA_STYLESHEET   = docs/doxygen-awesome-css/doxygen-awesome.css \
+                            docs/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
+                            docs/custom.css
+HTML_COLORSTYLE         = LIGHT
+GENERATE_TREEVIEW       = YES
 GENERATE_HTML           = YES
 GENERATE_LATEX          = NO
-HAVE_DOT                = NO
+
+HAVE_DOT            = YES
+CALL_GRAPH          = YES
+CALLER_GRAPH        = YES
+UML_LOOK            = YES
+COLLABORATION_GRAPH = NO
+DOT_IMAGE_FORMAT    = svg
+INTERACTIVE_SVG     = YES
+
+SOURCE_BROWSER      = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION = YES
 
 QUIET                   = YES
 WARN_IF_UNDOCUMENTED   = NO

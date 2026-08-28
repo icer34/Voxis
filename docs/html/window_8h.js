@@ -1,6 +1,6 @@
 var window_8h =
 [
-    [ "Window", "classWindow.html", "classWindow" ],
+    [ "Window", "class_window.html", "class_window" ],
     [ "Key", "window_8h.html#ab3c7af4820830f9166ede9e5623c4e73", [
       [ "W", "window_8h.html#ab3c7af4820830f9166ede9e5623c4e73a61e9c06ea9a85a5088a499df6458d276", null ],
       [ "A", "window_8h.html#ab3c7af4820830f9166ede9e5623c4e73a7fc56270e7a70fa81a5935b72eacbe29", null ],

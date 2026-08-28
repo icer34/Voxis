@@ -1,0 +1,14 @@
+<map id="Mesh::operator=" name="Mesh::operator=">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,122,106"/>
+<area shape="rect" id="Node000002" href="$class_mesh.html#a1e4dbb51652adf4d6150875c6c65b9d8" title=" " alt="" coords="172,5,286,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,77,169,40,183,36,178,39,171,45,93,82"/>
+<area shape="rect" id="Node000003" href="$class_mesh.html#a82a9d646da96dc2bc3cab815b02e027c" title=" " alt="" coords="172,55,286,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="121,81,159,77,154,80,123,86"/>
+<area shape="rect" id="Node000004" href="$class_mesh.html#a65ae96de4d35b218d1b672db6612ea7e" title=" " alt="" coords="182,104,276,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,99,170,107,165,109,122,104"/>
+<area shape="rect" id="Node000006" href="$class_mesh.html#ae9bd874d40a1b8952ed071b25718bec5" title=" " alt="" coords="170,153,288,179"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="93,104,171,140,183,147,178,147,169,145,92,109"/>
+<area shape="rect" id="Node000005" href="$namespace_voxis_log.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="336,104,457,130"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="276,114,323,116,318,117,276,119"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="368,103,363,95,366,86,378,80,397,77,417,80,429,89,424,88,415,85,397,83,379,85,370,89,368,95,373,105"/>
+</map>

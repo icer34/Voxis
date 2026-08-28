@@ -2,6 +2,10 @@
 
 #include <glm/glm.hpp>
 
+/**
+ * @brief A first-person camera providing view/projection matrices, movement, rotation and zoom
+ *
+ */
 class Camera
 {
 public:

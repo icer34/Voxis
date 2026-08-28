@@ -6,12 +6,20 @@
 #include <vulkan/vulkan.h>
 #include <glm/glm.hpp>
 
+/**
+ * @brief A single mesh vertex: position and normal
+ *
+ */
 struct Vertex
 {
     glm::vec3 pos;
     glm::vec3 normal;
 };
 
+/**
+ * @brief CPU-side vertex and index data for a mesh, before it is uploaded to the GPU
+ *
+ */
 struct MeshData
 {
     std::vector<Vertex> vertices;
@@ -23,6 +31,10 @@ typedef struct VmaAllocator_T* VmaAllocator;
 struct VmaAllocation_T;
 typedef struct VmaAllocation_T* VmaAllocation;
 
+/**
+ * @brief GPU-side vertex and index buffers for a renderable mesh, allocated via VMA
+ *
+ */
 class Mesh
 {
 public:

@@ -1,0 +1,9 @@
+<map id="Renderer::initVMA" name="Renderer::initVMA">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,67,134,92"/>
+<area shape="rect" id="Node000002" href="$namespace_voxis_log.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="182,29,303,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,63,169,58,164,59,133,69"/>
+<area shape="rect" id="Node000003" href="$namespace_voxis_log.html#a526ecbcf25e08613a82d0cfae9ac048f" title=" " alt="" coords="190,103,294,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="134,90,178,101,172,102,134,96"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="213,28,207,21,211,11,223,5,242,3,263,5,276,14,270,14,262,10,242,8,224,10,215,15,213,20,218,30"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="213,101,207,94,211,84,223,78,242,76,263,79,276,88,270,87,262,84,242,81,224,83,215,88,213,93,218,103"/>
+</map>

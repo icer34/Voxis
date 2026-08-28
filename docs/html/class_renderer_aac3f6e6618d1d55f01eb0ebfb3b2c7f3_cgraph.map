@@ -1,0 +1,11 @@
+<map id="Renderer::createTexture" name="Renderer::createTexture">
+<area shape="rect" id="Node000001" title="Create a Texture object, allocates all the gpu resources needed ONLY FORMAT SUPPORTED : R8_G8_B8_A8." alt="" coords="5,56,167,82"/>
+<area shape="rect" id="Node000002" href="$class_renderer.html#a58528c44c7ff2cf6f7c2f29eef860077" title=" " alt="" coords="215,5,446,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,53,252,33,248,36,152,58"/>
+<area shape="rect" id="Node000003" href="$namespace_voxis_log.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="494,31,615,56"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="167,62,478,45,478,50,167,67"/>
+<area shape="rect" id="Node000004" href="$class_renderer.html#a7dcfcb040778ef4fd92439d4f80eb233" title=" " alt="" coords="220,107,441,132"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="152,80,253,102,248,104,151,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="446,29,481,35,476,35,446,34"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="517,29,510,22,514,12,530,6,555,4,582,7,598,16,592,16,581,12,555,9,531,11,518,16,515,21,522,31"/>
+</map>

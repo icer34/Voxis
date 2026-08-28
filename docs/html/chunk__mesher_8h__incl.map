@@ -1,0 +1,18 @@
+<map id="src/graphics/chunk_mesher.h" name="src/graphics/chunk_mesher.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="214,5,345,46"/>
+<area shape="rect" id="Node000002" href="$mesh_8h.html" title=" " alt="" coords="184,94,249,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,45,237,84,234,80,262,48"/>
+<area shape="rect" id="Node000007" href="$chunk_8h.html" title=" " alt="" coords="292,94,395,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="296,44,327,82,321,81,294,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,63,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,123,78,165,76,160,185,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="87,168,136,193"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="201,119,143,161,140,156,196,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="160,168,273,193"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="219,118,219,153,214,150,215,122"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="297,168,390,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="239,118,311,160,306,160,237,123"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="345,118,345,153,341,150,341,122"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="414,168,464,193"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="360,118,414,159,409,158,359,123"/>
+</map>

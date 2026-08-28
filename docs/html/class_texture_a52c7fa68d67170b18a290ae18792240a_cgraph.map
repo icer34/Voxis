@@ -1,0 +1,10 @@
+<map id="Texture::operator=" name="Texture::operator=">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,133,56"/>
+<area shape="rect" id="Node000002" href="$class_texture.html#a3fea678d7700524df767637de39508b5" title=" " alt="" coords="181,5,332,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,32,168,30,163,31,133,38"/>
+<area shape="rect" id="Node000003" href="$class_texture.html#ae702dac79c7d0868c4af7ca6c6352b08" title=" " alt="" coords="199,55,314,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,49,186,58,181,59,133,54"/>
+<area shape="rect" id="Node000004" href="$namespace_voxis_log.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="380,55,501,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="315,65,367,67,362,68,315,70"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="409,53,404,46,407,36,420,30,441,28,463,31,476,40,471,39,461,36,441,33,421,35,411,40,409,45,414,55"/>
+</map>

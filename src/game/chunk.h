@@ -4,6 +4,10 @@
 
 #include <glm/glm.hpp>
 
+/**
+ * @brief A fixed-size cube of blocks that makes up a portion of the world
+ *
+ */
 class Chunk
 {
 public:

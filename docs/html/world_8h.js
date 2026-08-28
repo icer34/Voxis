@@ -1,4 +1,4 @@
 var world_8h =
 [
-    [ "World", "classWorld.html", null ]
+    [ "World", "class_world.html", null ]
 ];

@@ -2,7 +2,7 @@
 
 #include <string>
 #include <cstdint>
-#include <functional>
+#include <array>
 #include <vector>
 
 #include <vulkan/vulkan.h>
@@ -30,6 +30,10 @@ enum class MouseButton
     Middle
 };
 
+/**
+ * @brief Wraps the SDL window and gathers input state (keyboard, mouse) and Vulkan surface creation
+ *
+ */
 class Window
 {
 public:

@@ -1,0 +1,12 @@
+<map id="Game::init" name="Game::init">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,87,104"/>
+<area shape="rect" id="Node000002" href="$namespace_chunk_mesher.html#a09471cae4dd7c30c782dda029409d161" title=" " alt="" coords="135,29,323,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,77,134,64,163,58,158,61,135,69,88,82"/>
+<area shape="rect" id="Node000003" href="$class_chunk.html#a59a909d7a32f09b5010298e0035e1171" title=" " alt="" coords="170,79,288,104"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="87,89,156,90,152,93,88,94"/>
+<area shape="rect" id="Node000005" href="$class_chunk.html#a4df1bb472725a6b867b62c3bcb87d51a" title=" " alt="" coords="150,128,308,154"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="87,101,135,114,163,123,157,124,134,119,87,106"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="198,29,192,21,196,11,208,5,229,3,251,5,264,14,259,14,249,10,229,8,210,10,200,15,197,20,203,29"/>
+<area shape="rect" id="Node000004" href="$class_chunk.html#af5b9d738e0757cabc4ab3c2d7394ed88" title=" " alt="" coords="371,79,455,104"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="288,89,358,91,353,92,289,94"/>
+</map>

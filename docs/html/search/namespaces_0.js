@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['chunkmesher_0',['ChunkMesher',['../namespaceChunkMesher.html',1,'']]]
+  ['chunkmesher_0',['ChunkMesher',['../namespace_chunk_mesher.html',1,'']]]
 ];

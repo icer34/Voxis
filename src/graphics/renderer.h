@@ -54,6 +54,10 @@ typedef struct VmaAllocation_T* VmaAllocation;
 class Window;
 class Camera;
 
+/**
+ * @brief Vulkan renderer: owns the swapchain and pipeline, and manages meshes, textures and frame rendering
+ *
+ */
 class Renderer
 {
 public:

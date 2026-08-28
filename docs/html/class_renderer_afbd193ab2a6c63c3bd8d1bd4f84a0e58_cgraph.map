@@ -1,0 +1,9 @@
+<map id="Renderer::createSyncResources" name="Renderer::createSyncResources">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,67,217,92"/>
+<area shape="rect" id="Node000002" href="$namespace_voxis_log.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="265,29,386,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,63,252,55,247,56,189,69"/>
+<area shape="rect" id="Node000003" href="$namespace_voxis_log.html#a526ecbcf25e08613a82d0cfae9ac048f" title=" " alt="" coords="273,103,378,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="191,90,260,104,255,105,191,96"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="289,28,283,21,287,11,301,5,325,3,352,5,366,15,361,14,350,10,325,8,303,10,291,15,288,20,294,30"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="289,101,283,94,287,84,301,78,325,76,352,79,366,88,361,87,350,84,325,81,303,83,291,88,288,93,294,103"/>
+</map>
