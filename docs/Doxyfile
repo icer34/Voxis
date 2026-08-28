@@ -1,0 +1,18 @@
+PROJECT_NAME            = "Voxis"
+OUTPUT_DIRECTORY        = docs
+
+INPUT                   = src
+RECURSIVE               = YES
+FILE_PATTERNS           = *.h *.hpp *.cpp
+
+EXTRACT_ALL             = YES
+EXTRACT_PRIVATE         = YES
+EXTRACT_STATIC          = YES
+JAVADOC_AUTOBRIEF       = YES
+
+GENERATE_HTML           = YES
+GENERATE_LATEX          = NO
+HAVE_DOT                = NO
+
+QUIET                   = YES
+WARN_IF_UNDOCUMENTED   = NO
