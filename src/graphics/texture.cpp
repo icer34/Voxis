@@ -1,7 +1,5 @@
 #include "texture.h"
 
-#include <vk_mem_alloc.h>
-
 #include "log.h"
 
 Texture::Texture(VkImage image,

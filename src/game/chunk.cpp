@@ -24,7 +24,7 @@ void Chunk::setBlock(glm::ivec3 lCoords, uint16_t blockID)
     _blockIDs[idx(lCoords)] = blockID;
 }
 
-uint16_t Chunk::getBlock(glm::ivec3 lCoords)
+uint16_t Chunk::getBlock(glm::ivec3 lCoords) const
 {
     return _blockIDs[idx(lCoords)];
 }
@@ -32,4 +32,9 @@ uint16_t Chunk::getBlock(glm::ivec3 lCoords)
 void Chunk::setMeshHandle(uint32_t handle)
 {
     _meshHandle = handle;
+}
+
+glm::ivec2 Chunk::coords() const
+{
+    return _coords;
 }

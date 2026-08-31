@@ -1,11 +1,6 @@
 #pragma once
 
-#include <vulkan/vulkan.h>
-
-struct VmaAllocator_T;
-typedef struct VmaAllocator_T* VmaAllocator;
-struct VmaAllocation_T;
-typedef struct VmaAllocation_T* VmaAllocation;
+#include "vk_common.h"
 
 /**
  * @brief GPU-side texture: owns the Vulkan image, image view and sampler, allocated via VMA

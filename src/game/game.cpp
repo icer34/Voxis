@@ -23,8 +23,9 @@ void Game::run()
 void Game::init()
 {
     _window = std::make_unique<Window>(1600, 900, "Voxis");
-    _camera = std::make_unique<Camera>(glm::vec3(0.0f, 0.0f, 20.0f));
+    _camera = std::make_unique<Camera>(glm::vec3(0.0f, 20.0f, 20.0f));
     _renderer = std::make_unique<Renderer>(*_window);
+    _blockAtlas = std::make_unique<BlockAtlas>(*_renderer);
 
     _lastFrameTime = _window->getTime();
 
@@ -40,7 +41,7 @@ void Game::init()
             }
         }
     }
-    MeshData data = ChunkMesher::getMeshData(c);
+    MeshData data = ChunkMesher::getMeshData(c, _blockRegistry, *_blockAtlas);
     _testMeshHandle = _renderer->createMesh(data.vertices, data.indices);
     c.setMeshHandle(_testMeshHandle.value);
 }
@@ -88,7 +89,8 @@ void Game::update()
 
 void Game::render()
 {
-    auto renderData = std::vector{ std::pair{ _testMeshHandle, _testModelMat } };
+    PushConstants pc{ _testModelMat, _blockAtlas->handle().value };
+    auto renderData = std::vector{ std::pair{ _testMeshHandle, pc } };
     _renderer->render(*_camera, renderData);
 }
 

@@ -1,5 +1,9 @@
 #include "chunk_mesher.h"
 
+#include "directions.h"
+
+#include <vector>
+
 namespace
 {
 bool isSolid(Chunk& chunk, int x, int y, int z)
@@ -11,14 +15,24 @@ bool isSolid(Chunk& chunk, int x, int y, int z)
     return chunk.getBlock({ x, y, z }) != 0;
 }
 
-void addFace(MeshData& mesh, glm::vec3 v0, glm::vec3 v1, glm::vec3 v2, glm::vec3 v3, glm::vec3 normal)
+void addFace(MeshData& mesh, glm::ivec3 basePos, Direction dir, uint32_t texTileIndex)
 {
     uint32_t base = static_cast<uint32_t>(mesh.vertices.size());
 
-    mesh.vertices.push_back({ v0, normal });
-    mesh.vertices.push_back({ v1, normal });
-    mesh.vertices.push_back({ v2, normal });
-    mesh.vertices.push_back({ v3, normal });
+    for (uint32_t cornerID = 0; cornerID < 4; cornerID++)
+    {
+        uint32_t data1 = 0;
+        data1 |= (static_cast<uint32_t>(basePos.x) & 0xFu);
+        data1 |= ((static_cast<uint32_t>(basePos.y) & 0xFu) << 4);
+        data1 |= ((static_cast<uint32_t>(basePos.z) & 0xFu) << 8);
+        data1 |= ((static_cast<uint32_t>(dir) & 0x7u) << 12);
+        data1 |= ((cornerID & 0x3u) << 15);
+        data1 |= ((texTileIndex & 0x7FFF) << 17);
+
+        uint32_t data2 = 0; // all the fields of data2 are 0 for the naive (non-greedy) mesher
+
+        mesh.vertices.push_back({ data1, data2 });
+    }
 
     mesh.indices.push_back(base + 0);
     mesh.indices.push_back(base + 1);
@@ -31,7 +45,7 @@ void addFace(MeshData& mesh, glm::vec3 v0, glm::vec3 v1, glm::vec3 v2, glm::vec3
 
 namespace ChunkMesher
 {
-MeshData getMeshData(Chunk& chunk)
+MeshData getMeshData(Chunk& chunk, const BlockRegistry& registry, const BlockAtlas& atlas)
 {
     MeshData mesh;
 
@@ -45,55 +59,20 @@ MeshData getMeshData(Chunk& chunk)
                 if (!isSolid(chunk, x, y, z))
                     continue;
 
-                glm::vec3 p(static_cast<float>(x), static_cast<float>(y), static_cast<float>(z));
+                glm::ivec3 p{ x, y, z };
 
-                if (!isSolid(chunk, x + 1, y, z))
-                    addFace(mesh,
-                            p + glm::vec3(1, 0, 0),
-                            p + glm::vec3(1, 1, 0),
-                            p + glm::vec3(1, 1, 1),
-                            p + glm::vec3(1, 0, 1),
-                            glm::vec3(1, 0, 0));
+                uint16_t blockID = chunk.getBlock(p);
+                const std::string& blockName = registry.nameFromIdx(blockID);
+                uint32_t texTileIndex = atlas.tileIndex(blockName);
 
-                if (!isSolid(chunk, x - 1, y, z))
-                    addFace(mesh,
-                            p + glm::vec3(0, 0, 1),
-                            p + glm::vec3(0, 1, 1),
-                            p + glm::vec3(0, 1, 0),
-                            p + glm::vec3(0, 0, 0),
-                            glm::vec3(-1, 0, 0));
+                for (Direction dir : ALL_DIRECTIONS)
+                {
+                    glm::ivec3 neighborPos = p + DIRECTION_NORMALS[static_cast<uint32_t>(dir)];
+                    if (isSolid(chunk, neighborPos.x, neighborPos.y, neighborPos.z))
+                        continue;
 
-                if (!isSolid(chunk, x, y + 1, z))
-                    addFace(mesh,
-                            p + glm::vec3(0, 1, 0),
-                            p + glm::vec3(0, 1, 1),
-                            p + glm::vec3(1, 1, 1),
-                            p + glm::vec3(1, 1, 0),
-                            glm::vec3(0, 1, 0));
-
-                if (!isSolid(chunk, x, y - 1, z))
-                    addFace(mesh,
-                            p + glm::vec3(0, 0, 1),
-                            p + glm::vec3(0, 0, 0),
-                            p + glm::vec3(1, 0, 0),
-                            p + glm::vec3(1, 0, 1),
-                            glm::vec3(0, -1, 0));
-
-                if (!isSolid(chunk, x, y, z + 1))
-                    addFace(mesh,
-                            p + glm::vec3(1, 0, 1),
-                            p + glm::vec3(1, 1, 1),
-                            p + glm::vec3(0, 1, 1),
-                            p + glm::vec3(0, 0, 1),
-                            glm::vec3(0, 0, 1));
-
-                if (!isSolid(chunk, x, y, z - 1))
-                    addFace(mesh,
-                            p + glm::vec3(0, 0, 0),
-                            p + glm::vec3(0, 1, 0),
-                            p + glm::vec3(1, 1, 0),
-                            p + glm::vec3(1, 0, 0),
-                            glm::vec3(0, 0, -1));
+                    addFace(mesh, p, dir, texTileIndex);
+                }
             }
         }
     }

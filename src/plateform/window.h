@@ -5,7 +5,7 @@
 #include <array>
 #include <vector>
 
-#include <vulkan/vulkan.h>
+#include "graphics/vk_common.h"
 #include <glm/glm.hpp>
 
 struct SDL_Window;

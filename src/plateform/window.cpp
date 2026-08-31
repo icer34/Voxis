@@ -11,6 +11,8 @@ Window::Window(uint32_t width, uint32_t height, const std::string& title)
     _height = height;
     _title = title;
 
+    SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, "0");
+
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
         VoxisLog::critical("Failed to init SDL: {}", SDL_GetError());
 
@@ -25,6 +27,8 @@ Window::Window(uint32_t width, uint32_t height, const std::string& title)
     if (!_handle)
         VoxisLog::critical("Failed to create the SDL window: {}", SDL_GetError());
 
+    SDL_WarpMouseInWindow(_handle, static_cast<int>(_width) / 2, static_cast<int>(_height) / 2);
+    SDL_SetWindowInputFocus(_handle);
     SDL_SetWindowGrab(_handle, SDL_TRUE);
     SDL_SetRelativeMouseMode(SDL_TRUE);
 

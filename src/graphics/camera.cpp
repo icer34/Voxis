@@ -119,9 +119,9 @@ float Camera::getPitch() const
 void Camera::updateVectors()
 {
     glm::vec3 front;
-    front.x = cos(glm::radians(_yaw)) * cos(glm::radians(_pitch));
-    front.y = sin(glm::radians(_pitch));
-    front.z = sin(glm::radians(_yaw)) * cos(glm::radians(_pitch));
+    front.x = std::cos(glm::radians(_yaw)) * std::cos(glm::radians(_pitch));
+    front.y = std::sin(glm::radians(_pitch));
+    front.z = std::sin(glm::radians(_yaw)) * std::cos(glm::radians(_pitch));
 
     _front = glm::normalize(front);
     _right = glm::normalize(glm::cross(_front, _worldUp));

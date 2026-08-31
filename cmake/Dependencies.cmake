@@ -49,4 +49,15 @@ FetchContent_Declare(
     SYSTEM
 )
 
-FetchContent_MakeAvailable(volk SDL2 glm entt VulkanMemoryAllocator spdlog)
+FetchContent_Declare(
+    stb
+    GIT_REPOSITORY https://github.com/nothings/stb.git
+    GIT_TAG        2c980bb59875b0d32144a71867fbdebb2f77cd20
+    SYSTEM
+)
+
+FetchContent_MakeAvailable(volk SDL2 glm entt VulkanMemoryAllocator spdlog stb)
+
+# stb has no CMakeLists.txt of its own (header-only, no build system) - wrap it manually
+add_library(stb INTERFACE)
+target_include_directories(stb SYSTEM INTERFACE ${stb_SOURCE_DIR})

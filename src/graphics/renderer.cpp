@@ -1,28 +1,31 @@
-#include "renderer.h"
-
 #define VOLK_IMPLEMENTATION
-#include <volk.h>
-
 #define VMA_IMPLEMENTATION
-#define VMA_STATIC_VULKAN_FUNCTIONS 0
-#define VMA_DYNAMIC_VULKAN_FUNCTIONS 1
-#include <vk_mem_alloc.h>
+#include "vk_common.h"
+
+#include "renderer.h"
 
 #include <algorithm>
 
 #include "plateform/window.h"
 #include "camera.h"
+#include "block_atlas.h"
 #include "log.h"
 #include "util.h"
+#include "deletion_queue.h"
 
 Renderer::Renderer(Window& window)
     : _window(window)
 {
+    for (size_t i = 0; i < MAX_BINDLESS_TEXTURES; i++)
+        _freeTextureSlots.push_back(static_cast<uint32_t>(i));
+
     initVulkan();
 }
 
 Renderer::~Renderer()
 {
+    vkDeviceWaitIdle(_device);
+
     // destroy all meshes
     _meshes.clear();
 
@@ -32,7 +35,7 @@ Renderer::~Renderer()
     shutdownVulkan();
 }
 
-void Renderer::render(Camera& cam, std::span<std::pair<MeshHandle, glm::mat4>> meshes)
+void Renderer::render(Camera& cam, std::span<std::pair<MeshHandle, PushConstants>> meshes)
 {
     cam.setAspectRatio(static_cast<float>(_window.width()) / static_cast<float>(_window.height()));
 
@@ -202,16 +205,36 @@ TextureHandle Renderer::createTexture(uint32_t width, uint32_t height, uint32_t 
     vmaDestroyBuffer(_vmaAllocator, buffer, buffAlloc);
 
     // generate handle and keep the created texture in  the local map
-    TextureHandle handle{ static_cast<uint32_t>(_textures.size()) + 1 };
-    _textures.try_emplace(handle,
-                          image,
-                          imageAlloc,
-                          width,
-                          height,
-                          mipLevels,
-                          VK_FORMAT_R8G8B8A8_SRGB,
-                          _device,
-                          _vmaAllocator);
+    if (_freeTextureSlots.empty())
+        VoxisLog::critical("Cannot create texture, no available slots");
+    uint32_t idx = _freeTextureSlots.back();
+    _freeTextureSlots.pop_back();
+    TextureHandle handle{ idx };
+
+    auto [pair, result] = _textures.try_emplace(handle,
+                                                image,
+                                                imageAlloc,
+                                                width,
+                                                height,
+                                                mipLevels,
+                                                VK_FORMAT_R8G8B8A8_SRGB,
+                                                _device,
+                                                _vmaAllocator);
+    if (!result)
+        VoxisLog::critical("Failed to insert new texture");
+
+    // write the descriptor set in the bindless set
+    VkDescriptorImageInfo imgInfo = pair->second.descriptorInfo();
+    VkWriteDescriptorSet write{};
+    write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    write.dstSet = _bindlessSet;
+    write.dstBinding = 0;
+    write.dstArrayElement = handle.value;
+    write.descriptorCount = 1;
+    write.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    write.pImageInfo = &imgInfo;
+
+    vkUpdateDescriptorSets(_device, 1, &write, 0, nullptr);
 
     return handle;
 }
@@ -219,22 +242,7 @@ TextureHandle Renderer::createTexture(uint32_t width, uint32_t height, uint32_t 
 void Renderer::destroyTexture(TextureHandle handle)
 {
     _textures.erase(handle);
-}
-
-void Renderer::setBlockAtlas(TextureHandle handle)
-{
-    Texture& tex = _textures.at(handle);
-    VkDescriptorImageInfo imgInfo = tex.descriptorInfo();
-
-    VkWriteDescriptorSet write{};
-    write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-    write.dstSet = _textureDescSet;
-    write.dstBinding = 0;
-    write.descriptorCount = 1;
-    write.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    write.pImageInfo = &imgInfo;
-
-    vkUpdateDescriptorSets(_device, 1, &write, 0, nullptr);
+    _freeTextureSlots.push_back(handle.value);
 }
 
 void Renderer::initVulkan()
@@ -242,6 +250,7 @@ void Renderer::initVulkan()
     createVulkanInstance();
 
     _surface = _window.getVulkanSurface(_instance);
+    _deletionQueue.push([this]() { vkDestroySurfaceKHR(_instance, _surface, nullptr); });
 
     getPhysicalDevice();
     getGraphicsQueue();
@@ -256,6 +265,8 @@ void Renderer::initVulkan()
     if (vkCreateCommandPool(_device, &poolInfo, nullptr, &_uploadCommandPool) != VK_SUCCESS)
         VoxisLog::critical("Failed to create the upload command pool");
 
+    _deletionQueue.push([this]() { vkDestroyCommandPool(_device, _uploadCommandPool, nullptr); });
+
     createSwapchain(_window.width(), _window.height());
     createGrpahicsPipeline();
     createSyncResources();
@@ -264,33 +275,9 @@ void Renderer::initVulkan()
 
 void Renderer::shutdownVulkan()
 {
-    vkDeviceWaitIdle(_device);
-
-    for (auto& frame : _frameResources)
-    {
-        vkDestroySemaphore(_device, frame.imageAcquiredSemaphore, nullptr);
-        vkDestroyCommandPool(_device, frame.commandPool, nullptr);
-        vmaDestroyBuffer(_vmaAllocator, frame.uniformBO, frame.uniformAllocation);
-    }
-
-    vkDestroyDescriptorPool(_device, _descriptorPool, nullptr);
-    vkDestroyDescriptorSetLayout(_device, _cameraSetLayout, nullptr);
-
-    vkDestroyDescriptorSetLayout(_device, _textureSetLayout, nullptr);
-    vkDestroyCommandPool(_device, _uploadCommandPool, nullptr);
-
-    vkDestroySemaphore(_device, _timelineSemaphore, nullptr);
-
-    vkDestroyPipeline(_device, _pipeline, nullptr);
-    vkDestroyPipelineLayout(_device, _pipelineLayout, nullptr);
-
     destroySwapchain(true);
 
-    vmaDestroyAllocator(_vmaAllocator);
-
-    vkDestroyDevice(_device, nullptr);
-    vkDestroySurfaceKHR(_instance, _surface, nullptr);
-    vkDestroyInstance(_instance, nullptr);
+    _deletionQueue.flush();
 }
 
 void Renderer::createVulkanInstance()
@@ -330,6 +317,8 @@ void Renderer::createVulkanInstance()
 
     if (vkCreateInstance(&createInfo, nullptr, &_instance) != VK_SUCCESS)
         VoxisLog::critical("Failed to create Vulkan instance");
+
+    _deletionQueue.push([this]() { vkDestroyInstance(_instance, nullptr); });
 
     volkLoadInstance(_instance);
 
@@ -398,14 +387,21 @@ void Renderer::createDevice()
     VkPhysicalDeviceVulkan13Features features13{};
     features13.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES;
     features13.synchronization2 = VK_TRUE;
+    features13.dynamicRendering = VK_TRUE;
 
     VkPhysicalDeviceVulkan12Features features12{};
     features12.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES;
     features12.timelineSemaphore = VK_TRUE;
+    features12.shaderSampledImageArrayNonUniformIndexing = VK_TRUE;
+    features12.descriptorBindingSampledImageUpdateAfterBind = VK_TRUE;
+    features12.descriptorBindingUpdateUnusedWhilePending = VK_TRUE;
+    features12.descriptorBindingPartiallyBound = VK_TRUE;
+    features12.runtimeDescriptorArray = VK_TRUE;
     features12.pNext = &features13;
 
     VkPhysicalDeviceFeatures2 features2{};
     features2.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2;
+    features2.features.fillModeNonSolid = VK_TRUE;
     features2.pNext = &features12;
 
     std::vector<const char*> deviceExtensions = { VK_KHR_SWAPCHAIN_EXTENSION_NAME };
@@ -424,6 +420,8 @@ void Renderer::createDevice()
 
     if (vkCreateDevice(_physicalDevice, &createInfo, nullptr, &_device) != VK_SUCCESS)
         VoxisLog::critical("Failed to create logical device");
+
+    _deletionQueue.push([this]() { vkDestroyDevice(_device, nullptr); });
 
     volkLoadDevice(_device);
 
@@ -447,6 +445,8 @@ void Renderer::initVMA()
 
     if (vmaCreateAllocator(&allocatorInfo, &_vmaAllocator) != VK_SUCCESS)
         VoxisLog::critical("Failed to create VMA allocator");
+
+    _deletionQueue.push([this]() { vmaDestroyAllocator(_vmaAllocator); });
 
     VoxisLog::info("VMA allocator created");
 }
@@ -630,6 +630,12 @@ VkShaderModule Renderer::createShaderModule(const std::string& filepath, shaderc
     options.SetTargetEnvironment(shaderc_target_env_vulkan, shaderc_env_version_vulkan_1_4);
     options.SetOptimizationLevel(shaderc_optimization_level_performance);
 
+    // single source of truth for these constants is BlockAtlas - see the comment there
+    options.AddMacroDefinition("TEXTURE_SIZE", std::to_string(BlockAtlas::TEXTURE_SIZE) + "u");
+    options.AddMacroDefinition("PADDING", std::to_string(BlockAtlas::PADDING) + "u");
+    options.AddMacroDefinition("CELL_STRIDE", std::to_string(BlockAtlas::CELL_STRIDE) + "u");
+    options.AddMacroDefinition("MIP_LEVELS", std::to_string(BlockAtlas::MIP_LEVELS) + "u");
+
     shaderc::SpvCompilationResult result = compiler.CompileGlslToSpv(source, kind, filepath.c_str(), options);
     if (result.GetCompilationStatus() != shaderc_compilation_status_success)
         VoxisLog::critical("Shader compilation failed ({}): {}", filepath, result.GetErrorMessage());
@@ -667,7 +673,7 @@ void Renderer::createGrpahicsPipeline()
 
     std::array<VkPipelineShaderStageCreateInfo, 2> stages{ vertStageInfo, fragStageInfo };
 
-    // Vertex specification
+    // Vertex specification (see chunk_mesher.h for further information on vertex format)
     VkVertexInputBindingDescription vertBindingDesc{};
     vertBindingDesc.stride = sizeof(Vertex);
     vertBindingDesc.binding = 0;
@@ -676,12 +682,12 @@ void Renderer::createGrpahicsPipeline()
     std::array<VkVertexInputAttributeDescription, 2> vertAttribDesc{};
     vertAttribDesc[0].location = 0;
     vertAttribDesc[0].binding = 0;
-    vertAttribDesc[0].format = VK_FORMAT_R32G32B32_SFLOAT;
-    vertAttribDesc[0].offset = offsetof(Vertex, pos);
+    vertAttribDesc[0].format = VK_FORMAT_R32_UINT;
+    vertAttribDesc[0].offset = 0;
     vertAttribDesc[1].location = 1;
     vertAttribDesc[1].binding = 0;
-    vertAttribDesc[1].format = VK_FORMAT_R32G32B32_SFLOAT;
-    vertAttribDesc[1].offset = offsetof(Vertex, normal);
+    vertAttribDesc[1].format = VK_FORMAT_R32_UINT;
+    vertAttribDesc[1].offset = sizeof(uint32_t);
 
     VkPipelineVertexInputStateCreateInfo vertexInputInfo{};
     vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
@@ -702,8 +708,8 @@ void Renderer::createGrpahicsPipeline()
     VkPipelineRasterizationStateCreateInfo rasterizationInfo{};
     rasterizationInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;
     rasterizationInfo.polygonMode = VK_POLYGON_MODE_FILL;
-    rasterizationInfo.cullMode = VK_CULL_MODE_NONE;
-    rasterizationInfo.frontFace = VK_FRONT_FACE_CLOCKWISE;
+    rasterizationInfo.cullMode = VK_CULL_MODE_BACK_BIT;
+    rasterizationInfo.frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE;
     rasterizationInfo.lineWidth = 1.0f;
 
     VkPipelineMultisampleStateCreateInfo multisampleInfo{};
@@ -733,15 +739,18 @@ void Renderer::createGrpahicsPipeline()
     dynamicStateInfo.pDynamicStates = dynamicStates.data();
 
     std::vector<VkDescriptorPoolSize> poolSizes{ { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, MAX_FRAMES_IN_FLIGHT },
-                                                 { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1 } };
+                                                 { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, MAX_BINDLESS_TEXTURES } };
     VkDescriptorPoolCreateInfo descriptorInfo{};
     descriptorInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
     descriptorInfo.maxSets = MAX_FRAMES_IN_FLIGHT + 1;
+    descriptorInfo.flags = VK_DESCRIPTOR_POOL_CREATE_UPDATE_AFTER_BIND_BIT;
     descriptorInfo.poolSizeCount = 2;
     descriptorInfo.pPoolSizes = poolSizes.data();
 
     if (vkCreateDescriptorPool(_device, &descriptorInfo, nullptr, &_descriptorPool) != VK_SUCCESS)
         VoxisLog::critical("Failed to create the descriptor pool");
+
+    _deletionQueue.push([this]() { vkDestroyDescriptorPool(_device, _descriptorPool, nullptr); });
 
     //===== PIPELINE LAYOUT =====
     // camera uniforms
@@ -759,45 +768,59 @@ void Renderer::createGrpahicsPipeline()
     if (vkCreateDescriptorSetLayout(_device, &camSetlayoutInfo, nullptr, &_cameraSetLayout) != VK_SUCCESS)
         VoxisLog::critical("Failed to create the camera descriptor set layout");
 
+    _deletionQueue.push([this]() { vkDestroyDescriptorSetLayout(_device, _cameraSetLayout, nullptr); });
+
     // texture
-    VkDescriptorSetLayoutBinding texBinding{};
-    texBinding.binding = 0;
-    texBinding.descriptorCount = 1;
-    texBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    texBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    VkDescriptorSetLayoutBinding binding{};
+    binding.binding = 0;
+    binding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    binding.descriptorCount = MAX_BINDLESS_TEXTURES;
+    binding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
 
-    VkDescriptorSetLayoutCreateInfo texSetLayoutInfo{};
-    texSetLayoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
-    texSetLayoutInfo.bindingCount = 1;
-    texSetLayoutInfo.pBindings = &texBinding;
+    VkDescriptorBindingFlags bindingFlags = VK_DESCRIPTOR_BINDING_PARTIALLY_BOUND_BIT |
+                                            VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT;
+    VkDescriptorSetLayoutBindingFlagsCreateInfo bindingFlagsInfo{};
+    bindingFlagsInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO;
+    bindingFlagsInfo.bindingCount = 1;
+    bindingFlagsInfo.pBindingFlags = &bindingFlags;
 
-    if (vkCreateDescriptorSetLayout(_device, &texSetLayoutInfo, nullptr, &_textureSetLayout) != VK_SUCCESS)
-        VoxisLog::critical("Failed to create the texture descriptor set layout");
+    VkDescriptorSetLayoutCreateInfo bindlessLayoutInfo{};
+    bindlessLayoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
+    bindlessLayoutInfo.pNext = &bindingFlagsInfo;
+    bindlessLayoutInfo.flags = VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT;
+    bindlessLayoutInfo.bindingCount = 1;
+    bindlessLayoutInfo.pBindings = &binding;
 
-    VkDescriptorSetAllocateInfo descSetAllocInfo{};
-    descSetAllocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
-    descSetAllocInfo.descriptorPool = _descriptorPool;
-    descSetAllocInfo.descriptorSetCount = 1;
-    descSetAllocInfo.pSetLayouts = &_textureSetLayout;
-    if (vkAllocateDescriptorSets(_device, &descSetAllocInfo, &_textureDescSet) != VK_SUCCESS)
+    if (vkCreateDescriptorSetLayout(_device, &bindlessLayoutInfo, nullptr, &_bindlessSetLayout) != VK_SUCCESS)
+        VoxisLog::critical("Failed to create the textures descriptor set layout");
+    _deletionQueue.push([this]() { vkDestroyDescriptorSetLayout(_device, _bindlessSetLayout, nullptr); });
+
+    VkDescriptorSetAllocateInfo bindlessSetAllocInfo{};
+    bindlessSetAllocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+    bindlessSetAllocInfo.descriptorPool = _descriptorPool;
+    bindlessSetAllocInfo.descriptorSetCount = 1;
+    bindlessSetAllocInfo.pSetLayouts = &_bindlessSetLayout;
+    if (vkAllocateDescriptorSets(_device, &bindlessSetAllocInfo, &_bindlessSet) != VK_SUCCESS)
         VoxisLog::critical("Failed to allocate the texture descriptor set");
 
     // push constant range, only model matriux for now
     VkPushConstantRange pushRange{};
-    pushRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    pushRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
     pushRange.offset = 0;
-    pushRange.size = sizeof(glm::mat4);
+    pushRange.size = sizeof(PushConstants);
 
-    std::vector<VkDescriptorSetLayout> setLayouts{ _cameraSetLayout, _textureSetLayout };
-    VkPipelineLayoutCreateInfo layoutInfo{};
-    layoutInfo.pushConstantRangeCount = 1;
-    layoutInfo.pPushConstantRanges = &pushRange;
-    layoutInfo.setLayoutCount = 2;
-    layoutInfo.pSetLayouts = setLayouts.data();
-    layoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
+    std::vector<VkDescriptorSetLayout> setLayouts{ _cameraSetLayout, _bindlessSetLayout };
+    VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
+    pipelineLayoutInfo.pushConstantRangeCount = 1;
+    pipelineLayoutInfo.pPushConstantRanges = &pushRange;
+    pipelineLayoutInfo.setLayoutCount = 2;
+    pipelineLayoutInfo.pSetLayouts = setLayouts.data();
+    pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
 
-    if (vkCreatePipelineLayout(_device, &layoutInfo, nullptr, &_pipelineLayout) != VK_SUCCESS)
+    if (vkCreatePipelineLayout(_device, &pipelineLayoutInfo, nullptr, &_pipelineLayout) != VK_SUCCESS)
         VoxisLog::critical("Failed to create pipeline layout");
+
+    _deletionQueue.push([this]() { vkDestroyPipelineLayout(_device, _pipelineLayout, nullptr); });
 
     VkPipelineRenderingCreateInfo renderingInfo{};
     renderingInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO;
@@ -823,6 +846,8 @@ void Renderer::createGrpahicsPipeline()
     if (vkCreateGraphicsPipelines(_device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &_pipeline) != VK_SUCCESS)
         VoxisLog::critical("Failed to create graphics pipeline");
 
+    _deletionQueue.push([this]() { vkDestroyPipeline(_device, _pipeline, nullptr); });
+
     vkDestroyShaderModule(_device, _vertShader, nullptr);
     vkDestroyShaderModule(_device, _fragShader, nullptr);
     _vertShader = nullptr;
@@ -845,6 +870,8 @@ void Renderer::createSyncResources()
     if (vkCreateSemaphore(_device, &semaphoreInfo, nullptr, &_timelineSemaphore) != VK_SUCCESS)
         VoxisLog::critical("Failed to create timeline semaphore");
 
+    _deletionQueue.push([this]() { vkDestroySemaphore(_device, _timelineSemaphore, nullptr); });
+
     VoxisLog::info("Sync resources created");
 }
 
@@ -860,6 +887,8 @@ void Renderer::createFrameResources()
 
         if (vkCreateCommandPool(_device, &poolInfo, nullptr, &frame.commandPool) != VK_SUCCESS)
             VoxisLog::critical("Failed to create command pool");
+
+        _deletionQueue.push([this, &frame]() { vkDestroyCommandPool(_device, frame.commandPool, nullptr); });
 
         // command buffer
         VkCommandBufferAllocateInfo allocInfo{};
@@ -877,6 +906,8 @@ void Renderer::createFrameResources()
 
         if (vkCreateSemaphore(_device, &semaphoreInfo, nullptr, &frame.imageAcquiredSemaphore) != VK_SUCCESS)
             VoxisLog::critical("Failed to create semaphore");
+
+        _deletionQueue.push([this, &frame]() { vkDestroySemaphore(_device, frame.imageAcquiredSemaphore, nullptr); });
 
         // uniforms buffer
         VkBufferCreateInfo bufferInfo{};
@@ -897,6 +928,9 @@ void Renderer::createFrameResources()
                             &frame.uniformAllocation,
                             &uniformAllocInfo) != VK_SUCCESS)
             VoxisLog::critical("Failed to create uniforms buffer");
+
+        _deletionQueue.push([this, &frame]()
+                            { vmaDestroyBuffer(_vmaAllocator, frame.uniformBO, frame.uniformAllocation); });
 
         frame.uniformsMapped = uniformAllocInfo.pMappedData;
 
@@ -964,7 +998,7 @@ void Renderer::getNextImageIndex(FrameResources& frame, uint32_t* imageIndex)
 
 void Renderer::recordFrame(FrameResources& frame,
                            uint32_t imageIndex,
-                           std::span<std::pair<MeshHandle, glm::mat4>> meshes)
+                           std::span<std::pair<MeshHandle, PushConstants>> meshes)
 {
     vkResetCommandPool(_device, frame.commandPool, 0);
 
@@ -1035,7 +1069,7 @@ void Renderer::recordFrame(FrameResources& frame,
     VkRect2D scissor{ { 0, 0 }, { _scWidth, _scHeight } };
     vkCmdSetScissor(frame.commandBuffer, 0, 1, &scissor);
 
-    std::array<VkDescriptorSet, 2> sets{ frame.uniformDescriptorSet, _textureDescSet };
+    std::array<VkDescriptorSet, 2> sets{ frame.uniformDescriptorSet, _bindlessSet };
     vkCmdBindDescriptorSets(frame.commandBuffer,
                             VK_PIPELINE_BIND_POINT_GRAPHICS,
                             _pipelineLayout,
@@ -1048,7 +1082,7 @@ void Renderer::recordFrame(FrameResources& frame,
     for (auto mesh : meshes)
     {
         Mesh& m = _meshes.at(mesh.first);
-        glm::mat4 modelMat = mesh.second;
+        PushConstants pc = mesh.second;
 
         VkBuffer vertBuffer = m.vertBuffer();
         VkDeviceSize offset = 0;
@@ -1058,10 +1092,10 @@ void Renderer::recordFrame(FrameResources& frame,
 
         vkCmdPushConstants(frame.commandBuffer,
                            _pipelineLayout,
-                           VK_SHADER_STAGE_VERTEX_BIT,
+                           VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
                            0,
-                           sizeof(modelMat),
-                           &modelMat);
+                           sizeof(PushConstants),
+                           &pc);
 
         vkCmdDrawIndexed(frame.commandBuffer, m.idxCount(), 1, 0, 0, 0);
     }

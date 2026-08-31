@@ -1,7 +1,5 @@
 #include "mesh.h"
 
-#include <vk_mem_alloc.h>
-
 #include "log.h"
 
 Mesh::Mesh(std::span<const Vertex> vertices, std::span<const uint32_t> indices, VmaAllocator vmaAllocator)

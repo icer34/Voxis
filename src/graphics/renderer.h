@@ -1,8 +1,6 @@
 #pragma once
 
-#pragma GCC system_header
-#define VK_NO_PROTOTYPES
-#include <vulkan/vulkan.h>
+#include "vk_common.h"
 #include <shaderc/shaderc.hpp>
 
 #include <vector>
@@ -13,6 +11,7 @@
 
 #include "mesh.h"
 #include "texture.h"
+#include "deletion_queue.h"
 
 // Handle types definition
 template <typename Tag> struct Handle
@@ -46,11 +45,18 @@ struct FrameResources
     void* uniformsMapped = nullptr;
 };
 
+/**
+ * @brief Groups all the constants that are sent to the shaders that may vary for each draw call (ie. not only once per
+ * frame)
+ *
+ */
+struct PushConstants
+{
+    glm::mat4 modelMat;
+    uint32_t blockAtlasTextureIndex;
+};
+
 // forward declarations
-struct VmaAllocator_T;
-typedef struct VmaAllocator_T* VmaAllocator;
-struct VmaAllocation_T;
-typedef struct VmaAllocation_T* VmaAllocation;
 class Window;
 class Camera;
 
@@ -101,30 +107,26 @@ public:
     void destroyTexture(TextureHandle handle);
 
     /**
-     * @brief Assign a previously created texture to the block atlas
-     *
-     * @param handle
-     */
-    void setBlockAtlas(TextureHandle handle);
-
-    /**
      * @brief Renders the desired meshes for the given camera
      *
      * @param cam
      * @param meshes list of <meshHandle, modelMatrix> to be rendered
      */
-    void render(Camera& cam, std::span<std::pair<MeshHandle, glm::mat4>> meshes);
+    void render(Camera& cam, std::span<std::pair<MeshHandle, PushConstants>> meshes);
 
 private:
-    constexpr static uint32_t VULKAN_VERSION{ VK_API_VERSION_1_4 };
-    constexpr static uint32_t MAX_FRAMES_IN_FLIGHT{ 2 };
-    constexpr static VkFormat SWAPCHAIN_FORMAT{ VK_FORMAT_B8G8R8A8_SRGB };
-    constexpr static VkFormat DEPTH_FORMAT{ VK_FORMAT_D32_SFLOAT };
-    constexpr static std::string SHADER_DIR_PATH{ "src/shaders/" };
+    constexpr static uint32_t VULKAN_VERSION = VK_API_VERSION_1_4;
+    constexpr static uint32_t MAX_FRAMES_IN_FLIGHT = 2;
+    constexpr static VkFormat SWAPCHAIN_FORMAT = VK_FORMAT_B8G8R8A8_SRGB;
+    constexpr static VkFormat DEPTH_FORMAT = VK_FORMAT_D32_SFLOAT;
+    constexpr static std::string SHADER_DIR_PATH = "src/shaders/";
+    constexpr static uint32_t MAX_BINDLESS_TEXTURES = 4096;
 
     Window& _window;
     std::unordered_map<MeshHandle, Mesh> _meshes;
+    DeletionQueue _deletionQueue;
     std::unordered_map<TextureHandle, Texture> _textures;
+    std::vector<uint32_t> _freeTextureSlots;
 
     // Vulkan core
     VkInstance _instance = nullptr;
@@ -158,8 +160,8 @@ private:
     VkDescriptorPool _descriptorPool = nullptr;
     VkDescriptorSetLayout _cameraSetLayout = nullptr;
     // texture related
-    VkDescriptorSetLayout _textureSetLayout = nullptr;
-    VkDescriptorSet _textureDescSet = nullptr;
+    VkDescriptorSetLayout _bindlessSetLayout = nullptr;
+    VkDescriptorSet _bindlessSet = nullptr;
 
     // Shader resources
     VkShaderModule _vertShader = nullptr;
@@ -196,7 +198,8 @@ private:
 
     // render helpers
     void getNextImageIndex(FrameResources& frame, uint32_t* imageIndex);
-    void recordFrame(FrameResources& frame, uint32_t imageIndex, std::span<std::pair<MeshHandle, glm::mat4>> meshes);
+    void
+    recordFrame(FrameResources& frame, uint32_t imageIndex, std::span<std::pair<MeshHandle, PushConstants>> meshes);
     void submitFrame(FrameResources& frame, uint32_t imageIndex);
     void presentFrame(FrameResources& frame, uint32_t imageIndex);
 };

@@ -3,17 +3,29 @@
 #include <vector>
 #include <span>
 
-#include <vulkan/vulkan.h>
+#include "vk_common.h"
 #include <glm/glm.hpp>
 
 /**
- * @brief A single mesh vertex: position and normal
+ * @brief A single mesh vertex, packed into two uint32_t to keep chunk meshes small.
+ *
+ * A vertex never stores the absolute position of a quad corner (which can reach SIZE, one past the
+ * last valid block index, and wouldn't fit in the bits below) - it stores the quad's base corner
+ * (always a valid block index, 0..SIZE-1) plus its width/height, and the vertex shader reconstructs
+ * the actual corner as base + (cornerID selects 0 or width/height along each axis). The same
+ * width/height-based offset doubles as the local UV, so no separate UV field is needed.
+ *
+ * data1: baseX (4 bits) | baseY (4) | baseZ (4) | direction (3, one of 6 faces) | cornerID (2, which
+ *        of the quad's 4 corners this vertex is) | tileIndex (15 bits, index into the block atlas)
+ *
+ * data2: width-1 (4 bits) | height-1 (4 bits) | unused (24 bits, room for AO/tint later)
+ *        (stored as value-1, we map [1..SIZE] to [0..SIZE-1] to fit in the fewest bits possible)
  *
  */
 struct Vertex
 {
-    glm::vec3 pos;
-    glm::vec3 normal;
+    uint32_t data1;
+    uint32_t data2;
 };
 
 /**
@@ -25,11 +37,6 @@ struct MeshData
     std::vector<Vertex> vertices;
     std::vector<uint32_t> indices;
 };
-
-struct VmaAllocator_T;
-typedef struct VmaAllocator_T* VmaAllocator;
-struct VmaAllocation_T;
-typedef struct VmaAllocation_T* VmaAllocation;
 
 /**
  * @brief GPU-side vertex and index buffers for a renderable mesh, allocated via VMA

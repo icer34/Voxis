@@ -19,7 +19,9 @@ public:
     void setMeshHandle(uint32_t handle);
 
     void setBlock(glm::ivec3 lCoords, uint16_t blockID);
-    uint16_t getBlock(glm::ivec3 lCoords);
+    uint16_t getBlock(glm::ivec3 lCoords) const;
+
+    glm::ivec2 coords() const;
 
 private:
     glm::ivec2 _coords;

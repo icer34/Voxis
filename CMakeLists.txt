@@ -29,6 +29,7 @@ target_link_libraries(voxis PRIVATE
     VulkanMemoryAllocator
     spdlog::spdlog
     Vulkan::shaderc_combined
+    stb
 )
 
 set_project_warnings(voxis)
@@ -38,4 +39,11 @@ add_custom_command(TARGET voxis POST_BUILD
         ${CMAKE_CURRENT_SOURCE_DIR}/src/shaders
         $<TARGET_FILE_DIR:voxis>/src/shaders
     COMMENT "Copying shaders to build output directory"
+)
+
+add_custom_command(TARGET voxis POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_CURRENT_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:voxis>/assets
+    COMMENT "Copying assets to build output directory"
 )
