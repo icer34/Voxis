@@ -16,9 +16,10 @@
  * width/height-based offset doubles as the local UV, so no separate UV field is needed.
  *
  * data1: baseX (4 bits) | baseY (4) | baseZ (4) | direction (3, one of 6 faces) | cornerID (2, which
- *        of the quad's 4 corners this vertex is) | tileIndex (15 bits, index into the block atlas)
+ *        of the quad's 4 corners this vertex is) | AO (2, ambient occlusion level 0-3 for this
+ *        corner) | unused (13 bits)
  *
- * data2: width-1 (4 bits) | height-1 (4 bits) | unused (24 bits, room for AO/tint later)
+ * data2: width-1 (4 bits) | height-1 (4 bits) | unused (24 bits, room for tint later)
  *        (stored as value-1, we map [1..SIZE] to [0..SIZE-1] to fit in the fewest bits possible)
  *
  */

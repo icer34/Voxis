@@ -112,8 +112,8 @@ BlockAtlas::BlockAtlas(Renderer& renderer)
                 {
                     for (uint32_t c = 0; c < 4; c++)
                     {
-                        levels[lvl][((dstX + x) + (dstY + y) * levelAtlasSize) * 4 + c] =
-                            padded[(x + y * cellStride) * 4 + c];
+                        levels[lvl][((dstX + x) + (dstY + y) * levelAtlasSize) * 4 +
+                                    c] = padded[(x + y * cellStride) * 4 + c];
                     }
                 }
             }
@@ -140,15 +140,15 @@ BlockAtlas::BlockAtlas(Renderer& renderer)
     for (uint32_t lvl = 0; lvl < MIP_LEVELS; lvl++)
         levelPtrs[lvl] = levels[lvl].data();
 
-    _handle = _renderer.createTexture(atlasSize, atlasSize, MIP_LEVELS, levelPtrs.data());
+    _handle = _renderer.createTexture2D(atlasSize, atlasSize, MIP_LEVELS, VK_FORMAT_R8G8B8A8_SRGB, 4, levelPtrs.data());
 }
 
 BlockAtlas::~BlockAtlas()
 {
-    _renderer.destroyTexture(_handle);
+    _renderer.destroyTexture2D(_handle);
 }
 
-TextureHandle BlockAtlas::handle() const
+Texture2DHandle BlockAtlas::handle() const
 {
     return _handle;
 }

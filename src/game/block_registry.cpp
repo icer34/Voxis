@@ -2,8 +2,9 @@
 
 BlockRegistry::BlockRegistry()
     : _nameToID{
-        { "stone", 1u },
-    }
+          { "stone", 1u },
+          { "dirt", 2u },
+      }
 {
     for (const auto& [name, id] : _nameToID)
         _idToName[id] = name;

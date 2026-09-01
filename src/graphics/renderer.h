@@ -12,22 +12,7 @@
 #include "mesh.h"
 #include "texture.h"
 #include "deletion_queue.h"
-
-// Handle types definition
-template <typename Tag> struct Handle
-{
-    uint32_t value = 0;
-    bool operator==(const Handle&) const = default;
-};
-namespace std
-{
-template <typename Tag> struct hash<Handle<Tag>>
-{
-    size_t operator()(const Handle<Tag>& h) const noexcept { return std::hash<uint32_t>{}(h.value); };
-};
-} // namespace std
-using MeshHandle = Handle<struct MeshTag>;
-using TextureHandle = Handle<struct TextureTag>;
+#include "handle.h"
 
 /**
  * @brief gathers all the resources that need to be updated every frame
@@ -54,11 +39,13 @@ struct PushConstants
 {
     glm::mat4 modelMat;
     uint32_t blockAtlasTextureIndex;
+    uint32_t chunkDataTextureIndex;
 };
 
 // forward declarations
 class Window;
 class Camera;
+class Chunk;
 
 /**
  * @brief Vulkan renderer: owns the swapchain and pipeline, and manages meshes, textures and frame rendering
@@ -88,31 +75,68 @@ public:
     void destroyMesh(MeshHandle handle);
 
     /**
-     * @brief Create a Texture object, allocates all the gpu resources needed
-     * ONLY FORMAT SUPPORTED : R8_G8_B8_A8
+     * @brief Create a Texture object, allocates all the GPU resources needed
      *
      * @param width
      * @param height
      * @param mipLevels
+     * @param format the format of the pixel data (and of the created image)
+     * @param bytesPerTexel must match format (ex: 4 for R8G8B8A8, 2 for R16_UINT)
      * @param data array of bytes representing the image for each mipLevel desired
-     * @return the TextureHandle
+     * @return the Texture2DHandle
      */
-    TextureHandle createTexture(uint32_t width, uint32_t height, uint32_t mipLevels, const unsigned char** data);
+    Texture2DHandle createTexture2D(uint32_t width,
+                                    uint32_t height,
+                                    uint32_t mipLevels,
+                                    VkFormat format,
+                                    uint32_t bytesPerTexel,
+                                    const unsigned char** data);
 
     /**
-     * @brief Deallocates the GPU resources for the texture
+     * @brief Create a texture object, allocates all the GPU resources needed
+     *
+     * @param size
+     * @param mipLevels
+     * @param format the format of the pixel data
+     * @param bytesPerTexel must match format (ex: 4 for R8G8B8A8, 2 for R16_UINT)
+     * @param data array of bytes representing the image for each mipLevel required
+     * @return the Texture3DHandle
+     */
+    Texture3DHandle createTexture3D(glm::ivec3 size,
+                                    uint32_t mipLevels,
+                                    VkFormat format,
+                                    uint32_t bytesPerTexel,
+                                    const unsigned char** data);
+
+    /**
+     * @brief Deallocates the GPU resources for a 2D texture
      *
      * @param handle
      */
-    void destroyTexture(TextureHandle handle);
+    void destroyTexture2D(Texture2DHandle handle);
 
     /**
-     * @brief Renders the desired meshes for the given camera
+     * @brief Deallocates the GPU resources for a 3D texture
+     *
+     * @param handle
+     */
+    void destroyTexture3D(Texture3DHandle handle);
+
+    /**
+     * @brief Renders the desired chunks for the given camera
      *
      * @param cam
-     * @param meshes list of <meshHandle, modelMatrix> to be rendered
+     * @param chunks list of <chunk, pushConstants> to be rendered - the mesh and data texture to use
+     * are pulled from each chunk directly (blockAtlasTextureIndex/modelMat must still be set by the
+     * caller on the given PushConstants, chunkDataTextureIndex is overwritten from the chunk)
      */
-    void render(Camera& cam, std::span<std::pair<MeshHandle, PushConstants>> meshes);
+    void render(Camera& cam, std::span<std::pair<const Chunk*, PushConstants>> chunks);
+
+    /**
+     * @brief Starts a new ImGui frame - call once per frame, before building any ImGui widgets
+     * (e.g. via Hud::draw), and before render()
+     */
+    void beginUIFrame();
 
 private:
     constexpr static uint32_t VULKAN_VERSION = VK_API_VERSION_1_4;
@@ -125,8 +149,10 @@ private:
     Window& _window;
     std::unordered_map<MeshHandle, Mesh> _meshes;
     DeletionQueue _deletionQueue;
-    std::unordered_map<TextureHandle, Texture> _textures;
-    std::vector<uint32_t> _freeTextureSlots;
+    std::unordered_map<Texture2DHandle, Texture> _textures2D;
+    std::unordered_map<Texture3DHandle, Texture> _textures3D;
+    std::vector<uint32_t> _free2DTextureSlots;
+    std::vector<uint32_t> _free3DTextureSlots;
 
     // Vulkan core
     VkInstance _instance = nullptr;
@@ -159,9 +185,13 @@ private:
     VkPipeline _pipeline = nullptr;
     VkDescriptorPool _descriptorPool = nullptr;
     VkDescriptorSetLayout _cameraSetLayout = nullptr;
+
     // texture related
-    VkDescriptorSetLayout _bindlessSetLayout = nullptr;
-    VkDescriptorSet _bindlessSet = nullptr;
+    VkDescriptorSetLayout _bindless2DSetLayout = nullptr;
+    VkDescriptorSet _bindless2DSet = nullptr;
+
+    VkDescriptorSetLayout _bindless3DSetLayout = nullptr;
+    VkDescriptorSet _bindless3DSet = nullptr;
 
     // Shader resources
     VkShaderModule _vertShader = nullptr;
@@ -185,6 +215,7 @@ private:
     void createSyncResources();
     void createFrameResources();
     void initVMA();
+    void initImGui();
 
     void recreateSwapchain();
 
@@ -199,7 +230,7 @@ private:
     // render helpers
     void getNextImageIndex(FrameResources& frame, uint32_t* imageIndex);
     void
-    recordFrame(FrameResources& frame, uint32_t imageIndex, std::span<std::pair<MeshHandle, PushConstants>> meshes);
+    recordFrame(FrameResources& frame, uint32_t imageIndex, std::span<std::pair<const Chunk*, PushConstants>> chunks);
     void submitFrame(FrameResources& frame, uint32_t imageIndex);
     void presentFrame(FrameResources& frame, uint32_t imageIndex);
 };

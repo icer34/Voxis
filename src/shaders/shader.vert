@@ -14,8 +14,9 @@ layout (push_constant) uniform constants
 layout(location = 0) in uint inPackedData1;
 layout(location = 1) in uint inPackedData2;
 
-layout(location = 0) flat out uint outTileIdx;
-layout(location = 1) out vec2 outUV;
+layout(location = 0) out vec2 outUV;
+layout(location = 1) out vec3 outLocalPos;
+layout(location = 2) out float outAO;
 
 const vec3 NORMALS[6] = vec3[](
     vec3(0, 0, -1), // North
@@ -33,7 +34,7 @@ void main() {
     uint baseZ = (inPackedData1 >> 8) & 0xFu;
     uint direction = (inPackedData1 >> 12) & 0x7u;
     uint cornerID = (inPackedData1 >> 15) & 0x3u;
-    uint tileIndex = (inPackedData1 >> 17) & 0x7FFFu;
+    uint ao = (inPackedData1 >> 17) & 0x3u;
 
     uint width = ((inPackedData2 & 0xFu)) + 1u;
     uint height = ((inPackedData2 >> 4) & 0xFu) + 1u;
@@ -53,9 +54,13 @@ void main() {
 
 
     vec3 localPos = vec3(float(baseX), float(baseY), float(baseZ)) + offset;
-
+    vec3 normal = NORMALS[direction];
 
     gl_Position = camera.proj * camera.view * pc.model * vec4(localPos, 1.0);
     outUV = corner2D;
-    outTileIdx = tileIndex;
+    // nudge half a voxel against the face normal so floor() in the fragment shader lands on the
+    // voxel that owns this face, not the neighbor on the other side of it (faces on the "positive"
+    // side of a voxel sit at base+1, not base)
+    outLocalPos = localPos - normal * 0.5;
+    outAO = float(ao) / 3.0;
 }

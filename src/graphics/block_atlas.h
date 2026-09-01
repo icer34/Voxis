@@ -28,7 +28,7 @@ public:
     /**
      * @brief The bindless texture handle to use (ex: in a PushConstants) when drawing
      */
-    TextureHandle handle() const;
+    Texture2DHandle handle() const;
 
     /**
      * @brief The tile index for a given texture file (its name, without extension), used by the
@@ -50,6 +50,6 @@ private:
     constexpr static const char* TEXTURES_DIR = "assets/textures/block";
 
     Renderer& _renderer;
-    TextureHandle _handle{};
+    Texture2DHandle _handle{};
     std::unordered_map<std::string, uint32_t> _nameToIndex;
 };

@@ -50,6 +50,7 @@ public:
     const char** getVulkanInstanceExtensions(uint32_t* count);
     uint32_t width() const { return _width; }
     uint32_t height() const { return _height; }
+    SDL_Window* handle() const { return _handle; }
 
     // input related
     bool isKeyPressed(Key key) const;

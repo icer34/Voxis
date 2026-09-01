@@ -15,6 +15,7 @@ public:
             uint32_t height,
             uint32_t mipLevels,
             VkFormat format,
+            VkImageViewType viewType,
             VkDevice device,
             VmaAllocator allocator);
     Texture(const Texture&) = delete;

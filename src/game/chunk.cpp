@@ -1,6 +1,6 @@
 #include "chunk.h"
 
-Chunk::Chunk(glm::ivec2 coords)
+Chunk::Chunk(glm::ivec3 coords)
 {
     _coords = coords;
 
@@ -22,6 +22,7 @@ Chunk::~Chunk() {}
 void Chunk::setBlock(glm::ivec3 lCoords, uint16_t blockID)
 {
     _blockIDs[idx(lCoords)] = blockID;
+    _dirty = true;
 }
 
 uint16_t Chunk::getBlock(glm::ivec3 lCoords) const
@@ -29,12 +30,47 @@ uint16_t Chunk::getBlock(glm::ivec3 lCoords) const
     return _blockIDs[idx(lCoords)];
 }
 
-void Chunk::setMeshHandle(uint32_t handle)
+void Chunk::setMeshHandle(MeshHandle handle)
 {
     _meshHandle = handle;
 }
 
-glm::ivec2 Chunk::coords() const
+void Chunk::setDataTextureHandle(Texture3DHandle handle)
+{
+    _dataTextureHandle = handle;
+}
+
+MeshHandle Chunk::meshHandle() const
+{
+    return _meshHandle.value();
+}
+
+Texture3DHandle Chunk::dataTextureHandle() const
+{
+    return _dataTextureHandle.value();
+}
+
+bool Chunk::hasMesh() const
+{
+    return _meshHandle.has_value();
+}
+
+bool Chunk::hasDataTexture() const
+{
+    return _dataTextureHandle.has_value();
+}
+
+bool Chunk::isDirty() const
+{
+    return _dirty;
+}
+
+void Chunk::clearDirty()
+{
+    _dirty = false;
+}
+
+glm::ivec3 Chunk::coords() const
 {
     return _coords;
 }

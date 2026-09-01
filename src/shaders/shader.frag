@@ -3,15 +3,18 @@
 
 
 layout(set = 1, binding = 0) uniform sampler2D bindlessTextures[];
+layout(set = 2, binding = 0) uniform usampler3D chunkDataTextures[];
 
 layout(push_constant) uniform constants
 {
 	mat4 model;
 	uint blockAtlasIdx;
+	uint chunkDataTextureIdx;
 } pc;
 
-layout(location = 0) flat in uint inTileIdx;
-layout(location = 1) in vec2 inUV;
+layout(location = 0) in vec2 inUV;
+layout(location = 1) in vec3 inLocalPos;
+layout(location = 2) in float inAO;
 
 layout(location = 0) out vec4 fragColor;
 
@@ -37,6 +40,11 @@ void main()
     vec2 ddxUV = dFdx(inUV) * CONTENT_FRAC;
     vec2 ddyUV = dFdy(inUV) * CONTENT_FRAC;
 
-    vec2 uv = atlasUV(inTileIdx, inUV);
+    ivec3 voxelCoord = ivec3(floor(inLocalPos));
+    uint tileIndex = texelFetch(chunkDataTextures[nonuniformEXT(pc.chunkDataTextureIdx)], voxelCoord, 0).r;
+
+    vec2 uv = atlasUV(tileIndex, inUV);
     fragColor = textureGrad(bindlessTextures[nonuniformEXT(pc.blockAtlasIdx)], uv, ddxUV, ddyUV);
+
+    fragColor.rgb *= mix(0.0, 1.0, inAO * inAO);
 }

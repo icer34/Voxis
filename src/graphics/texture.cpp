@@ -8,6 +8,7 @@ Texture::Texture(VkImage image,
                  uint32_t height,
                  uint32_t mipLevels,
                  VkFormat format,
+                 VkImageViewType viewType,
                  VkDevice device,
                  VmaAllocator allocator)
 {
@@ -24,7 +25,7 @@ Texture::Texture(VkImage image,
     imageViewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
     imageViewInfo.image = _image;
     imageViewInfo.format = _format;
-    imageViewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+    imageViewInfo.viewType = viewType;
     imageViewInfo.subresourceRange = { VK_IMAGE_ASPECT_COLOR_BIT, 0, _mipLevels, 0, 1 };
 
     if (vkCreateImageView(_device, &imageViewInfo, nullptr, &_imageView) != VK_SUCCESS)

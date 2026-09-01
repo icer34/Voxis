@@ -30,6 +30,7 @@ target_link_libraries(voxis PRIVATE
     spdlog::spdlog
     Vulkan::shaderc_combined
     stb
+    imgui
 )
 
 set_project_warnings(voxis)

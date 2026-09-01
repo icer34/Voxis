@@ -26,6 +26,7 @@ NamespaceIndentation: None
 
 AlignAfterOpenBracket: Align
 AlignTrailingComments: true
+AllowAllParametersOfDeclarationOnNextLine: false
 
 BinPackArguments: false
 BinPackParameters: false

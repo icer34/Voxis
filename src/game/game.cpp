@@ -1,8 +1,6 @@
 #include "game.h"
 
-#include "graphics/chunk_mesher.h"
-#include "graphics/mesh.h"
-#include "chunk.h"
+#include <glm/gtc/matrix_transform.hpp>
 
 Game::Game() {}
 
@@ -26,24 +24,10 @@ void Game::init()
     _camera = std::make_unique<Camera>(glm::vec3(0.0f, 20.0f, 20.0f));
     _renderer = std::make_unique<Renderer>(*_window);
     _blockAtlas = std::make_unique<BlockAtlas>(*_renderer);
+    _blockRegistry = std::make_unique<BlockRegistry>();
+    _world = std::make_unique<World>(67u, *_blockRegistry, *_blockAtlas, *_renderer);
 
     _lastFrameTime = _window->getTime();
-
-    // generate a test chunk
-    Chunk c{ { 0, 0 } };
-    for (uint32_t x = 0; x < Chunk::SIZE; x++)
-    {
-        for (uint32_t y = 0; y < Chunk::SIZE; y++)
-        {
-            for (uint32_t z = 0; z < Chunk::SIZE; z++)
-            {
-                c.setBlock({ x, y, z }, 1);
-            }
-        }
-    }
-    MeshData data = ChunkMesher::getMeshData(c, _blockRegistry, *_blockAtlas);
-    _testMeshHandle = _renderer->createMesh(data.vertices, data.indices);
-    c.setMeshHandle(_testMeshHandle.value);
 }
 
 void Game::update()
@@ -54,7 +38,7 @@ void Game::update()
     }
 
     double now = _window->getTime();
-    float dt = static_cast<float>(now - _lastFrameTime);
+    _dt = static_cast<float>(now - _lastFrameTime);
     _lastFrameTime = now;
 
     float dx = static_cast<float>(_window->consumeDx());
@@ -79,7 +63,7 @@ void Game::update()
             moveDir -= _camera->getUp();
 
         if (glm::length(moveDir) > 0.0f)
-            _camera->move(glm::normalize(moveDir) * MOVE_SPEED * dt);
+            _camera->move(glm::normalize(moveDir) * MOVE_SPEED * _dt);
 
         _camera->rotate(dx, dy);
     }
@@ -89,8 +73,21 @@ void Game::update()
 
 void Game::render()
 {
-    PushConstants pc{ _testModelMat, _blockAtlas->handle().value };
-    auto renderData = std::vector{ std::pair{ _testMeshHandle, pc } };
+    _renderer->beginUIFrame();
+    _hud.draw(_dt);
+
+    std::vector<std::pair<const Chunk*, PushConstants>> renderData;
+    for (auto chunk : _world->getChunks())
+    {
+        PushConstants pc;
+        glm::vec3 worldPos = glm::vec3(chunk->coords() * static_cast<int>(Chunk::SIZE));
+        pc.modelMat = glm::translate(glm::mat4(1.0f), worldPos);
+        pc.blockAtlasTextureIndex = _blockAtlas->handle().value;
+        pc.chunkDataTextureIndex = chunk->dataTextureHandle().value;
+
+        renderData.push_back({ chunk, pc });
+    }
+
     _renderer->render(*_camera, renderData);
 }
 
