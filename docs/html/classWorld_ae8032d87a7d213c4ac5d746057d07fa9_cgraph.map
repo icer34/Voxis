@@ -1,0 +1,56 @@
+<map id="World::update" name="World::update">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,316,117,344"/>
+<area shape="rect" id="Node000002" href="$classChunk.html#a24e40f1d75a4d970a2cfcde6714cccb5" title=" " alt="" coords="456,5,649,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,315,69,271,86,210,99,177,116,145,137,116,163,90,194,69,228,52,300,28,373,15,443,12,439,15,373,20,301,33,230,57,197,74,166,95,141,119,121,148,104,179,91,212,74,272,66,316"/>
+<area shape="rect" id="Node000003" href="$classChunk.html#abb300478f8c35295bdf2b11449e3fa11" title=" " alt="" coords="466,57,639,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="64,315,75,280,95,234,124,187,142,166,163,148,196,127,232,110,307,86,382,72,453,68,449,71,383,78,308,91,234,115,199,131,166,152,146,170,128,190,99,237,80,282,69,316"/>
+<area shape="rect" id="Node000004" href="$classChunk.html#a06e3e2ed8cd156d52e675c889afeadec" title=" " alt="" coords="488,213,617,241"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="86,314,122,295,164,279,245,259,328,245,475,230,471,233,329,250,246,264,165,284,124,300,89,317"/>
+<area shape="rect" id="Node000005" href="$classWorld.html#aa42663ef6400a8f7a466f9bb633c3b9c" title=" " alt="" coords="758,264,902,292"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="117,327,351,321,503,314,655,302,745,292,740,294,656,307,503,319,352,327,118,332"/>
+<area shape="rect" id="Node000007" href="$classChunk.html#ac606a6c7d3bb95758fc6cc736f7a5aa8" title=" " alt="" coords="476,265,629,293"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="115,317,164,309,321,292,463,283,458,286,321,297,165,314,118,321"/>
+<area shape="rect" id="Node000008" href="$classWorld.html#a5081becc6e475e1fe8a4e77d9fc3ee9b" title=" " alt="" coords="165,419,402,446"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="77,341,116,373,166,403,186,413,181,414,163,408,113,378,77,347"/>
+<area shape="rect" id="Node000009" href="$classWorld.html#a1a7605eefdf1adfb60c9906980790c9e" title=" " alt="" coords="173,161,394,189"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="68,314,105,261,132,232,163,206,194,193,190,197,166,211,135,236,109,265,73,317"/>
+<area shape="rect" id="Node000017" href="$classChunk.html#aea3d398455ebe053a99eec458cd293ff" title=" " alt="" coords="176,471,391,498"/>
+<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="70,341,107,398,134,430,166,456,179,464,174,465,163,460,130,433,103,402,69,347"/>
+<area shape="rect" id="Node000018" href="$classChunk.html#acacb69d0588428e4fda5b4572ee69053" title=" " alt="" coords="198,523,369,550"/>
+<area shape="poly" id="edge22_Node000001_Node000018" title=" " alt="" coords="66,342,80,378,100,422,128,469,146,490,166,508,186,521,181,521,163,512,142,494,124,472,95,425,75,379,66,347"/>
+<area shape="rect" id="Node000019" href="$classChunk.html#a71e7e5f5d0cb9c883db07b096bedf0f9" title=" " alt="" coords="221,575,346,602"/>
+<area shape="poly" id="edge23_Node000001_Node000019" title=" " alt="" coords="64,341,75,386,92,445,122,507,142,536,166,560,185,572,208,582,203,582,183,576,163,564,138,539,117,510,87,447,70,387,64,347"/>
+<area shape="rect" id="Node000021" href="$namespaceChunkDataTexture.html#af556f72ee1f3bd0ebca752ab00cffdf7" title=" " alt="" coords="187,367,380,394"/>
+<area shape="poly" id="edge25_Node000001_Node000021" title=" " alt="" coords="117,340,207,361,202,364,118,345"/>
+<area shape="rect" id="Node000006" href="$namespaceVoxisLog.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="1005,289,1136,317"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="902,283,992,294,986,295,903,288"/>
+<area shape="poly" id="edge14_Node000009_Node000002" title=" " alt="" coords="297,159,359,103,402,71,449,43,469,37,465,40,451,48,405,75,363,107,301,163"/>
+<area shape="poly" id="edge18_Node000009_Node000003" title=" " alt="" coords="310,159,373,127,449,95,477,88,473,91,451,100,375,132,313,163"/>
+<area shape="poly" id="edge19_Node000009_Node000004" title=" " alt="" coords="358,187,475,211,470,213,359,192"/>
+<area shape="poly" id="edge20_Node000009_Node000007" title=" " alt="" coords="311,187,375,218,451,250,478,260,472,261,449,255,373,223,312,192"/>
+<area shape="rect" id="Node000010" href="$namespaceChunkDataTexture.html#a47b445bf91d480d4ffd7bbb50ac91770" title=" " alt="" coords="462,109,643,137"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="358,158,464,139,460,142,360,163"/>
+<area shape="rect" id="Node000015" href="$namespaceChunkMesher.html#aadd295989fddef3ee087bcf5878d581e" title="Builds the greedy&#45;meshed geometry for a chunk." alt="" coords="450,161,655,189"/>
+<area shape="poly" id="edge15_Node000009_Node000015" title=" " alt="" coords="393,173,437,174,432,176,395,178"/>
+<area shape="rect" id="Node000011" href="$classChunk.html#a8797715288812a563a2d693e1c36bcf7" title=" " alt="" coords="766,7,894,34"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="626,107,654,94,668,83,677,70,686,57,702,45,754,28,749,31,705,49,690,61,681,73,672,86,657,99,629,111"/>
+<area shape="rect" id="Node000013" href="$classBlockRegistry.html#abdfb26d5e3ffab1b8670c7eb18b259e4" title=" " alt="" coords="726,59,934,86"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="631,106,738,89,733,91,633,111"/>
+<area shape="rect" id="Node000014" href="$classBlockAtlas.html#a43fab246097d34e16cf3bac75f59af20" title="The tile index for a given texture file (its name, without extension), used by the mesher to compute ..." alt="" coords="752,111,908,138"/>
+<area shape="poly" id="edge13_Node000010_Node000014" title=" " alt="" coords="643,121,739,123,734,125,645,126"/>
+<area shape="rect" id="Node000012" href="$classChunk.html#af5b9d738e0757cabc4ab3c2d7394ed88" title=" " alt="" coords="1025,7,1116,34"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="893,18,1012,20,1007,21,894,23"/>
+<area shape="poly" id="edge17_Node000015_Node000006" title=" " alt="" coords="635,187,826,222,957,250,1031,282,1026,282,956,255,825,227,635,192"/>
+<area shape="rect" id="Node000016" href="$directions_8h.html#a008f5266874a84a65c78c3f1d81284b1" title=" " alt="" coords="760,163,900,190"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="655,173,747,175,742,177,657,178"/>
+<area shape="rect" id="Node000020" href="$classChunk.html#aa42b5143c0229e52b12ae63c18559b17" title=" " alt="" coords="501,575,604,602"/>
+<area shape="poly" id="edge24_Node000019_Node000020" title=" " alt="" coords="346,586,488,588,483,589,346,591"/>
+<area shape="rect" id="Node000022" href="$classRenderer.html#a79e7e46b32824ea38e7d402be0b228dc" title="Create a texture object, allocates all the GPU resources needed." alt="" coords="455,367,650,394"/>
+<area shape="poly" id="edge26_Node000021_Node000022" title=" " alt="" coords="380,378,442,380,437,381,381,383"/>
+<area shape="poly" id="edge29_Node000022_Node000006" title=" " alt="" coords="650,382,796,377,877,368,956,353,995,339,1029,325,1034,324,997,344,957,358,878,373,797,382,651,387"/>
+<area shape="rect" id="Node000023" href="$classRenderer.html#a58528c44c7ff2cf6f7c2f29eef860077" title=" " alt="" coords="703,316,957,344"/>
+<area shape="poly" id="edge27_Node000022_Node000023" title=" " alt="" coords="632,363,738,346,733,348,633,369"/>
+<area shape="rect" id="Node000024" href="$classRenderer.html#a7dcfcb040778ef4fd92439d4f80eb233" title=" " alt="" coords="709,417,951,445"/>
+<area shape="poly" id="edge30_Node000022_Node000024" title=" " alt="" coords="632,392,738,414,733,414,632,398"/>
+<area shape="poly" id="edge28_Node000023_Node000006" title=" " alt="" coords="957,313,992,312,986,313,958,318"/>
+</map>

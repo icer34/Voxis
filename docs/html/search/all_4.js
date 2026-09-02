@@ -1,12 +1,24 @@
 var searchData=
 [
   ['d_0',['D',['../window_8h.html#ab3c7af4820830f9166ede9e5623c4e73af623e75af30e62bbd73d6df5b50bb7b5',1,'window.h']]],
-  ['debug_1',['debug',['../namespace_voxis_log.html#a99c97f09b7ed6c7e78689c62148c854f',1,'VoxisLog']]],
-  ['depth_5fformat_2',['DEPTH_FORMAT',['../class_renderer.html#a395ff60c17736981810cf40e591bce80',1,'Renderer']]],
-  ['descriptorinfo_3',['descriptorInfo',['../class_texture.html#a3fea678d7700524df767637de39508b5',1,'Texture']]],
-  ['destroymesh_4',['destroyMesh',['../class_renderer.html#ad1cbc18fc9b65ed220f386cce7e8de43',1,'Renderer']]],
-  ['destroyswapchain_5',['destroySwapchain',['../class_renderer.html#aeed852feacbc81c0eaa6143591370ebd',1,'Renderer']]],
-  ['destroytexture_6',['destroyTexture',['../class_renderer.html#a2d79cd7447f0911272f694badd0d0881',1,'Renderer']]],
-  ['disableinput_7',['disableInput',['../class_window.html#ac02ab23d8a201788ed8dbf0e8cb7d9f2',1,'Window']]],
-  ['documentation_8',['Documentation',['../index.html#autotoc_md4',1,'']]]
+  ['data1_1',['data1',['../structVertex.html#af6ce3b32a4a4a9e73684390b99cfe01d',1,'Vertex']]],
+  ['data2_2',['data2',['../structVertex.html#a8a9767a2e9c27de2856226ab17b40e12',1,'Vertex']]],
+  ['datatexturehandle_3',['dataTextureHandle',['../classChunk.html#a24e40f1d75a4d970a2cfcde6714cccb5',1,'Chunk']]],
+  ['debug_4',['debug',['../namespaceVoxisLog.html#a99c97f09b7ed6c7e78689c62148c854f',1,'VoxisLog']]],
+  ['deletion_5fqueue_2eh_5',['deletion_queue.h',['../deletion__queue_8h.html',1,'']]],
+  ['deletionqueue_6',['DeletionQueue',['../classDeletionQueue.html',1,'']]],
+  ['depth_5fformat_7',['DEPTH_FORMAT',['../classRenderer.html#a395ff60c17736981810cf40e591bce80',1,'Renderer']]],
+  ['descriptorinfo_8',['descriptorInfo',['../classTexture.html#a3fea678d7700524df767637de39508b5',1,'Texture']]],
+  ['destroymesh_9',['destroyMesh',['../classRenderer.html#ad1cbc18fc9b65ed220f386cce7e8de43',1,'Renderer']]],
+  ['destroyswapchain_10',['destroySwapchain',['../classRenderer.html#aeed852feacbc81c0eaa6143591370ebd',1,'Renderer']]],
+  ['destroytexture2d_11',['destroyTexture2D',['../classRenderer.html#a85cdfd456e34e8384d1b3d61fb8cfa11',1,'Renderer']]],
+  ['destroytexture3d_12',['destroyTexture3D',['../classRenderer.html#a0861cc6e6a6f71f22000cc1dc526150c',1,'Renderer']]],
+  ['direction_13',['Direction',['../directions_8h.html#a10010fa6bfb5cd1f40d00902b186ec8b',1,'directions.h']]],
+  ['direction_5fnormals_14',['DIRECTION_NORMALS',['../directions_8h.html#aa85a5702955971c617c9bab623cf672a',1,'directions.h']]],
+  ['directions_2eh_15',['directions.h',['../directions_8h.html',1,'']]],
+  ['dirty_16',['DIRTY',['../chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cca5fd9c8a82ed547d81fad73062dc09803',1,'chunk.h']]],
+  ['disableinput_17',['disableInput',['../classWindow.html#ac02ab23d8a201788ed8dbf0e8cb7d9f2',1,'Window']]],
+  ['documentation_18',['Documentation',['../index.html#autotoc_md3',1,'']]],
+  ['down_19',['DOWN',['../directions_8h.html#a10010fa6bfb5cd1f40d00902b186ec8bac4e0e4e3118472beeb2ae75827450f1f',1,'directions.h']]],
+  ['draw_20',['draw',['../classHud.html#ac1c34ab3d573d57ca67003793706793c',1,'Hud']]]
 ];

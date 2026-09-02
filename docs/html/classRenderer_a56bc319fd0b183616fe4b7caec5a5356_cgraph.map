@@ -1,0 +1,14 @@
+<map id="Renderer::getNextImageIndex" name="Renderer::getNextImageIndex">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,223,58"/>
+<area shape="rect" id="Node000002" href="$namespaceVoxisLog.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="786,5,918,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,38,771,19,770,25,223,43"/>
+<area shape="rect" id="Node000003" href="$classRenderer.html#aa9280d4ade31cd5a0d7566a0df4f6485" title=" " alt="" coords="271,56,483,84"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,52,258,58,253,59,223,58"/>
+<area shape="rect" id="Node000004" href="$classRenderer.html#a1fc6f7cfe2232035a1a141daeb57b0d7" title=" " alt="" coords="535,56,734,84"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="483,67,522,70,517,70,484,72"/>
+<area shape="rect" id="Node000006" href="$classRenderer.html#aeed852feacbc81c0eaa6143591370ebd" title=" " alt="" coords="531,108,738,136"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="449,82,550,104,545,104,449,87"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="696,53,772,37,778,37,697,58"/>
+<area shape="rect" id="Node000005" href="$namespaceVoxisLog.html#a526ecbcf25e08613a82d0cfae9ac048f" title=" " alt="" coords="796,57,908,85"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="734,68,783,71,778,71,735,73"/>
+</map>

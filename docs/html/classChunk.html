@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -92,15 +97,26 @@ $(function(){initNavTree('classChunk.html','','classChunk-members'); });
 </div><!--header-->
 <div class="contents">
 
+<p>A fixed-size cube of blocks that makes up a portion of the world.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="chunk_8h_source.html">chunk.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b222e6d123c97726b4f65638f83caf3" id="r_a2b222e6d123c97726b4f65638f83caf3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b222e6d123c97726b4f65638f83caf3">Chunk</a> (glm::ivec2 coords)</td></tr>
+<tr class="memitem:a4ee1ca69de5cab5a86e0d7768dde4049" id="r_a4ee1ca69de5cab5a86e0d7768dde4049"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ee1ca69de5cab5a86e0d7768dde4049">Chunk</a> (glm::ivec3 <a class="el" href="#a2613ca6af23c21a31a00428f03fcdc81">coords</a>)</td></tr>
 <tr class="memitem:ad21b515f41c9a1d21740b9e7e3f8eede" id="r_ad21b515f41c9a1d21740b9e7e3f8eede"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad21b515f41c9a1d21740b9e7e3f8eede">~Chunk</a> ()</td></tr>
-<tr class="memitem:a4df1bb472725a6b867b62c3bcb87d51a" id="r_a4df1bb472725a6b867b62c3bcb87d51a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4df1bb472725a6b867b62c3bcb87d51a">setMeshHandle</a> (uint32_t handle)</td></tr>
+<tr class="memitem:acacb69d0588428e4fda5b4572ee69053" id="r_acacb69d0588428e4fda5b4572ee69053"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acacb69d0588428e4fda5b4572ee69053">setMeshHandle</a> (<a class="el" href="handle_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a> handle)</td></tr>
+<tr class="memitem:aea3d398455ebe053a99eec458cd293ff" id="r_aea3d398455ebe053a99eec458cd293ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea3d398455ebe053a99eec458cd293ff">setDataTextureHandle</a> (<a class="el" href="handle_8h.html#aaee4647baa50856f36056bba41383440">Texture3DHandle</a> handle)</td></tr>
+<tr class="memitem:ac606a6c7d3bb95758fc6cc736f7a5aa8" id="r_ac606a6c7d3bb95758fc6cc736f7a5aa8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="handle_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac606a6c7d3bb95758fc6cc736f7a5aa8">meshHandle</a> () const</td></tr>
+<tr class="memitem:a24e40f1d75a4d970a2cfcde6714cccb5" id="r_a24e40f1d75a4d970a2cfcde6714cccb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="handle_8h.html#aaee4647baa50856f36056bba41383440">Texture3DHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24e40f1d75a4d970a2cfcde6714cccb5">dataTextureHandle</a> () const</td></tr>
+<tr class="memitem:a06e3e2ed8cd156d52e675c889afeadec" id="r_a06e3e2ed8cd156d52e675c889afeadec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06e3e2ed8cd156d52e675c889afeadec">hasMesh</a> () const</td></tr>
+<tr class="memitem:abb300478f8c35295bdf2b11449e3fa11" id="r_abb300478f8c35295bdf2b11449e3fa11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb300478f8c35295bdf2b11449e3fa11">hasDataTexture</a> () const</td></tr>
 <tr class="memitem:a59a909d7a32f09b5010298e0035e1171" id="r_a59a909d7a32f09b5010298e0035e1171"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59a909d7a32f09b5010298e0035e1171">setBlock</a> (glm::ivec3 lCoords, uint16_t blockID)</td></tr>
-<tr class="memitem:a02bf5f0c800a666952ad7d155356d9b5" id="r_a02bf5f0c800a666952ad7d155356d9b5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02bf5f0c800a666952ad7d155356d9b5">getBlock</a> (glm::ivec3 lCoords)</td></tr>
+<tr class="memitem:a8797715288812a563a2d693e1c36bcf7" id="r_a8797715288812a563a2d693e1c36bcf7"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8797715288812a563a2d693e1c36bcf7">getBlock</a> (glm::ivec3 lCoords) const</td></tr>
+<tr class="memitem:a71e7e5f5d0cb9c883db07b096bedf0f9" id="r_a71e7e5f5d0cb9c883db07b096bedf0f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71e7e5f5d0cb9c883db07b096bedf0f9">setState</a> (<a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cc">ChunkState</a> <a class="el" href="#aa42b5143c0229e52b12ae63c18559b17">state</a>)</td></tr>
+<tr class="memitem:aa42b5143c0229e52b12ae63c18559b17" id="r_aa42b5143c0229e52b12ae63c18559b17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cc">ChunkState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa42b5143c0229e52b12ae63c18559b17">state</a> () const</td></tr>
+<tr class="memitem:a2613ca6af23c21a31a00428f03fcdc81" id="r_a2613ca6af23c21a31a00428f03fcdc81"><td class="memItemLeft" align="right" valign="top">glm::ivec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2613ca6af23c21a31a00428f03fcdc81">coords</a> () const</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -109,17 +125,23 @@ Static Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:af5b9d738e0757cabc4ab3c2d7394ed88" id="r_af5b9d738e0757cabc4ab3c2d7394ed88"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5b9d738e0757cabc4ab3c2d7394ed88">idx</a> (size_t x, size_t y, size_t z)</td></tr>
-<tr class="memitem:a6dc8643bb7bf4dc7f9fbcf870438bcae" id="r_a6dc8643bb7bf4dc7f9fbcf870438bcae"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dc8643bb7bf4dc7f9fbcf870438bcae">idx</a> (glm::ivec3 coords)</td></tr>
+<tr class="memitem:a6dc8643bb7bf4dc7f9fbcf870438bcae" id="r_a6dc8643bb7bf4dc7f9fbcf870438bcae"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dc8643bb7bf4dc7f9fbcf870438bcae">idx</a> (glm::ivec3 <a class="el" href="#a2613ca6af23c21a31a00428f03fcdc81">coords</a>)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a74098d4084f552af8adfe2710348558e" id="r_a74098d4084f552af8adfe2710348558e"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74098d4084f552af8adfe2710348558e">_coords</a></td></tr>
+<tr class="memitem:a14c2fbd1a20151d2056084d8dd2bc3ec" id="r_a14c2fbd1a20151d2056084d8dd2bc3ec"><td class="memItemLeft" align="right" valign="top">glm::ivec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14c2fbd1a20151d2056084d8dd2bc3ec">_coords</a></td></tr>
 <tr class="memitem:a2565acabb2973e75fb05d8e5e0b66ec4" id="r_a2565acabb2973e75fb05d8e5e0b66ec4"><td class="memItemLeft" align="right" valign="top">std::array&lt; uint16_t, <a class="el" href="#ab443fd4c96071c15ec704151ecea548c">SIZE</a> *<a class="el" href="#ab443fd4c96071c15ec704151ecea548c">SIZE</a> *<a class="el" href="#ab443fd4c96071c15ec704151ecea548c">SIZE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2565acabb2973e75fb05d8e5e0b66ec4">_blockIDs</a></td></tr>
-<tr class="memitem:a770cf171334c7e2e4345eb31ec08d808" id="r_a770cf171334c7e2e4345eb31ec08d808"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a770cf171334c7e2e4345eb31ec08d808">_meshHandle</a> = 0</td></tr>
+<tr class="memitem:ac9bab64111876061c91dd4da3ad635a6" id="r_ac9bab64111876061c91dd4da3ad635a6"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="handle_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9bab64111876061c91dd4da3ad635a6">_meshHandle</a></td></tr>
+<tr class="memitem:ab075e55753e98dcde8241ae3e5073c8b" id="r_ab075e55753e98dcde8241ae3e5073c8b"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="handle_8h.html#aaee4647baa50856f36056bba41383440">Texture3DHandle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab075e55753e98dcde8241ae3e5073c8b">_dataTextureHandle</a></td></tr>
+<tr class="memitem:a92665b36249bdeb0dd8e425713763206" id="r_a92665b36249bdeb0dd8e425713763206"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cc">ChunkState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92665b36249bdeb0dd8e425713763206">_state</a> = <a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cca84d6eb3de75c97f966a354f3b635a376">ChunkState::NOT_GENERATED</a></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2b222e6d123c97726b4f65638f83caf3" name="a2b222e6d123c97726b4f65638f83caf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b222e6d123c97726b4f65638f83caf3">&#9670;&#160;</a></span>Chunk()</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A fixed-size cube of blocks that makes up a portion of the world. </p>
+
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00026">26</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4ee1ca69de5cab5a86e0d7768dde4049" name="a4ee1ca69de5cab5a86e0d7768dde4049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ee1ca69de5cab5a86e0d7768dde4049">&#9670;&#160;</a></span>Chunk()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,11 +149,20 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Chunk::Chunk </td>
           <td>(</td>
-          <td class="paramtype">glm::ivec2</td>          <td class="paramname"><span class="paramname"><em>coords</em></span></td><td>)</td>
+          <td class="paramtype">glm::ivec3</td>          <td class="paramname"><span class="paramname"><em>coords</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00003">3</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00053">_blockIDs</a>, <a class="el" href="chunk_8h_source.html#l00051">_coords</a>, <a class="el" href="chunk_8cpp_source.html#l00073">coords()</a>, <a class="el" href="chunk_8h_source.html#l00054">idx()</a>, and <a class="el" href="chunk_8h_source.html#l00029">SIZE</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a4ee1ca69de5cab5a86e0d7768dde4049_cgraph.svg" width="284" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -150,11 +181,69 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00020">20</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a02bf5f0c800a666952ad7d155356d9b5" name="a02bf5f0c800a666952ad7d155356d9b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02bf5f0c800a666952ad7d155356d9b5">&#9670;&#160;</a></span>getBlock()</h2>
+<a id="a2613ca6af23c21a31a00428f03fcdc81" name="a2613ca6af23c21a31a00428f03fcdc81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2613ca6af23c21a31a00428f03fcdc81">&#9670;&#160;</a></span>coords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::ivec3 Chunk::coords </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00073">73</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00051">_coords</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00003">Chunk()</a>, <a class="el" href="terrain__generator_8cpp_source.html#l00012">TerrainGenerator::generate()</a>, and <a class="el" href="chunk_8h_source.html#l00055">idx()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a2613ca6af23c21a31a00428f03fcdc81_icgraph.svg" width="368" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a24e40f1d75a4d970a2cfcde6714cccb5" name="a24e40f1d75a4d970a2cfcde6714cccb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24e40f1d75a4d970a2cfcde6714cccb5">&#9670;&#160;</a></span>dataTextureHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="handle_8h.html#aaee4647baa50856f36056bba41383440">Texture3DHandle</a> Chunk::dataTextureHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00048">48</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00062">_dataTextureHandle</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00161">World::scheduleChunkMeshing()</a>, and <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a24e40f1d75a4d970a2cfcde6714cccb5_icgraph.svg" width="632" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8797715288812a563a2d693e1c36bcf7" name="a8797715288812a563a2d693e1c36bcf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8797715288812a563a2d693e1c36bcf7">&#9670;&#160;</a></span>getBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,10 +252,82 @@ Private Attributes</h2></td></tr>
           <td class="memname">uint16_t Chunk::getBlock </td>
           <td>(</td>
           <td class="paramtype">glm::ivec3</td>          <td class="paramname"><span class="paramname"><em>lCoords</em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00028">28</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00053">_blockIDs</a>, and <a class="el" href="chunk_8h_source.html#l00054">idx()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk__data__texture_8cpp_source.html#l00012">ChunkDataTexture::build()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a8797715288812a563a2d693e1c36bcf7_cgraph.svg" width="276" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a8797715288812a563a2d693e1c36bcf7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abb300478f8c35295bdf2b11449e3fa11" name="abb300478f8c35295bdf2b11449e3fa11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb300478f8c35295bdf2b11449e3fa11">&#9670;&#160;</a></span>hasDataTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Chunk::hasDataTexture </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00058">58</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00062">_dataTextureHandle</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00161">World::scheduleChunkMeshing()</a>, and <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_abb300478f8c35295bdf2b11449e3fa11_icgraph.svg" width="611" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a06e3e2ed8cd156d52e675c889afeadec" name="a06e3e2ed8cd156d52e675c889afeadec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06e3e2ed8cd156d52e675c889afeadec">&#9670;&#160;</a></span>hasMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Chunk::hasMesh </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00053">53</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00061">_meshHandle</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00161">World::scheduleChunkMeshing()</a>, and <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a06e3e2ed8cd156d52e675c889afeadec_icgraph.svg" width="567" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -192,6 +353,15 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00055">55</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8cpp_source.html#l00073">coords()</a>, and <a class="el" href="chunk_8h_source.html#l00029">SIZE</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a6dc8643bb7bf4dc7f9fbcf870438bcae_cgraph.svg" width="263" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -227,6 +397,45 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00054">54</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00029">SIZE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00003">Chunk()</a>, <a class="el" href="chunk_8cpp_source.html#l00028">getBlock()</a>, and <a class="el" href="chunk_8cpp_source.html#l00022">setBlock()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_af5b9d738e0757cabc4ab3c2d7394ed88_icgraph.svg" width="100%" height="407"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac606a6c7d3bb95758fc6cc736f7a5aa8" name="ac606a6c7d3bb95758fc6cc736f7a5aa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac606a6c7d3bb95758fc6cc736f7a5aa8">&#9670;&#160;</a></span>meshHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="handle_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a> Chunk::meshHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00043">43</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00061">_meshHandle</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00161">World::scheduleChunkMeshing()</a>, and <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_ac606a6c7d3bb95758fc6cc736f7a5aa8_icgraph.svg" width="591" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a59a909d7a32f09b5010298e0035e1171" name="a59a909d7a32f09b5010298e0035e1171"></a>
@@ -248,10 +457,54 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00022">22</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00053">_blockIDs</a>, <a class="el" href="chunk_8h_source.html#l00064">_state</a>, <a class="el" href="chunk_8h_source.html#l00019">DIRTY</a>, and <a class="el" href="chunk_8h_source.html#l00054">idx()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="terrain__generator_8cpp_source.html#l00012">TerrainGenerator::generate()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a59a909d7a32f09b5010298e0035e1171_cgraph.svg" width="276" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a59a909d7a32f09b5010298e0035e1171_icgraph.svg" width="382" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
-<a id="a4df1bb472725a6b867b62c3bcb87d51a" name="a4df1bb472725a6b867b62c3bcb87d51a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4df1bb472725a6b867b62c3bcb87d51a">&#9670;&#160;</a></span>setMeshHandle()</h2>
+<a id="aea3d398455ebe053a99eec458cd293ff" name="aea3d398455ebe053a99eec458cd293ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea3d398455ebe053a99eec458cd293ff">&#9670;&#160;</a></span>setDataTextureHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chunk::setDataTextureHandle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="handle_8h.html#aaee4647baa50856f36056bba41383440">Texture3DHandle</a></td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00038">38</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00062">_dataTextureHandle</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_aea3d398455ebe053a99eec458cd293ff_icgraph.svg" width="386" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acacb69d0588428e4fda5b4572ee69053" name="acacb69d0588428e4fda5b4572ee69053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acacb69d0588428e4fda5b4572ee69053">&#9670;&#160;</a></span>setMeshHandle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,11 +512,83 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Chunk::setMeshHandle </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="handle_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a></td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00033">33</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00061">_meshHandle</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_acacb69d0588428e4fda5b4572ee69053_icgraph.svg" width="342" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a71e7e5f5d0cb9c883db07b096bedf0f9" name="a71e7e5f5d0cb9c883db07b096bedf0f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e7e5f5d0cb9c883db07b096bedf0f9">&#9670;&#160;</a></span>setState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chunk::setState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cc">ChunkState</a></td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00063">63</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00064">_state</a>, and <a class="el" href="chunk_8cpp_source.html#l00068">state()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a71e7e5f5d0cb9c883db07b096bedf0f9_cgraph.svg" width="287" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_a71e7e5f5d0cb9c883db07b096bedf0f9_icgraph.svg" width="295" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa42b5143c0229e52b12ae63c18559b17" name="aa42b5143c0229e52b12ae63c18559b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa42b5143c0229e52b12ae63c18559b17">&#9670;&#160;</a></span>state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cc">ChunkState</a> Chunk::state </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8cpp_source.html#l00068">68</a> of file <a class="el" href="chunk_8cpp_source.html">chunk.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="chunk_8h_source.html#l00064">_state</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00063">setState()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classChunk_aa42b5143c0229e52b12ae63c18559b17_icgraph.svg" width="446" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -288,10 +613,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00053">53</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00003">Chunk()</a>, <a class="el" href="chunk_8cpp_source.html#l00028">getBlock()</a>, and <a class="el" href="chunk_8cpp_source.html#l00022">setBlock()</a>.</p>
+
 </div>
 </div>
-<a id="a74098d4084f552af8adfe2710348558e" name="a74098d4084f552af8adfe2710348558e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74098d4084f552af8adfe2710348558e">&#9670;&#160;</a></span>_coords</h2>
+<a id="a14c2fbd1a20151d2056084d8dd2bc3ec" name="a14c2fbd1a20151d2056084d8dd2bc3ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14c2fbd1a20151d2056084d8dd2bc3ec">&#9670;&#160;</a></span>_coords</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -300,7 +629,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::ivec2 Chunk::_coords</td>
+          <td class="memname">glm::ivec3 Chunk::_coords</td>
         </tr>
       </table>
   </td>
@@ -310,10 +639,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00051">51</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00003">Chunk()</a>, and <a class="el" href="chunk_8cpp_source.html#l00073">coords()</a>.</p>
+
 </div>
 </div>
-<a id="a770cf171334c7e2e4345eb31ec08d808" name="a770cf171334c7e2e4345eb31ec08d808"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a770cf171334c7e2e4345eb31ec08d808">&#9670;&#160;</a></span>_meshHandle</h2>
+<a id="ab075e55753e98dcde8241ae3e5073c8b" name="ab075e55753e98dcde8241ae3e5073c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab075e55753e98dcde8241ae3e5073c8b">&#9670;&#160;</a></span>_dataTextureHandle</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +655,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Chunk::_meshHandle = 0</td>
+          <td class="memname">std::optional&lt;<a class="el" href="handle_8h.html#aaee4647baa50856f36056bba41383440">Texture3DHandle</a>&gt; Chunk::_dataTextureHandle</td>
         </tr>
       </table>
   </td>
@@ -331,6 +664,62 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00062">62</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00048">dataTextureHandle()</a>, <a class="el" href="chunk_8cpp_source.html#l00058">hasDataTexture()</a>, and <a class="el" href="chunk_8cpp_source.html#l00038">setDataTextureHandle()</a>.</p>
+
+</div>
+</div>
+<a id="ac9bab64111876061c91dd4da3ad635a6" name="ac9bab64111876061c91dd4da3ad635a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9bab64111876061c91dd4da3ad635a6">&#9670;&#160;</a></span>_meshHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;<a class="el" href="handle_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a>&gt; Chunk::_meshHandle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00061">61</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00053">hasMesh()</a>, <a class="el" href="chunk_8cpp_source.html#l00043">meshHandle()</a>, and <a class="el" href="chunk_8cpp_source.html#l00033">setMeshHandle()</a>.</p>
+
+</div>
+</div>
+<a id="a92665b36249bdeb0dd8e425713763206" name="a92665b36249bdeb0dd8e425713763206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92665b36249bdeb0dd8e425713763206">&#9670;&#160;</a></span>_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cc">ChunkState</a> Chunk::_state = <a class="el" href="chunk_8h.html#aecd1bd25caef95e2fb13284c3a1e14cca84d6eb3de75c97f966a354f3b635a376">ChunkState::NOT_GENERATED</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00064">64</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk_8cpp_source.html#l00022">setBlock()</a>, <a class="el" href="chunk_8cpp_source.html#l00063">setState()</a>, and <a class="el" href="chunk_8cpp_source.html#l00068">state()</a>.</p>
 
 </div>
 </div>
@@ -354,11 +743,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="chunk_8h_source.html#l00029">29</a> of file <a class="el" href="chunk_8h_source.html">chunk.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="chunk__data__texture_8cpp_source.html#l00012">ChunkDataTexture::build()</a>, <a class="el" href="chunk_8cpp_source.html#l00003">Chunk()</a>, <a class="el" href="terrain__generator_8cpp_source.html#l00012">TerrainGenerator::generate()</a>, <a class="el" href="chunk__mesher_8cpp_source.html#l00281">ChunkMesher::getMeshData()</a>, <a class="el" href="chunk_8h_source.html#l00055">idx()</a>, <a class="el" href="chunk_8h_source.html#l00054">idx()</a>, <a class="el" href="game_8cpp_source.html#l00094">Game::render()</a>, <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>, and <a class="el" href="chunk__data__texture_8cpp_source.html#l00038">ChunkDataTexture::upload()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/game/<a class="el" href="chunk_8h_source.html">chunk.h</a></li>
-<li>src/game/<a class="el" href="chunk_8cpp.html">chunk.cpp</a></li>
+<li>src/game/<a class="el" href="chunk_8cpp_source.html">chunk.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

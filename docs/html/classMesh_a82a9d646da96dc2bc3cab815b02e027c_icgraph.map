@@ -1,0 +1,7 @@
+<map id="Mesh::idxCount" name="Mesh::idxCount">
+<area shape="rect" id="Node000001" title=" " alt="" coords="402,5,524,33"/>
+<area shape="rect" id="Node000002" href="$classRenderer.html#af5bd16f725e90fd7c61956551df756bd" title=" " alt="" coords="184,5,354,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="384,19,355,22,355,17,389,19"/>
+<area shape="rect" id="Node000003" href="$classRenderer.html#a80e9db2724eb31ddd80dfcf5c8f94b97" title="Renders the desired chunks for the given camera." alt="" coords="5,5,136,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="166,19,136,22,136,17,171,19"/>
+</map>

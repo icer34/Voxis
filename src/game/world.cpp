@@ -2,18 +2,18 @@
 
 #include <cmath>
 
-#include "graphics/chunk_data_texture.h"
 #include "graphics/chunk_mesher.h"
-#include "graphics/renderer.h"
+#include "graphics/vulkan/renderer.h"
+#include "chunk_data_texture.h"
 #include "util/directions.h"
 #include "util/log.h"
 
 World::World(const uint64_t seed, BlockRegistry& registry, BlockAtlas& atlas, Renderer& renderer)
     : _seed(seed),
-      _terrainGenerator(_seed, registry),
       _renderer(renderer),
       _atlas(atlas),
       _registry(registry),
+      _terrainGenerator(_seed, registry),
       _threadPool(std::thread::hardware_concurrency() - 1)
 {
 }
@@ -44,9 +44,13 @@ void World::update(double dt, glm::vec3 playerPos)
         _chunks.erase(coords);
     }
 
-    // sne dthe chunk generation jobs to the thread pool
+    // pass 1: insert all the new chunk placeholders on the main thread FIRST, before dispatching
+    // any job - this guarantees no _chunks insertion ever happens while a generation job from this
+    // same batch is already running on a worker thread (try_emplace is not safe to call
+    // concurrently with something else holding a reference into the map, even if references to
+    // existing elements stay valid across a rehash)
     uint32_t generatedChunks = 0;
-    std::vector<std::pair<glm::ivec3, std::future<void>>> generationJobs;
+    std::vector<glm::ivec3> toGenerate;
     for (int r = 0; r < RENDER_DISTANCE && generatedChunks < MAX_CHUNK_LOADS_PER_TICK; r++)
     {
         for (int x = -r; x <= r && generatedChunks < MAX_CHUNK_LOADS_PER_TICK; x++)
@@ -62,13 +66,21 @@ void World::update(double dt, glm::vec3 playerPos)
                     if (_chunks.contains(chunkCoord))
                         continue;
 
-                    generationJobs.emplace_back(chunkCoord, scheduleChunkGeneration(chunkCoord));
+                    insertChunk(chunkCoord);
+                    toGenerate.push_back(chunkCoord);
 
                     generatedChunks++;
                 }
             }
         }
     }
+
+    // pass 2: _chunks is now stable (no more insertions until the next tick) - safe to dispatch
+    // every generation job
+    std::vector<std::pair<glm::ivec3, std::future<void>>> generationJobs;
+    generationJobs.reserve(toGenerate.size());
+    for (glm::ivec3 coords : toGenerate)
+        generationJobs.emplace_back(coords, scheduleChunkGeneration(_chunks.at(coords)));
 
     // wait for all the generation to be finished before meshing
     for (auto& [coords, future] : generationJobs)
@@ -130,14 +142,19 @@ void World::update(double dt, glm::vec3 playerPos)
     }
 }
 
-std::future<void> World::scheduleChunkGeneration(glm::ivec3 coords)
+Chunk& World::insertChunk(glm::ivec3 coords)
 {
-    // place a dummy chunk in the _chunks map
+    // place a dummy chunk in the _chunks map - main thread only, must never overlap in time with a
+    // job that's already running (see the pass 1 / pass 2 split in update())
     auto [it, result] = _chunks.try_emplace(coords, coords);
     if (!result)
         VoxisLog::critical("Failed to insert chunk, coords = [{}, {}, {}]", coords.x, coords.y, coords.z);
 
-    Chunk& chunk = it->second;
+    return it->second;
+}
+
+std::future<void> World::scheduleChunkGeneration(Chunk& chunk)
+{
     return _threadPool.submit([this, &chunk] { _terrainGenerator.generate(chunk); });
 }
 

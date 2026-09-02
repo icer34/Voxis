@@ -1,0 +1,7 @@
+<map id="BlockAtlas::BlockAtlas" name="BlockAtlas::BlockAtlas">
+<area shape="rect" id="Node000001" title="Loads all the textures in the folder &quot;assets/textures/block&quot;, builds the mips and uploads the result ..." alt="" coords="5,32,173,60"/>
+<area shape="rect" id="Node000002" href="$namespaceVoxisLog.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="221,5,352,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,32,207,30,202,31,173,37"/>
+<area shape="rect" id="Node000003" href="$namespaceVoxisLog.html#a89d44efd3d8aab54fedc94f68218a382" title=" " alt="" coords="227,57,346,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,54,214,61,209,62,173,59"/>
+</map>

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['camera_2ecpp_0',['camera.cpp',['../camera_8cpp.html',1,'']]],
-  ['camera_2eh_1',['camera.h',['../camera_8h.html',1,'']]],
-  ['chunk_2ecpp_2',['chunk.cpp',['../chunk_8cpp.html',1,'']]],
-  ['chunk_2eh_3',['chunk.h',['../chunk_8h.html',1,'']]],
-  ['chunk_5fmesher_2ecpp_4',['chunk_mesher.cpp',['../chunk__mesher_8cpp.html',1,'']]],
-  ['chunk_5fmesher_2eh_5',['chunk_mesher.h',['../chunk__mesher_8h.html',1,'']]]
+  ['block_5fatlas_2ecpp_0',['block_atlas.cpp',['../block__atlas_8cpp.html',1,'']]],
+  ['block_5fatlas_2eh_1',['block_atlas.h',['../block__atlas_8h.html',1,'']]],
+  ['block_5fregistry_2ecpp_2',['block_registry.cpp',['../block__registry_8cpp.html',1,'']]],
+  ['block_5fregistry_2eh_3',['block_registry.h',['../block__registry_8h.html',1,'']]]
 ];

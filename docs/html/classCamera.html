@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +97,9 @@ $(function(){initNavTree('classCamera.html','','classCamera-members'); });
 </div><!--header-->
 <div class="contents">
 
+<p>A first-person camera providing view/projection matrices, movement, rotation and zoom.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="camera_8h_source.html">camera.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -137,7 +145,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a296e964501355bec3674b3e9bbcf3c09" id="r_a296e964501355bec3674b3e9bbcf3c09"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a296e964501355bec3674b3e9bbcf3c09">MAX_FOV</a> = 130</td></tr>
 <tr class="memitem:ac68212220914726b137939460dd4d8e4" id="r_ac68212220914726b137939460dd4d8e4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac68212220914726b137939460dd4d8e4">ZOOM_STEP</a> = 3.0f</td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A first-person camera providing view/projection matrices, movement, rotation and zoom. </p>
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00009">9</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a272c5c1af2428eb8254f33a0b35231e8" name="a272c5c1af2428eb8254f33a0b35231e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a272c5c1af2428eb8254f33a0b35231e8">&#9670;&#160;</a></span>Camera()</h2>
 
@@ -152,6 +164,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00008">8</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00048">_fovDeg</a>, <a class="el" href="camera_8h_source.html#l00044">_pitch</a>, <a class="el" href="camera_8h_source.html#l00037">_pos</a>, <a class="el" href="camera_8h_source.html#l00051">_sens</a>, <a class="el" href="camera_8h_source.html#l00041">_worldUp</a>, <a class="el" href="camera_8h_source.html#l00043">_yaw</a>, <a class="el" href="camera_8h_source.html#l00047">_zFar</a>, <a class="el" href="camera_8h_source.html#l00046">_zNear</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCamera_a272c5c1af2428eb8254f33a0b35231e8_cgraph.svg" width="364" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -171,6 +192,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00104">104</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00049">_aspectRatio</a>.</p>
+
 </div>
 </div>
 <a id="abede0c7fe76eb813328b1dd39fd2c43d" name="abede0c7fe76eb813328b1dd39fd2c43d"></a>
@@ -188,6 +213,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00089">89</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00048">_fovDeg</a>.</p>
+
 </div>
 </div>
 <a id="a35236a53be5652632aa351adae214d91" name="a35236a53be5652632aa351adae214d91"></a>
@@ -204,6 +233,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00074">74</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00038">_front</a>.</p>
 
 </div>
 </div>
@@ -230,6 +263,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00114">114</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00044">_pitch</a>.</p>
+
 </div>
 </div>
 <a id="a69c95c2a609960d4597f95d6d05632f1" name="a69c95c2a609960d4597f95d6d05632f1"></a>
@@ -246,6 +283,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00069">69</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00037">_pos</a>.</p>
 
 </div>
 </div>
@@ -264,6 +305,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00026">26</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00049">_aspectRatio</a>, <a class="el" href="camera_8h_source.html#l00048">_fovDeg</a>, <a class="el" href="camera_8h_source.html#l00047">_zFar</a>, and <a class="el" href="camera_8h_source.html#l00046">_zNear</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l00047">Renderer::render()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCamera_a3bb21fdfb8bd8974c880a33741a549df_icgraph.svg" width="398" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="aa21e94d4bfd57c15897a8a2948d6356c" name="aa21e94d4bfd57c15897a8a2948d6356c"></a>
@@ -280,6 +332,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00079">79</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00040">_right</a>.</p>
 
 </div>
 </div>
@@ -298,6 +354,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00084">84</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00039">_up</a>.</p>
+
 </div>
 </div>
 <a id="a2f90e661a78172675ca06ea69667b531" name="a2f90e661a78172675ca06ea69667b531"></a>
@@ -314,6 +374,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00021">21</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00038">_front</a>, <a class="el" href="camera_8h_source.html#l00037">_pos</a>, and <a class="el" href="camera_8h_source.html#l00039">_up</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l00047">Renderer::render()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCamera_a2f90e661a78172675ca06ea69667b531_icgraph.svg" width="364" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -340,6 +411,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00109">109</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00043">_yaw</a>.</p>
+
 </div>
 </div>
 <a id="ad083519837cdbb73f7387f5883270cee" name="ad083519837cdbb73f7387f5883270cee"></a>
@@ -356,6 +431,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00099">99</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00047">_zFar</a>.</p>
 
 </div>
 </div>
@@ -374,6 +453,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00094">94</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00046">_zNear</a>.</p>
+
 </div>
 </div>
 <a id="a3fa2f8b142cd40df3e101797ab731665" name="a3fa2f8b142cd40df3e101797ab731665"></a>
@@ -390,6 +473,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00034">34</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00037">_pos</a>.</p>
 
 </div>
 </div>
@@ -412,6 +499,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00049">49</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00044">_pitch</a>, <a class="el" href="camera_8h_source.html#l00051">_sens</a>, <a class="el" href="camera_8h_source.html#l00043">_yaw</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCamera_ad4c3a6460da070892748bbe01392302e_cgraph.svg" width="352" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a23f49228d98b7de0feea62720b98f142" name="a23f49228d98b7de0feea62720b98f142"></a>
@@ -429,6 +525,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00044">44</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00049">_aspectRatio</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l00047">Renderer::render()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCamera_a23f49228d98b7de0feea62720b98f142_icgraph.svg" width="368" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a27629670cefe0bcfc657d235548732fa" name="a27629670cefe0bcfc657d235548732fa"></a>
@@ -445,6 +552,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00039">39</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00037">_pos</a>.</p>
 
 </div>
 </div>
@@ -471,6 +582,17 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00119">119</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00038">_front</a>, <a class="el" href="camera_8h_source.html#l00044">_pitch</a>, <a class="el" href="camera_8h_source.html#l00040">_right</a>, <a class="el" href="camera_8h_source.html#l00039">_up</a>, <a class="el" href="camera_8h_source.html#l00041">_worldUp</a>, and <a class="el" href="camera_8h_source.html#l00043">_yaw</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, and <a class="el" href="camera_8cpp_source.html#l00049">rotate()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCamera_a8ab6d3d48783559ee14e3ab294a5f771_icgraph.svg" width="364" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="ab4c0c858c8574480faf43f4437ba6e87" name="ab4c0c858c8574480faf43f4437ba6e87"></a>
@@ -487,6 +609,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8cpp_source.html#l00062">62</a> of file <a class="el" href="camera_8cpp_source.html">camera.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="camera_8h_source.html#l00048">_fovDeg</a>, <a class="el" href="camera_8h_source.html#l00054">MAX_FOV</a>, <a class="el" href="camera_8h_source.html#l00053">MIN_FOV</a>, and <a class="el" href="camera_8h_source.html#l00055">ZOOM_STEP</a>.</p>
 
 </div>
 </div>
@@ -511,6 +637,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00049">49</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00104">getAspectRatio()</a>, <a class="el" href="camera_8cpp_source.html#l00026">getProjectionMatrix()</a>, and <a class="el" href="camera_8cpp_source.html#l00044">setAspectRatio()</a>.</p>
+
 </div>
 </div>
 <a id="aa228dbec7ba0bb9a40346baf505c0fdc" name="aa228dbec7ba0bb9a40346baf505c0fdc"></a>
@@ -532,6 +662,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00048">48</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, <a class="el" href="camera_8cpp_source.html#l00089">getFOV()</a>, <a class="el" href="camera_8cpp_source.html#l00026">getProjectionMatrix()</a>, and <a class="el" href="camera_8cpp_source.html#l00062">zoom()</a>.</p>
 
 </div>
 </div>
@@ -555,6 +689,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00038">38</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00074">getFront()</a>, <a class="el" href="camera_8cpp_source.html#l00021">getViewMatrix()</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
+
 </div>
 </div>
 <a id="a685190408518a0fac51af843fb6a5473" name="a685190408518a0fac51af843fb6a5473"></a>
@@ -576,6 +714,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00044">44</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, <a class="el" href="camera_8cpp_source.html#l00114">getPitch()</a>, <a class="el" href="camera_8cpp_source.html#l00049">rotate()</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
 
 </div>
 </div>
@@ -599,6 +741,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00037">37</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, <a class="el" href="camera_8cpp_source.html#l00069">getPos()</a>, <a class="el" href="camera_8cpp_source.html#l00021">getViewMatrix()</a>, <a class="el" href="camera_8cpp_source.html#l00034">move()</a>, and <a class="el" href="camera_8cpp_source.html#l00039">setPos()</a>.</p>
+
 </div>
 </div>
 <a id="a4c556280ed181d8589c28eec7ebebb49" name="a4c556280ed181d8589c28eec7ebebb49"></a>
@@ -620,6 +766,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00040">40</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00079">getRight()</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
 
 </div>
 </div>
@@ -643,6 +793,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00051">51</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, and <a class="el" href="camera_8cpp_source.html#l00049">rotate()</a>.</p>
+
 </div>
 </div>
 <a id="a323a698e4c5773ee3ec380851b145e2d" name="a323a698e4c5773ee3ec380851b145e2d"></a>
@@ -664,6 +818,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00039">39</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00084">getUp()</a>, <a class="el" href="camera_8cpp_source.html#l00021">getViewMatrix()</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
 
 </div>
 </div>
@@ -687,6 +845,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00041">41</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
+
 </div>
 </div>
 <a id="a20b2e0a12e053acd7cb5bf7acc1e36ba" name="a20b2e0a12e053acd7cb5bf7acc1e36ba"></a>
@@ -708,6 +870,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00043">43</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, <a class="el" href="camera_8cpp_source.html#l00109">getYaw()</a>, <a class="el" href="camera_8cpp_source.html#l00049">rotate()</a>, and <a class="el" href="camera_8cpp_source.html#l00119">updateVectors()</a>.</p>
 
 </div>
 </div>
@@ -731,6 +897,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00047">47</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, <a class="el" href="camera_8cpp_source.html#l00026">getProjectionMatrix()</a>, and <a class="el" href="camera_8cpp_source.html#l00099">getZFar()</a>.</p>
+
 </div>
 </div>
 <a id="ad4d73ea5e96a6e66e418043d2bb561e1" name="ad4d73ea5e96a6e66e418043d2bb561e1"></a>
@@ -752,6 +922,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00046">46</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00008">Camera()</a>, <a class="el" href="camera_8cpp_source.html#l00026">getProjectionMatrix()</a>, and <a class="el" href="camera_8cpp_source.html#l00094">getZNear()</a>.</p>
 
 </div>
 </div>
@@ -775,6 +949,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00054">54</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00062">zoom()</a>.</p>
+
 </div>
 </div>
 <a id="ac55bfcb6f28857b9b4f17a262c6ab853" name="ac55bfcb6f28857b9b4f17a262c6ab853"></a>
@@ -796,6 +974,10 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00053">53</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00062">zoom()</a>.</p>
 
 </div>
 </div>
@@ -819,11 +1001,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00055">55</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="camera_8cpp_source.html#l00062">zoom()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/graphics/<a class="el" href="camera_8h_source.html">camera.h</a></li>
-<li>src/graphics/<a class="el" href="camera_8cpp.html">camera.cpp</a></li>
+<li>src/graphics/<a class="el" href="camera_8cpp_source.html">camera.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

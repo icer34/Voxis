@@ -2,7 +2,7 @@
 
 #include <array>
 
-#include "mesh.h"
+#include "vulkan/mesh.h"
 #include "game/chunk.h"
 #include "game/block_registry.h"
 

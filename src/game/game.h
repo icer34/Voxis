@@ -3,13 +3,13 @@
 #include <memory>
 
 #include "platform/window.h"
-#include "graphics/renderer.h"
+#include "graphics/vulkan/renderer.h"
 #include "graphics/camera.h"
 #include "graphics/block_atlas.h"
+#include "graphics/hud/hud.h"
 #include "block_registry.h"
 #include "chunk.h"
 #include "world.h"
-#include "hud.h"
 
 /**
  * @brief Owns the window, renderer and camera, and drives the main game loop

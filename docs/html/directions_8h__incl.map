@@ -1,0 +1,9 @@
+<map id="src/util/directions.h" name="src/util/directions.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,195,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,71,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,33,66,73,63,69,105,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="94,81,150,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,32,124,66,120,64,120,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="174,81,278,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="141,31,198,72,193,73,140,36"/>
+</map>

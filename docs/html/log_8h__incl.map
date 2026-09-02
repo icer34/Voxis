@@ -1,7 +1,7 @@
-<map id="src/log.h" name="src/log.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="79,5,150,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,118,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,30,82,68,78,64,104,32"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="142,79,194,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,29,153,66,147,66,122,34"/>
+<map id="src/util/log.h" name="src/util/log.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="74,5,175,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,129,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,32,88,71,85,67,112,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="153,81,213,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,31,166,69,160,69,134,36"/>
 </map>

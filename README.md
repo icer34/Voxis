@@ -1,5 +1,3 @@
-# Voxis
-
 <p align="center">
   <img src="docs/logo.png" alt="Voxis logo" width="400"/>
 </p>

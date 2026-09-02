@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +97,9 @@ $(function(){initNavTree('classGame.html','','classGame-members'); });
 </div><!--header-->
 <div class="contents">
 
+<p>Owns the window, renderer and camera, and drives the main game loop.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="game_8h_source.html">game.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -103,6 +111,7 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a6f3a33940524b6ba9d83f627ccb14bbf" id="r_a6f3a33940524b6ba9d83f627ccb14bbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f3a33940524b6ba9d83f627ccb14bbf">init</a> ()</td></tr>
 <tr class="memitem:a79df6376b332d63c9eca0dcee30305c3" id="r_a79df6376b332d63c9eca0dcee30305c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79df6376b332d63c9eca0dcee30305c3">update</a> ()</td></tr>
+<tr class="memitem:adf1634a2d0c22f30f7c57e72fd2831bc" id="r_adf1634a2d0c22f30f7c57e72fd2831bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf1634a2d0c22f30f7c57e72fd2831bc">tick</a> ()</td></tr>
 <tr class="memitem:a15ddd769261d923827a3cdf41499c843" id="r_a15ddd769261d923827a3cdf41499c843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15ddd769261d923827a3cdf41499c843">render</a> ()</td></tr>
 <tr class="memitem:aee1b95e6fd0cb0f441c3b7cef73b1abe" id="r_aee1b95e6fd0cb0f441c3b7cef73b1abe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee1b95e6fd0cb0f441c3b7cef73b1abe">shutdown</a> ()</td></tr>
 </table><table class="memberdecls">
@@ -111,11 +120,25 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ad7fc883a02bd1d6ac5b7430f1a2ffa23" id="r_ad7fc883a02bd1d6ac5b7430f1a2ffa23"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classWindow.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7fc883a02bd1d6ac5b7430f1a2ffa23">_window</a> = nullptr</td></tr>
 <tr class="memitem:a7e17dfb05583f86f25c27fd91e9a2b71" id="r_a7e17dfb05583f86f25c27fd91e9a2b71"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e17dfb05583f86f25c27fd91e9a2b71">_renderer</a> = nullptr</td></tr>
 <tr class="memitem:a94d4b7afb1641b28cbe2caafdf40410a" id="r_a94d4b7afb1641b28cbe2caafdf40410a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classCamera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94d4b7afb1641b28cbe2caafdf40410a">_camera</a> = nullptr</td></tr>
-<tr class="memitem:a7cf3a5596161900d496707a4f6f885b6" id="r_a7cf3a5596161900d496707a4f6f885b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="renderer_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cf3a5596161900d496707a4f6f885b6">_testMeshHandle</a> { 0 }</td></tr>
-<tr class="memitem:ab498d59dcf6edeae1cb148446b7baeb2" id="r_ab498d59dcf6edeae1cb148446b7baeb2"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab498d59dcf6edeae1cb148446b7baeb2">_testModelMat</a> = glm::mat4(1.0f)</td></tr>
+<tr class="memitem:afe0209014de30396e2963ad37eea5416" id="r_afe0209014de30396e2963ad37eea5416"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classBlockAtlas.html">BlockAtlas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe0209014de30396e2963ad37eea5416">_blockAtlas</a> = nullptr</td></tr>
+<tr class="memitem:a493a9904dbfabf09dfaa5cbcf443c109" id="r_a493a9904dbfabf09dfaa5cbcf443c109"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classBlockRegistry.html">BlockRegistry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a493a9904dbfabf09dfaa5cbcf443c109">_blockRegistry</a> = nullptr</td></tr>
+<tr class="memitem:a004cdc1a9cbeea6f5badfc91ed478e46" id="r_a004cdc1a9cbeea6f5badfc91ed478e46"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classWorld.html">World</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a004cdc1a9cbeea6f5badfc91ed478e46">_world</a> = nullptr</td></tr>
+<tr class="memitem:a121716f55b694eef04bbfb62c10b7e14" id="r_a121716f55b694eef04bbfb62c10b7e14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHud.html">Hud</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a121716f55b694eef04bbfb62c10b7e14">_hud</a></td></tr>
 <tr class="memitem:ad49d4f26651096d12c72d4c6a8a76a6d" id="r_ad49d4f26651096d12c72d4c6a8a76a6d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad49d4f26651096d12c72d4c6a8a76a6d">_lastFrameTime</a> = 0.0</td></tr>
+<tr class="memitem:a81c77a738a15fc9562f2f6a20be7338e" id="r_a81c77a738a15fc9562f2f6a20be7338e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c77a738a15fc9562f2f6a20be7338e">_dt</a> = 0.0</td></tr>
+<tr class="memitem:aced166394f8f2c18126b0908f7a4de36" id="r_aced166394f8f2c18126b0908f7a4de36"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aced166394f8f2c18126b0908f7a4de36">_tickAccumulator</a> = 0.0</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:acecb323d1a79efebcb6e2be706065d16" id="r_acecb323d1a79efebcb6e2be706065d16"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acecb323d1a79efebcb6e2be706065d16">TICK_RATE</a> = 20.0</td></tr>
+<tr class="memitem:a6728a8479dccb0596e7f5cab5e9ef3d2" id="r_a6728a8479dccb0596e7f5cab5e9ef3d2"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6728a8479dccb0596e7f5cab5e9ef3d2">TICK_DT</a> = 1.0 / <a class="el" href="#acecb323d1a79efebcb6e2be706065d16">TICK_RATE</a></td></tr>
+<tr class="memitem:a561144447754db22bf60ae86cb1f9092" id="r_a561144447754db22bf60ae86cb1f9092"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a561144447754db22bf60ae86cb1f9092">MAX_ACCUMULATED_TIME</a> = 0.25</td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Owns the window, renderer and camera, and drives the main game loop. </p>
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00018">18</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad59df6562a58a614fda24622d3715b65" name="ad59df6562a58a614fda24622d3715b65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad59df6562a58a614fda24622d3715b65">&#9670;&#160;</a></span>Game()</h2>
 
@@ -130,6 +153,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8cpp_source.html#l00007">7</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
 
 </div>
 </div>
@@ -157,6 +182,17 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="game_8cpp_source.html#l00023">23</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="game_8h_source.html#l00029">_blockAtlas</a>, <a class="el" href="game_8h_source.html#l00030">_blockRegistry</a>, <a class="el" href="game_8h_source.html#l00028">_camera</a>, <a class="el" href="game_8h_source.html#l00034">_lastFrameTime</a>, <a class="el" href="game_8h_source.html#l00027">_renderer</a>, <a class="el" href="game_8h_source.html#l00026">_window</a>, and <a class="el" href="game_8h_source.html#l00031">_world</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00009">run()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_a6f3a33940524b6ba9d83f627ccb14bbf_icgraph.svg" width="340" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a15ddd769261d923827a3cdf41499c843" name="a15ddd769261d923827a3cdf41499c843"></a>
@@ -182,6 +218,17 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="game_8cpp_source.html#l00094">94</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="game_8h_source.html#l00029">_blockAtlas</a>, <a class="el" href="game_8h_source.html#l00028">_camera</a>, <a class="el" href="game_8h_source.html#l00035">_dt</a>, <a class="el" href="game_8h_source.html#l00032">_hud</a>, <a class="el" href="game_8h_source.html#l00027">_renderer</a>, <a class="el" href="game_8h_source.html#l00031">_world</a>, <a class="el" href="renderer_8h_source.html#l00045">PushConstants::atlasTilesPerRow</a>, <a class="el" href="renderer_8h_source.html#l00041">PushConstants::blockAtlasTextureIndex</a>, <a class="el" href="renderer_8h_source.html#l00042">PushConstants::chunkDataTextureIndex</a>, <a class="el" href="renderer_8h_source.html#l00040">PushConstants::modelMat</a>, and <a class="el" href="chunk_8h_source.html#l00029">Chunk::SIZE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00009">run()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_a15ddd769261d923827a3cdf41499c843_icgraph.svg" width="362" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a1ab78f5ed0d5ea879157357cf2fb2afa" name="a1ab78f5ed0d5ea879157357cf2fb2afa"></a>
@@ -198,6 +245,22 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8cpp_source.html#l00009">9</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="game_8h_source.html#l00026">_window</a>, <a class="el" href="game_8cpp_source.html#l00023">init()</a>, <a class="el" href="game_8cpp_source.html#l00094">render()</a>, <a class="el" href="game_8cpp_source.html#l00115">shutdown()</a>, and <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00005">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_a1ab78f5ed0d5ea879157357cf2fb2afa_cgraph.svg" width="420" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_a1ab78f5ed0d5ea879157357cf2fb2afa_icgraph.svg" width="203" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -224,6 +287,51 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="game_8cpp_source.html#l00115">115</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00009">run()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_aee1b95e6fd0cb0f441c3b7cef73b1abe_icgraph.svg" width="382" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adf1634a2d0c22f30f7c57e72fd2831bc" name="adf1634a2d0c22f30f7c57e72fd2831bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf1634a2d0c22f30f7c57e72fd2831bc">&#9670;&#160;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::tick </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8cpp_source.html#l00087">87</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="game_8h_source.html#l00028">_camera</a>, <a class="el" href="game_8h_source.html#l00032">_hud</a>, <a class="el" href="game_8h_source.html#l00026">_window</a>, <a class="el" href="game_8h_source.html#l00031">_world</a>, and <a class="el" href="game_8h_source.html#l00039">TICK_DT</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_adf1634a2d0c22f30f7c57e72fd2831bc_icgraph.svg" width="504" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a79df6376b332d63c9eca0dcee30305c3" name="a79df6376b332d63c9eca0dcee30305c3"></a>
@@ -249,9 +357,77 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="game_8cpp_source.html#l00035">35</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="game_8h_source.html#l00028">_camera</a>, <a class="el" href="game_8h_source.html#l00035">_dt</a>, <a class="el" href="game_8h_source.html#l00034">_lastFrameTime</a>, <a class="el" href="game_8h_source.html#l00041">_tickAccumulator</a>, <a class="el" href="game_8h_source.html#l00026">_window</a>, <a class="el" href="window_8h_source.html#l00016">A</a>, <a class="el" href="window_8h_source.html#l00018">D</a>, <a class="el" href="window_8h_source.html#l00022">Esc</a>, <a class="el" href="window_8h_source.html#l00020">LShift</a>, <a class="el" href="game_8h_source.html#l00040">MAX_ACCUMULATED_TIME</a>, <a class="el" href="window_8h_source.html#l00017">S</a>, <a class="el" href="window_8h_source.html#l00019">Space</a>, <a class="el" href="game_8cpp_source.html#l00087">tick()</a>, <a class="el" href="game_8h_source.html#l00039">TICK_DT</a>, and <a class="el" href="window_8h_source.html#l00015">W</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00009">run()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_a79df6376b332d63c9eca0dcee30305c3_cgraph.svg" width="264" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGame_a79df6376b332d63c9eca0dcee30305c3_icgraph.svg" width="364" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="afe0209014de30396e2963ad37eea5416" name="afe0209014de30396e2963ad37eea5416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe0209014de30396e2963ad37eea5416">&#9670;&#160;</a></span>_blockAtlas</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classBlockAtlas.html">BlockAtlas</a>&gt; Game::_blockAtlas = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00029">29</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00023">init()</a>, and <a class="el" href="game_8cpp_source.html#l00094">render()</a>.</p>
+
+</div>
+</div>
+<a id="a493a9904dbfabf09dfaa5cbcf443c109" name="a493a9904dbfabf09dfaa5cbcf443c109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a493a9904dbfabf09dfaa5cbcf443c109">&#9670;&#160;</a></span>_blockRegistry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classBlockRegistry.html">BlockRegistry</a>&gt; Game::_blockRegistry = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00030">30</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00023">init()</a>.</p>
+
+</div>
+</div>
 <a id="a94d4b7afb1641b28cbe2caafdf40410a" name="a94d4b7afb1641b28cbe2caafdf40410a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94d4b7afb1641b28cbe2caafdf40410a">&#9670;&#160;</a></span>_camera</h2>
 
@@ -271,6 +447,62 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00028">28</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00023">init()</a>, <a class="el" href="game_8cpp_source.html#l00094">render()</a>, <a class="el" href="game_8cpp_source.html#l00087">tick()</a>, and <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+
+</div>
+</div>
+<a id="a81c77a738a15fc9562f2f6a20be7338e" name="a81c77a738a15fc9562f2f6a20be7338e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c77a738a15fc9562f2f6a20be7338e">&#9670;&#160;</a></span>_dt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Game::_dt = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00035">35</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00094">render()</a>, and <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+
+</div>
+</div>
+<a id="a121716f55b694eef04bbfb62c10b7e14" name="a121716f55b694eef04bbfb62c10b7e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a121716f55b694eef04bbfb62c10b7e14">&#9670;&#160;</a></span>_hud</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHud.html">Hud</a> Game::_hud</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00032">32</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00094">render()</a>, and <a class="el" href="game_8cpp_source.html#l00087">tick()</a>.</p>
 
 </div>
 </div>
@@ -294,6 +526,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00034">34</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00023">init()</a>, and <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+
 </div>
 </div>
 <a id="a7e17dfb05583f86f25c27fd91e9a2b71" name="a7e17dfb05583f86f25c27fd91e9a2b71"></a>
@@ -316,10 +552,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00027">27</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00023">init()</a>, and <a class="el" href="game_8cpp_source.html#l00094">render()</a>.</p>
+
 </div>
 </div>
-<a id="a7cf3a5596161900d496707a4f6f885b6" name="a7cf3a5596161900d496707a4f6f885b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cf3a5596161900d496707a4f6f885b6">&#9670;&#160;</a></span>_testMeshHandle</h2>
+<a id="aced166394f8f2c18126b0908f7a4de36" name="aced166394f8f2c18126b0908f7a4de36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aced166394f8f2c18126b0908f7a4de36">&#9670;&#160;</a></span>_tickAccumulator</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,7 +568,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="renderer_8h.html#a526875cb88b0b3cc51ecdb024e2f3599">MeshHandle</a> Game::_testMeshHandle { 0 }</td>
+          <td class="memname">double Game::_tickAccumulator = 0.0</td>
         </tr>
       </table>
   </td>
@@ -338,27 +578,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ab498d59dcf6edeae1cb148446b7baeb2" name="ab498d59dcf6edeae1cb148446b7baeb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab498d59dcf6edeae1cb148446b7baeb2">&#9670;&#160;</a></span>_testModelMat</h2>
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00041">41</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::mat4 Game::_testModelMat = glm::mat4(1.0f)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
 
 </div>
 </div>
@@ -382,11 +604,117 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00026">26</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00023">init()</a>, <a class="el" href="game_8cpp_source.html#l00009">run()</a>, <a class="el" href="game_8cpp_source.html#l00087">tick()</a>, and <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+
+</div>
+</div>
+<a id="a004cdc1a9cbeea6f5badfc91ed478e46" name="a004cdc1a9cbeea6f5badfc91ed478e46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a004cdc1a9cbeea6f5badfc91ed478e46">&#9670;&#160;</a></span>_world</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classWorld.html">World</a>&gt; Game::_world = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00031">31</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00023">init()</a>, <a class="el" href="game_8cpp_source.html#l00094">render()</a>, and <a class="el" href="game_8cpp_source.html#l00087">tick()</a>.</p>
+
+</div>
+</div>
+<a id="a561144447754db22bf60ae86cb1f9092" name="a561144447754db22bf60ae86cb1f9092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a561144447754db22bf60ae86cb1f9092">&#9670;&#160;</a></span>MAX_ACCUMULATED_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Game::MAX_ACCUMULATED_TIME = 0.25</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00040">40</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+
+</div>
+</div>
+<a id="a6728a8479dccb0596e7f5cab5e9ef3d2" name="a6728a8479dccb0596e7f5cab5e9ef3d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6728a8479dccb0596e7f5cab5e9ef3d2">&#9670;&#160;</a></span>TICK_DT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Game::TICK_DT = 1.0 / <a class="el" href="#acecb323d1a79efebcb6e2be706065d16">TICK_RATE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00039">39</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00087">tick()</a>, and <a class="el" href="game_8cpp_source.html#l00035">update()</a>.</p>
+
+</div>
+</div>
+<a id="acecb323d1a79efebcb6e2be706065d16" name="acecb323d1a79efebcb6e2be706065d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acecb323d1a79efebcb6e2be706065d16">&#9670;&#160;</a></span>TICK_RATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Game::TICK_RATE = 20.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00038">38</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/game/<a class="el" href="game_8h_source.html">game.h</a></li>
-<li>src/game/<a class="el" href="game_8cpp.html">game.cpp</a></li>
+<li>src/game/<a class="el" href="game_8cpp_source.html">game.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

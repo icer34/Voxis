@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <future>
 
-#include "graphics/mesh.h"
+#include "graphics/vulkan/mesh.h"
 #include "terrain_generator.h"
 #include "util/thread_pool.h"
 
@@ -54,7 +54,7 @@ public:
 
 private:
     constexpr static int RENDER_DISTANCE = 10;
-    constexpr static uint32_t MAX_CHUNK_LOADS_PER_TICK = 100;
+    constexpr static uint32_t MAX_CHUNK_LOADS_PER_TICK = 50;
 
     uint64_t _seed;
 
@@ -68,6 +68,7 @@ private:
 
     std::unordered_map<glm::ivec3, Chunk> _chunks;
 
-    std::future<void> scheduleChunkGeneration(glm::ivec3 coords);
+    Chunk& insertChunk(glm::ivec3 coords);
+    std::future<void> scheduleChunkGeneration(Chunk& chunk);
     std::future<MeshJobResult> scheduleChunkMeshing(Chunk& chunk, std::array<const Chunk*, 6> neighbors);
 };

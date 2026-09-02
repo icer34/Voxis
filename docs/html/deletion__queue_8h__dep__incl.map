@@ -1,0 +1,25 @@
+<map id="src/util/deletion_queue.h" name="src/util/deletion_queue.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="29,5,210,33"/>
+<area shape="rect" id="Node000002" href="$renderer_8cpp.html" title=" " alt="" coords="5,266,152,311"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,46,102,106,89,174,82,266,76,265,84,173,96,105,112,51"/>
+<area shape="rect" id="Node000003" href="$renderer_8h.html" title=" " alt="" coords="184,81,330,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,39,223,79,218,81,155,44"/>
+<area shape="poly" id="edge13_Node000003_Node000002" title=" " alt="" coords="170,134,142,152,117,175,102,197,92,221,83,267,78,265,87,220,98,195,112,172,139,148,173,130"/>
+<area shape="rect" id="Node000004" href="$chunk__data__texture_8cpp.html" title=" " alt="" coords="176,266,336,311"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,137,290,173,294,196,290,219,282,244,271,268,267,264,277,242,285,218,288,196,285,174,275,142"/>
+<area shape="rect" id="Node000005" href="$game_8h.html" title=" " alt="" coords="522,275,656,302"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="345,113,425,134,465,150,503,171,531,195,554,223,585,275,580,273,550,227,527,199,500,176,463,155,424,139,346,118"/>
+<area shape="rect" id="Node000008" href="$world_8cpp.html" title=" " alt="" coords="127,182,275,210"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="238,137,211,183,207,180,234,141"/>
+<area shape="rect" id="Node000009" href="$block__atlas_8h.html" title=" " alt="" coords="351,174,489,218"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="310,131,384,173,379,174,309,136"/>
+<area shape="rect" id="Node000006" href="$game_8cpp.html" title=" " alt="" coords="438,359,588,387"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="569,313,526,361,524,356,564,315"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html" title=" " alt="" coords="612,359,716,387"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="613,312,655,360,650,358,610,317"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="335,222,153,270,151,265,337,217"/>
+<area shape="poly" id="edge9_Node000009_Node000004" title=" " alt="" coords="370,225,296,268,294,264,365,227"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="474,223,567,274,562,274,473,229"/>
+<area shape="rect" id="Node000010" href="$block__atlas_8cpp.html" title=" " alt="" coords="360,266,498,311"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="425,232,429,267,425,265,422,236"/>
+</map>

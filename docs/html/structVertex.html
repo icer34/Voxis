@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -92,44 +97,58 @@ $(function(){initNavTree('structVertex.html','','structVertex-members'); });
 </div><!--header-->
 <div class="contents">
 
+<p>A single mesh vertex, packed into two uint32_t to keep chunk meshes small.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mesh_8h_source.html">mesh.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a858242dc7b40c034c5e13c589b30cfb4" id="r_a858242dc7b40c034c5e13c589b30cfb4"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a858242dc7b40c034c5e13c589b30cfb4">pos</a></td></tr>
-<tr class="memitem:a3aa35fe84025ecf1acccb5f65f5577fd" id="r_a3aa35fe84025ecf1acccb5f65f5577fd"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aa35fe84025ecf1acccb5f65f5577fd">normal</a></td></tr>
+<tr class="memitem:af6ce3b32a4a4a9e73684390b99cfe01d" id="r_af6ce3b32a4a4a9e73684390b99cfe01d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6ce3b32a4a4a9e73684390b99cfe01d">data1</a></td></tr>
+<tr class="memitem:a8a9767a2e9c27de2856226ab17b40e12" id="r_a8a9767a2e9c27de2856226ab17b40e12"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a9767a2e9c27de2856226ab17b40e12">data2</a></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a3aa35fe84025ecf1acccb5f65f5577fd" name="a3aa35fe84025ecf1acccb5f65f5577fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aa35fe84025ecf1acccb5f65f5577fd">&#9670;&#160;</a></span>normal</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A single mesh vertex, packed into two uint32_t to keep chunk meshes small. </p>
+<p>A vertex never stores the absolute position of a quad corner (which can reach SIZE, one past the last valid block index, and wouldn't fit in the bits below) - it stores the quad's base corner (always a valid block index, 0..SIZE-1) plus its width/height, and the vertex shader reconstructs the actual corner as base + (cornerID selects 0 or width/height along each axis). The same width/height-based offset doubles as the local UV, so no separate UV field is needed.</p>
+<p>data1: baseX (4 bits) | baseY (4) | baseZ (4) | direction (3, one of 6 faces) | cornerID (2, which of the quad's 4 corners this vertex is) | AO (2, ambient occlusion level 0-3 for this corner) | unused (13 bits)</p>
+<p>data2: width-1 (4 bits) | height-1 (4 bits) | unused (24 bits, room for tint later) (stored as value-1, we map [1..SIZE] to [0..SIZE-1] to fit in the fewest bits possible) </p>
+
+<p class="definition">Definition at line <a class="el" href="mesh_8h_source.html#l00026">26</a> of file <a class="el" href="mesh_8h_source.html">mesh.h</a>.</p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="af6ce3b32a4a4a9e73684390b99cfe01d" name="af6ce3b32a4a4a9e73684390b99cfe01d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6ce3b32a4a4a9e73684390b99cfe01d">&#9670;&#160;</a></span>data1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Vertex::normal</td>
+          <td class="memname">uint32_t Vertex::data1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mesh_8h_source.html#l00028">28</a> of file <a class="el" href="mesh_8h_source.html">mesh.h</a>.</p>
+
 </div>
 </div>
-<a id="a858242dc7b40c034c5e13c589b30cfb4" name="a858242dc7b40c034c5e13c589b30cfb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a858242dc7b40c034c5e13c589b30cfb4">&#9670;&#160;</a></span>pos</h2>
+<a id="a8a9767a2e9c27de2856226ab17b40e12" name="a8a9767a2e9c27de2856226ab17b40e12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a9767a2e9c27de2856226ab17b40e12">&#9670;&#160;</a></span>data2</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Vertex::pos</td>
+          <td class="memname">uint32_t Vertex::data2</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mesh_8h_source.html#l00029">29</a> of file <a class="el" href="mesh_8h_source.html">mesh.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/graphics/<a class="el" href="mesh_8h_source.html">mesh.h</a></li>
+<li>src/graphics/vulkan/<a class="el" href="mesh_8h_source.html">mesh.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

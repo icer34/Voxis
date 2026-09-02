@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +97,7 @@ $(function(){initNavTree('structHandle.html','','structHandle-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="renderer_8h_source.html">renderer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="handle_8h_source.html">handle.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -102,7 +107,11 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ac5cbac3a6ee9d258396fe246ba72e563" id="r_ac5cbac3a6ee9d258396fe246ba72e563"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5cbac3a6ee9d258396fe246ba72e563">value</a> = 0</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Tag&gt;<br />
+struct Handle&lt; Tag &gt;</div>
+<p class="definition">Definition at line <a class="el" href="handle_8h_source.html#l00007">7</a> of file <a class="el" href="handle_8h_source.html">handle.h</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ab12303bc397c84360418400f3caf26f4" name="ab12303bc397c84360418400f3caf26f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab12303bc397c84360418400f3caf26f4">&#9670;&#160;</a></span>operator==()</h2>
 
@@ -145,10 +154,14 @@ template&lt;typename Tag&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="handle_8h_source.html#l00009">9</a> of file <a class="el" href="handle_8h_source.html">handle.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l00075">Renderer::createMesh()</a>, <a class="el" href="renderer_8cpp_source.html#l00090">Renderer::createTexture2D()</a>, <a class="el" href="renderer_8cpp_source.html#l00257">Renderer::createTexture3D()</a>, <a class="el" href="renderer_8cpp_source.html#l00428">Renderer::destroyTexture2D()</a>, and <a class="el" href="renderer_8cpp_source.html#l00434">Renderer::destroyTexture3D()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/graphics/<a class="el" href="renderer_8h_source.html">renderer.h</a></li>
+<li>src/util/<a class="el" href="handle_8h_source.html">handle.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

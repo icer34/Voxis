@@ -1,5 +1,5 @@
 var structVertex =
 [
-    [ "normal", "structVertex.html#a3aa35fe84025ecf1acccb5f65f5577fd", null ],
-    [ "pos", "structVertex.html#a858242dc7b40c034c5e13c589b30cfb4", null ]
+    [ "data1", "structVertex.html#af6ce3b32a4a4a9e73684390b99cfe01d", null ],
+    [ "data2", "structVertex.html#a8a9767a2e9c27de2856226ab17b40e12", null ]
 ];

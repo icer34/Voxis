@@ -1,20 +1,8 @@
 var searchData=
 [
-  ['camera_0',['Camera',['../class_camera.html#a272c5c1af2428eb8254f33a0b35231e8',1,'Camera']]],
-  ['chunk_1',['Chunk',['../class_chunk.html#a2b222e6d123c97726b4f65638f83caf3',1,'Chunk']]],
-  ['consumebuttonpress_2',['consumeButtonPress',['../class_window.html#a2d89871f81c3ab9f5b6d5114ed363b6c',1,'Window']]],
-  ['consumedx_3',['consumeDx',['../class_window.html#ac9d9e3bd6a4633c8466dcb30977d6ab5',1,'Window']]],
-  ['consumedy_4',['consumeDy',['../class_window.html#ae95a052c9aed9153aa6b7f3446a60f9f',1,'Window']]],
-  ['consumekeypress_5',['consumeKeyPress',['../class_window.html#ad0e72aed662dfc2e91d6a4a30628a6d1',1,'Window']]],
-  ['consumescroll_6',['consumeScroll',['../class_window.html#a9248f84f20aebd49fdc12c36a9510459',1,'Window']]],
-  ['createdevice_7',['createDevice',['../class_renderer.html#a51553bb547dd7ebd173d01ee4b818ecc',1,'Renderer']]],
-  ['createframeresources_8',['createFrameResources',['../class_renderer.html#a0d0154ff39870b465074cc5b4bfa0cb1',1,'Renderer']]],
-  ['creategrpahicspipeline_9',['createGrpahicsPipeline',['../class_renderer.html#a53a157f6b1ea006b13630afe56bb86d8',1,'Renderer']]],
-  ['createmesh_10',['createMesh',['../class_renderer.html#ab1a6bd8b90c8e586634920ffd879b809',1,'Renderer']]],
-  ['createshadermodule_11',['createShaderModule',['../class_renderer.html#a05e053a3bb0f69e4fb23935f632a969d',1,'Renderer']]],
-  ['createswapchain_12',['createSwapchain',['../class_renderer.html#a1fc6f7cfe2232035a1a141daeb57b0d7',1,'Renderer']]],
-  ['createsyncresources_13',['createSyncResources',['../class_renderer.html#afbd193ab2a6c63c3bd8d1bd4f84a0e58',1,'Renderer']]],
-  ['createtexture_14',['createTexture',['../class_renderer.html#aac3f6e6618d1d55f01eb0ebfb3b2c7f3',1,'Renderer']]],
-  ['createvulkaninstance_15',['createVulkanInstance',['../class_renderer.html#aff7327a21062aa541f0110b45faf998a',1,'Renderer']]],
-  ['critical_16',['critical',['../namespace_voxis_log.html#a2e83c310dec6f4b5903ca0c238255ca1',1,'VoxisLog']]]
+  ['beginoneshotcommands_0',['beginOneShotCommands',['../classRenderer.html#a58528c44c7ff2cf6f7c2f29eef860077',1,'Renderer']]],
+  ['beginuiframe_1',['beginUIFrame',['../classRenderer.html#a004b132de10b61abb4b7a3ae3e8a6e24',1,'Renderer']]],
+  ['blockatlas_2',['BlockAtlas',['../classBlockAtlas.html#a297117ab486ec280013b5298f4fa14ac',1,'BlockAtlas::BlockAtlas(Renderer &amp;renderer)'],['../classBlockAtlas.html#a28916b32eb4baa9785642c6125d63c01',1,'BlockAtlas::BlockAtlas(const BlockAtlas &amp;)=delete']]],
+  ['blockregistry_3',['BlockRegistry',['../classBlockRegistry.html#a6ee3476f015ae361ad0009241d6c7fe9',1,'BlockRegistry']]],
+  ['build_4',['build',['../namespaceChunkDataTexture.html#a47b445bf91d480d4ffd7bbb50ac91770',1,'ChunkDataTexture']]]
 ];

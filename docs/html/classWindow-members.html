@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -122,20 +127,21 @@ $(function(){initNavTree('classWindow.html','',''); });
   <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a8a828ebd82becbc53c7754916be02b79">getTime</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classWindow.html#aec3899157c48ed23b52cffee361e82ce">getVulkanInstanceExtensions</a>(uint32_t *count)</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a6bb15597be09f8032fdcee4df5dcd504">getVulkanSurface</a>(VkInstance instance)</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a6f2f3057137e0d60e4872074985d2e0e">height</a>() const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a52c1d345a7b8555bfd9813d0731947bf">isButtonPressed</a>(MouseButton button) const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a9db79265710163ba13a46d8fa4590229">isCursorEnabled</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a5093f3e1321be73fefd085c5ab648343">isInputEnabled</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a11a5e150c9c4f6bc0f45c5f1e1666b40">isKeyPressed</a>(Key key) const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a3f860089ff2a198088057db2dee5cd57">MAX_BUTTONS</a></td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a6daadc261dba6145c86283da717516c4">MAX_KEYS</a></td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a1ead50ac6dd0ebd25cdedbd61fb1f02b">resetMouse</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a0743026471b6197e6c2a313bc70c858e">setCursorEnabled</a>(bool enabled)</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#ae779be3a5327f62c5e86a3e3d8a37289">shouldClose</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a59515fc5a56e86d5a46d771595daac55">update</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#ad5d81fac36040b78aa002c11b04c21ca">width</a>() const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a823f4f107d2bd8b07d44207e2af936be">Window</a>(uint32_t width, uint32_t height, const std::string &amp;title)</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a33da65dc333d284ef1ae276d7239235b">handle</a>() const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a6f2f3057137e0d60e4872074985d2e0e">height</a>() const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a52c1d345a7b8555bfd9813d0731947bf">isButtonPressed</a>(MouseButton button) const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a9db79265710163ba13a46d8fa4590229">isCursorEnabled</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a5093f3e1321be73fefd085c5ab648343">isInputEnabled</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a11a5e150c9c4f6bc0f45c5f1e1666b40">isKeyPressed</a>(Key key) const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a3f860089ff2a198088057db2dee5cd57">MAX_BUTTONS</a></td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a6daadc261dba6145c86283da717516c4">MAX_KEYS</a></td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a1ead50ac6dd0ebd25cdedbd61fb1f02b">resetMouse</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a0743026471b6197e6c2a313bc70c858e">setCursorEnabled</a>(bool enabled)</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#ae779be3a5327f62c5e86a3e3d8a37289">shouldClose</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a59515fc5a56e86d5a46d771595daac55">update</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#ad5d81fac36040b78aa002c11b04c21ca">width</a>() const</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classWindow.html#a823f4f107d2bd8b07d44207e2af936be">Window</a>(uint32_t width, uint32_t height, const std::string &amp;title)</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWindow.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a>()</td><td class="entry"><a class="el" href="classWindow.html">Window</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

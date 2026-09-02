@@ -1,0 +1,11 @@
+<map id="ChunkDataTexture::build" name="ChunkDataTexture::build">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,57,187,85"/>
+<area shape="rect" id="Node000002" href="$classChunk.html#a8797715288812a563a2d693e1c36bcf7" title=" " alt="" coords="275,5,402,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,54,262,35,258,37,165,59"/>
+<area shape="rect" id="Node000004" href="$classBlockRegistry.html#abdfb26d5e3ffab1b8670c7eb18b259e4" title=" " alt="" coords="235,57,443,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,69,222,71,216,72,187,74"/>
+<area shape="rect" id="Node000005" href="$classBlockAtlas.html#a43fab246097d34e16cf3bac75f59af20" title="The tile index for a given texture file (its name, without extension), used by the mesher to compute ..." alt="" coords="261,109,416,137"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="164,83,258,105,253,106,164,88"/>
+<area shape="rect" id="Node000003" href="$classChunk.html#af5b9d738e0757cabc4ab3c2d7394ed88" title=" " alt="" coords="491,5,581,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="403,17,478,19,473,20,403,22"/>
+</map>

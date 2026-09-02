@@ -13,6 +13,7 @@ var classWindow =
     [ "getTime", "classWindow.html#a8a828ebd82becbc53c7754916be02b79", null ],
     [ "getVulkanInstanceExtensions", "classWindow.html#aec3899157c48ed23b52cffee361e82ce", null ],
     [ "getVulkanSurface", "classWindow.html#a6bb15597be09f8032fdcee4df5dcd504", null ],
+    [ "handle", "classWindow.html#a33da65dc333d284ef1ae276d7239235b", null ],
     [ "height", "classWindow.html#a6f2f3057137e0d60e4872074985d2e0e", null ],
     [ "isButtonPressed", "classWindow.html#a52c1d345a7b8555bfd9813d0731947bf", null ],
     [ "isCursorEnabled", "classWindow.html#a9db79265710163ba13a46d8fa4590229", null ],

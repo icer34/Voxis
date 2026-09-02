@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['w_0',['W',['../window_8h.html#ab3c7af4820830f9166ede9e5623c4e73a61e9c06ea9a85a5088a499df6458d276',1,'window.h']]]
+  ['right_0',['Right',['../window_8h.html#ac1ec3647c005eacad401b06e7e18f711a92b09c7c48c520c3c55e497875da437c',1,'window.h']]]
 ];

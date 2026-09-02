@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['chunkmesher_0',['ChunkMesher',['../namespace_chunk_mesher.html',1,'']]]
+  ['chunkdatatexture_0',['ChunkDataTexture',['../namespaceChunkDataTexture.html',1,'']]],
+  ['chunkmesher_1',['ChunkMesher',['../namespaceChunkMesher.html',1,'']]]
 ];

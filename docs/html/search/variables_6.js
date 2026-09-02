@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pos_0',['pos',['../struct_vertex.html#a858242dc7b40c034c5e13c589b30cfb4',1,'Vertex']]]
+  ['imageacquiredsemaphore_0',['imageAcquiredSemaphore',['../structFrameResources.html#a48f1c526715343eaebc78ef20cea9cbf',1,'FrameResources']]],
+  ['indices_1',['indices',['../structMeshData.html#a79e9a85738fa0fa5b5e81d79c6960741',1,'MeshData']]]
 ];

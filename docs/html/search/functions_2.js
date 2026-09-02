@@ -1,9 +1,22 @@
 var searchData=
 [
-  ['debug_0',['debug',['../namespace_voxis_log.html#a99c97f09b7ed6c7e78689c62148c854f',1,'VoxisLog']]],
-  ['descriptorinfo_1',['descriptorInfo',['../class_texture.html#a3fea678d7700524df767637de39508b5',1,'Texture']]],
-  ['destroymesh_2',['destroyMesh',['../class_renderer.html#ad1cbc18fc9b65ed220f386cce7e8de43',1,'Renderer']]],
-  ['destroyswapchain_3',['destroySwapchain',['../class_renderer.html#aeed852feacbc81c0eaa6143591370ebd',1,'Renderer']]],
-  ['destroytexture_4',['destroyTexture',['../class_renderer.html#a2d79cd7447f0911272f694badd0d0881',1,'Renderer']]],
-  ['disableinput_5',['disableInput',['../class_window.html#ac02ab23d8a201788ed8dbf0e8cb7d9f2',1,'Window']]]
+  ['camera_0',['Camera',['../classCamera.html#a272c5c1af2428eb8254f33a0b35231e8',1,'Camera']]],
+  ['chunk_1',['Chunk',['../classChunk.html#a4ee1ca69de5cab5a86e0d7768dde4049',1,'Chunk']]],
+  ['consumebuttonpress_2',['consumeButtonPress',['../classWindow.html#a2d89871f81c3ab9f5b6d5114ed363b6c',1,'Window']]],
+  ['consumedx_3',['consumeDx',['../classWindow.html#ac9d9e3bd6a4633c8466dcb30977d6ab5',1,'Window']]],
+  ['consumedy_4',['consumeDy',['../classWindow.html#ae95a052c9aed9153aa6b7f3446a60f9f',1,'Window']]],
+  ['consumekeypress_5',['consumeKeyPress',['../classWindow.html#ad0e72aed662dfc2e91d6a4a30628a6d1',1,'Window']]],
+  ['consumescroll_6',['consumeScroll',['../classWindow.html#a9248f84f20aebd49fdc12c36a9510459',1,'Window']]],
+  ['coords_7',['coords',['../classChunk.html#a2613ca6af23c21a31a00428f03fcdc81',1,'Chunk']]],
+  ['createdevice_8',['createDevice',['../classRenderer.html#a51553bb547dd7ebd173d01ee4b818ecc',1,'Renderer']]],
+  ['createframeresources_9',['createFrameResources',['../classRenderer.html#a0d0154ff39870b465074cc5b4bfa0cb1',1,'Renderer']]],
+  ['creategrpahicspipeline_10',['createGrpahicsPipeline',['../classRenderer.html#a53a157f6b1ea006b13630afe56bb86d8',1,'Renderer']]],
+  ['createmesh_11',['createMesh',['../classRenderer.html#ab1a6bd8b90c8e586634920ffd879b809',1,'Renderer']]],
+  ['createshadermodule_12',['createShaderModule',['../classRenderer.html#a05e053a3bb0f69e4fb23935f632a969d',1,'Renderer']]],
+  ['createswapchain_13',['createSwapchain',['../classRenderer.html#a1fc6f7cfe2232035a1a141daeb57b0d7',1,'Renderer']]],
+  ['createsyncresources_14',['createSyncResources',['../classRenderer.html#afbd193ab2a6c63c3bd8d1bd4f84a0e58',1,'Renderer']]],
+  ['createtexture2d_15',['createTexture2D',['../classRenderer.html#adad7f9336d912d4cb2952ab48a7b699c',1,'Renderer']]],
+  ['createtexture3d_16',['createTexture3D',['../classRenderer.html#a79e7e46b32824ea38e7d402be0b228dc',1,'Renderer']]],
+  ['createvulkaninstance_17',['createVulkanInstance',['../classRenderer.html#aff7327a21062aa541f0110b45faf998a',1,'Renderer']]],
+  ['critical_18',['critical',['../namespaceVoxisLog.html#a2e83c310dec6f4b5903ca0c238255ca1',1,'VoxisLog']]]
 ];

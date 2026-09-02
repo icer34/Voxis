@@ -1,0 +1,7 @@
+<map id="Renderer::recreateSwapchain" name="Renderer::recreateSwapchain">
+<area shape="rect" id="Node000001" title=" " alt="" coords="449,5,661,33"/>
+<area shape="rect" id="Node000002" href="$classRenderer.html#a56bc319fd0b183616fe4b7caec5a5356" title=" " alt="" coords="184,5,401,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="431,19,401,22,401,17,436,19"/>
+<area shape="rect" id="Node000003" href="$classRenderer.html#a80e9db2724eb31ddd80dfcf5c8f94b97" title="Renders the desired chunks for the given camera." alt="" coords="5,5,136,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="165,19,136,22,136,17,171,19"/>
+</map>

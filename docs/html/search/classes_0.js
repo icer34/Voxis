@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['camera_0',['Camera',['../class_camera.html',1,'']]],
-  ['chunk_1',['Chunk',['../class_chunk.html',1,'']]]
+  ['blockatlas_0',['BlockAtlas',['../classBlockAtlas.html',1,'']]],
+  ['blockregistry_1',['BlockRegistry',['../classBlockRegistry.html',1,'']]]
 ];

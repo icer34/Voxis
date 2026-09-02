@@ -5,7 +5,7 @@
 
 #include <glm/glm.hpp>
 
-#include "graphics/handle.h"
+#include "util/handle.h"
 
 /**
  * @brief Holds the chunk status, used for synchronization between generation / meshing

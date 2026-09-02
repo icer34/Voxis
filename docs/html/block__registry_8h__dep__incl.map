@@ -1,0 +1,21 @@
+<map id="src/game/block_registry.h" name="src/game/block_registry.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="390,5,578,33"/>
+<area shape="rect" id="Node000002" href="$block__registry_8cpp.html" title=" " alt="" coords="5,90,208,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="408,39,168,92,166,86,409,34"/>
+<area shape="rect" id="Node000003" href="$chunk__data__texture_8cpp.html" title=" " alt="" coords="232,81,392,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="445,39,359,83,356,78,440,41"/>
+<area shape="rect" id="Node000004" href="$game_8h.html" title=" " alt="" coords="417,90,551,117"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="486,47,486,91,482,88,482,51"/>
+<area shape="rect" id="Node000007" href="$terrain__generator_8cpp.html" title=" " alt="" coords="576,90,800,117"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="531,36,658,89,652,89,530,42"/>
+<area shape="rect" id="Node000008" href="$chunk__mesher_8h.html" title=" " alt="" coords="825,81,967,126"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="578,34,812,78,827,84,822,84,811,84,577,39"/>
+<area shape="rect" id="Node000005" href="$game_8cpp.html" title=" " alt="" coords="333,182,482,210"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="466,128,420,184,417,180,461,130"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title=" " alt="" coords="506,182,611,210"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="505,127,550,183,545,181,503,132"/>
+<area shape="rect" id="Node000009" href="$world_8cpp.html" title=" " alt="" coords="736,182,885,210"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="868,136,824,184,822,179,863,138"/>
+<area shape="rect" id="Node000010" href="$chunk__mesher_8cpp.html" title=" " alt="" coords="909,174,1051,218"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="927,135,963,174,958,173,925,140"/>
+</map>

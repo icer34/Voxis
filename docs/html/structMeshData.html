@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +97,9 @@ $(function(){initNavTree('structMeshData.html','','structMeshData-members'); });
 </div><!--header-->
 <div class="contents">
 
+<p>CPU-side vertex and index data for a mesh, before it is uploaded to the GPU.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mesh_8h_source.html">mesh.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -99,7 +107,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aac93fd7e3e5968c5f4376038ef1aac96" id="r_aac93fd7e3e5968c5f4376038ef1aac96"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structVertex.html">Vertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac93fd7e3e5968c5f4376038ef1aac96">vertices</a></td></tr>
 <tr class="memitem:a79e9a85738fa0fa5b5e81d79c6960741" id="r_a79e9a85738fa0fa5b5e81d79c6960741"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79e9a85738fa0fa5b5e81d79c6960741">indices</a></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>CPU-side vertex and index data for a mesh, before it is uploaded to the GPU. </p>
+
+<p class="definition">Definition at line <a class="el" href="mesh_8h_source.html#l00036">36</a> of file <a class="el" href="mesh_8h_source.html">mesh.h</a>.</p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a79e9a85738fa0fa5b5e81d79c6960741" name="a79e9a85738fa0fa5b5e81d79c6960741"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79e9a85738fa0fa5b5e81d79c6960741">&#9670;&#160;</a></span>indices</h2>
 
@@ -111,6 +123,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mesh_8h_source.html#l00039">39</a> of file <a class="el" href="mesh_8h_source.html">mesh.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
 
 </div>
 </div>
@@ -126,10 +142,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mesh_8h_source.html#l00038">38</a> of file <a class="el" href="mesh_8h_source.html">mesh.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="world_8cpp_source.html#l00023">World::update()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/graphics/<a class="el" href="mesh_8h_source.html">mesh.h</a></li>
+<li>src/graphics/vulkan/<a class="el" href="mesh_8h_source.html">mesh.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -95,15 +100,25 @@ $(function(){initNavTree('classChunk.html','',''); });
 <p>This is the complete list of members for <a class="el" href="classChunk.html">Chunk</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a2565acabb2973e75fb05d8e5e0b66ec4">_blockIDs</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#a74098d4084f552af8adfe2710348558e">_coords</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a770cf171334c7e2e4345eb31ec08d808">_meshHandle</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#a2b222e6d123c97726b4f65638f83caf3">Chunk</a>(glm::ivec2 coords)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a02bf5f0c800a666952ad7d155356d9b5">getBlock</a>(glm::ivec3 lCoords)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#a14c2fbd1a20151d2056084d8dd2bc3ec">_coords</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#ab075e55753e98dcde8241ae3e5073c8b">_dataTextureHandle</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#ac9bab64111876061c91dd4da3ad635a6">_meshHandle</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a92665b36249bdeb0dd8e425713763206">_state</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#a4ee1ca69de5cab5a86e0d7768dde4049">Chunk</a>(glm::ivec3 coords)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a2613ca6af23c21a31a00428f03fcdc81">coords</a>() const</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#a24e40f1d75a4d970a2cfcde6714cccb5">dataTextureHandle</a>() const</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a8797715288812a563a2d693e1c36bcf7">getBlock</a>(glm::ivec3 lCoords) const</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#abb300478f8c35295bdf2b11449e3fa11">hasDataTexture</a>() const</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a06e3e2ed8cd156d52e675c889afeadec">hasMesh</a>() const</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#af5b9d738e0757cabc4ab3c2d7394ed88">idx</a>(size_t x, size_t y, size_t z)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a6dc8643bb7bf4dc7f9fbcf870438bcae">idx</a>(glm::ivec3 coords)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#a59a909d7a32f09b5010298e0035e1171">setBlock</a>(glm::ivec3 lCoords, uint16_t blockID)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a4df1bb472725a6b867b62c3bcb87d51a">setMeshHandle</a>(uint32_t handle)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#ab443fd4c96071c15ec704151ecea548c">SIZE</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#ac606a6c7d3bb95758fc6cc736f7a5aa8">meshHandle</a>() const</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#a59a909d7a32f09b5010298e0035e1171">setBlock</a>(glm::ivec3 lCoords, uint16_t blockID)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#aea3d398455ebe053a99eec458cd293ff">setDataTextureHandle</a>(Texture3DHandle handle)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#acacb69d0588428e4fda5b4572ee69053">setMeshHandle</a>(MeshHandle handle)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#a71e7e5f5d0cb9c883db07b096bedf0f9">setState</a>(ChunkState state)</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classChunk.html#ab443fd4c96071c15ec704151ecea548c">SIZE</a></td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classChunk.html#aa42b5143c0229e52b12ae63c18559b17">state</a>() const</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classChunk.html#ad21b515f41c9a1d21740b9e7e3f8eede">~Chunk</a>()</td><td class="entry"><a class="el" href="classChunk.html">Chunk</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->

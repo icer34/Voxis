@@ -1,5 +1,20 @@
 var searchData=
 [
-  ['width_0',['width',['../class_window.html#ad5d81fac36040b78aa002c11b04c21ca',1,'Window']]],
-  ['window_1',['Window',['../class_window.html#a823f4f107d2bd8b07d44207e2af936be',1,'Window']]]
+  ['schedulechunkgeneration_0',['scheduleChunkGeneration',['../classWorld.html#a5081becc6e475e1fe8a4e77d9fc3ee9b',1,'World']]],
+  ['schedulechunkmeshing_1',['scheduleChunkMeshing',['../classWorld.html#a1a7605eefdf1adfb60c9906980790c9e',1,'World']]],
+  ['setaspectratio_2',['setAspectRatio',['../classCamera.html#a23f49228d98b7de0feea62720b98f142',1,'Camera']]],
+  ['setblock_3',['setBlock',['../classChunk.html#a59a909d7a32f09b5010298e0035e1171',1,'Chunk']]],
+  ['setcursorenabled_4',['setCursorEnabled',['../classWindow.html#a0743026471b6197e6c2a313bc70c858e',1,'Window']]],
+  ['setdatatexturehandle_5',['setDataTextureHandle',['../classChunk.html#aea3d398455ebe053a99eec458cd293ff',1,'Chunk']]],
+  ['setmeshhandle_6',['setMeshHandle',['../classChunk.html#acacb69d0588428e4fda5b4572ee69053',1,'Chunk']]],
+  ['setpos_7',['setPos',['../classCamera.html#a27629670cefe0bcfc657d235548732fa',1,'Camera']]],
+  ['setstate_8',['setState',['../classChunk.html#a71e7e5f5d0cb9c883db07b096bedf0f9',1,'Chunk']]],
+  ['shouldclose_9',['shouldClose',['../classWindow.html#ae779be3a5327f62c5e86a3e3d8a37289',1,'Window']]],
+  ['shutdown_10',['shutdown',['../classGame.html#aee1b95e6fd0cb0f441c3b7cef73b1abe',1,'Game']]],
+  ['shutdownvulkan_11',['shutdownVulkan',['../classRenderer.html#a96d1aa977deba76f5196ade7ff7ce247',1,'Renderer']]],
+  ['start_12',['start',['../namespaceTimer.html#af6d0a7f8342cde162bccdc4c1a156df5',1,'Timer']]],
+  ['state_13',['state',['../classChunk.html#aa42b5143c0229e52b12ae63c18559b17',1,'Chunk']]],
+  ['stop_14',['stop',['../namespaceTimer.html#a92e84644f80a80b55d69eb38c996e079',1,'Timer']]],
+  ['submit_15',['submit',['../classThreadPool.html#a0ce22fc818d2ddfe0935738b35375763',1,'ThreadPool']]],
+  ['submitframe_16',['submitFrame',['../classRenderer.html#a9e74dcfd2a18721ff76d41cfc9f44b76',1,'Renderer']]]
 ];

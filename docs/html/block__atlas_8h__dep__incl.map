@@ -1,0 +1,15 @@
+<map id="src/graphics/block_atlas.h" name="src/graphics/block_atlas.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="268,5,407,50"/>
+<area shape="rect" id="Node000002" href="$chunk__data__texture_8cpp.html" title=" " alt="" coords="5,98,166,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,58,147,100,145,95,265,54"/>
+<area shape="rect" id="Node000003" href="$game_8h.html" title=" " alt="" coords="190,106,325,134"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="311,60,271,108,267,104,306,63"/>
+<area shape="rect" id="Node000006" href="$block__atlas_8cpp.html" title=" " alt="" coords="348,98,487,143"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="367,59,401,98,396,97,366,64"/>
+<area shape="rect" id="Node000007" href="$renderer_8cpp.html" title=" " alt="" coords="511,98,657,143"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="411,53,528,97,522,98,410,58"/>
+<area shape="rect" id="Node000004" href="$game_8cpp.html" title=" " alt="" coords="107,191,256,218"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,145,195,193,192,188,233,146"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title=" " alt="" coords="280,191,384,218"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="281,144,323,191,318,190,279,148"/>
+</map>

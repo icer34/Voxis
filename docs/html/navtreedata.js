@@ -25,11 +25,11 @@
 var NAVTREE =
 [
   [ "Voxis", "index.html", [
-    [ "Architecture", "index.html#autotoc_md1", null ],
-    [ "Tech stack", "index.html#autotoc_md2", null ],
-    [ "Building", "index.html#autotoc_md3", null ],
-    [ "Documentation", "index.html#autotoc_md4", null ],
     [ "Namespaces", "namespaces.html", [
+      [ "Architecture", "index.html#autotoc_md0", null ],
+      [ "Tech stack", "index.html#autotoc_md1", null ],
+      [ "Building", "index.html#autotoc_md2", null ],
+      [ "Documentation", "index.html#autotoc_md3", null ],
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
@@ -50,6 +50,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Macros", "globals_defs.html", null ]
@@ -61,9 +62,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"globals_func.html"
+"classTexture.html#a3fea678d7700524df767637de39508b5",
+"util_8h_source.html"
 ];
 
-const SYNCONMSG = 'click to disable panel synchronization';
-const SYNCOFFMSG = 'click to enable panel synchronization';
-const LISTOFALLMEMBERS = 'List of all members';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

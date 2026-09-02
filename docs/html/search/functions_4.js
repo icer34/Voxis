@@ -1,25 +1,6 @@
 var searchData=
 [
-  ['game_0',['Game',['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game']]],
-  ['getaspectratio_1',['getAspectRatio',['../class_camera.html#ae293133e02172fd477f821dd0d065f2b',1,'Camera']]],
-  ['getblock_2',['getBlock',['../class_chunk.html#a02bf5f0c800a666952ad7d155356d9b5',1,'Chunk']]],
-  ['getcursorpos_3',['getCursorPos',['../class_window.html#ae2b4a6aab8a956d70241ac8644c47e62',1,'Window']]],
-  ['getfov_4',['getFOV',['../class_camera.html#abede0c7fe76eb813328b1dd39fd2c43d',1,'Camera']]],
-  ['getfront_5',['getFront',['../class_camera.html#a35236a53be5652632aa351adae214d91',1,'Camera']]],
-  ['getgraphicsqueue_6',['getGraphicsQueue',['../class_renderer.html#ab2fe391068a68d60e33bcc5eb1edb1bf',1,'Renderer']]],
-  ['getmeshdata_7',['getMeshData',['../namespace_chunk_mesher.html#a09471cae4dd7c30c782dda029409d161',1,'ChunkMesher']]],
-  ['getnextimageindex_8',['getNextImageIndex',['../class_renderer.html#a56bc319fd0b183616fe4b7caec5a5356',1,'Renderer']]],
-  ['getphysicaldevice_9',['getPhysicalDevice',['../class_renderer.html#a816b323f1e9348069cc8db8ee46defa9',1,'Renderer']]],
-  ['getpitch_10',['getPitch',['../class_camera.html#a642c0d474c9cf122f64ea9404d6fc3fd',1,'Camera']]],
-  ['getpos_11',['getPos',['../class_camera.html#a69c95c2a609960d4597f95d6d05632f1',1,'Camera']]],
-  ['getprojectionmatrix_12',['getProjectionMatrix',['../class_camera.html#a3bb21fdfb8bd8974c880a33741a549df',1,'Camera']]],
-  ['getright_13',['getRight',['../class_camera.html#aa21e94d4bfd57c15897a8a2948d6356c',1,'Camera']]],
-  ['gettime_14',['getTime',['../class_window.html#a8a828ebd82becbc53c7754916be02b79',1,'Window']]],
-  ['getup_15',['getUp',['../class_camera.html#aaca7b5755187dbe1920ae8aeeed1a29a',1,'Camera']]],
-  ['getviewmatrix_16',['getViewMatrix',['../class_camera.html#a2f90e661a78172675ca06ea69667b531',1,'Camera']]],
-  ['getvulkaninstanceextensions_17',['getVulkanInstanceExtensions',['../class_window.html#aec3899157c48ed23b52cffee361e82ce',1,'Window']]],
-  ['getvulkansurface_18',['getVulkanSurface',['../class_window.html#a6bb15597be09f8032fdcee4df5dcd504',1,'Window']]],
-  ['getyaw_19',['getYaw',['../class_camera.html#ae29e236b834705d6611caa0639941da2',1,'Camera']]],
-  ['getzfar_20',['getZFar',['../class_camera.html#ad083519837cdbb73f7387f5883270cee',1,'Camera']]],
-  ['getznear_21',['getZNear',['../class_camera.html#a871ae1bdbd01b5fa58cb344af2aeb7e2',1,'Camera']]]
+  ['enableinput_0',['enableInput',['../classWindow.html#a14dae7cf7dff5a838e88ad11fd4ab650',1,'Window']]],
+  ['endoneshotcommands_1',['endOneShotCommands',['../classRenderer.html#a7dcfcb040778ef4fd92439d4f80eb233',1,'Renderer']]],
+  ['error_2',['error',['../namespaceVoxisLog.html#a89d44efd3d8aab54fedc94f68218a382',1,'VoxisLog']]]
 ];

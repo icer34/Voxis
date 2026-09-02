@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normal_0',['normal',['../struct_vertex.html#a3aa35fe84025ecf1acccb5f65f5577fd',1,'Vertex']]]
+  ['fps_5fupdate_5finterval_0',['FPS_UPDATE_INTERVAL',['../classHud.html#a1e96ca96c340730f32d026c6cf731885',1,'Hud']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['presentframe_0',['presentFrame',['../class_renderer.html#ab4a98fda7446e4e09c544414b83ea1fc',1,'Renderer']]]
+  ['logall_0',['logAll',['../namespaceTimer.html#a60d58ff9a8b7d7f5e31bfea5207d6205',1,'Timer']]]
 ];

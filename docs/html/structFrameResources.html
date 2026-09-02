@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -103,12 +108,14 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a96cc3643dcca882b2c9077c44a10e9ea" id="r_a96cc3643dcca882b2c9077c44a10e9ea"><td class="memItemLeft" align="right" valign="top">VkCommandBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96cc3643dcca882b2c9077c44a10e9ea">commandBuffer</a> = nullptr</td></tr>
 <tr class="memitem:a48f1c526715343eaebc78ef20cea9cbf" id="r_a48f1c526715343eaebc78ef20cea9cbf"><td class="memItemLeft" align="right" valign="top">VkSemaphore&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48f1c526715343eaebc78ef20cea9cbf">imageAcquiredSemaphore</a> = nullptr</td></tr>
 <tr class="memitem:af156eb0d38d8dfffb8082b932ee512b1" id="r_af156eb0d38d8dfffb8082b932ee512b1"><td class="memItemLeft" align="right" valign="top">VkBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af156eb0d38d8dfffb8082b932ee512b1">uniformBO</a> = nullptr</td></tr>
-<tr class="memitem:a989d7478b67d7763cb56a7c94ef01e82" id="r_a989d7478b67d7763cb56a7c94ef01e82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="renderer_8h.html#a538538bbe022e7d61d4d095c5c865320">VmaAllocation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a989d7478b67d7763cb56a7c94ef01e82">uniformAllocation</a> = nullptr</td></tr>
+<tr class="memitem:a989d7478b67d7763cb56a7c94ef01e82" id="r_a989d7478b67d7763cb56a7c94ef01e82"><td class="memItemLeft" align="right" valign="top">VmaAllocation&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a989d7478b67d7763cb56a7c94ef01e82">uniformAllocation</a> = nullptr</td></tr>
 <tr class="memitem:ac02c60a58103a5081f99a1542d43dcc8" id="r_ac02c60a58103a5081f99a1542d43dcc8"><td class="memItemLeft" align="right" valign="top">VkDescriptorSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac02c60a58103a5081f99a1542d43dcc8">uniformDescriptorSet</a> = nullptr</td></tr>
 <tr class="memitem:ae4b34c80ee993eb73adcaad8e0bb5f20" id="r_ae4b34c80ee993eb73adcaad8e0bb5f20"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4b34c80ee993eb73adcaad8e0bb5f20">uniformsMapped</a> = nullptr</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>gathers all the resources that need to be updated every frame </p>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00021">21</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a96cc3643dcca882b2c9077c44a10e9ea" name="a96cc3643dcca882b2c9077c44a10e9ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96cc3643dcca882b2c9077c44a10e9ea">&#9670;&#160;</a></span>commandBuffer</h2>
@@ -121,6 +128,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00024">24</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l01272">Renderer::recordFrame()</a>, and <a class="el" href="renderer_8cpp_source.html#l01420">Renderer::submitFrame()</a>.</p>
 
 </div>
 </div>
@@ -136,6 +147,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00023">23</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l01272">Renderer::recordFrame()</a>.</p>
+
 </div>
 </div>
 <a id="a48f1c526715343eaebc78ef20cea9cbf" name="a48f1c526715343eaebc78ef20cea9cbf"></a>
@@ -150,6 +165,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00025">25</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l01241">Renderer::getNextImageIndex()</a>, and <a class="el" href="renderer_8cpp_source.html#l01420">Renderer::submitFrame()</a>.</p>
+
 </div>
 </div>
 <a id="a989d7478b67d7763cb56a7c94ef01e82" name="a989d7478b67d7763cb56a7c94ef01e82"></a>
@@ -159,10 +178,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="renderer_8h.html#a538538bbe022e7d61d4d095c5c865320">VmaAllocation</a> FrameResources::uniformAllocation = nullptr</td>
+          <td class="memname">VmaAllocation FrameResources::uniformAllocation = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00028">28</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
 
 </div>
 </div>
@@ -178,6 +199,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00027">27</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+
 </div>
 </div>
 <a id="ac02c60a58103a5081f99a1542d43dcc8" name="ac02c60a58103a5081f99a1542d43dcc8"></a>
@@ -191,6 +214,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00029">29</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l01272">Renderer::recordFrame()</a>.</p>
 
 </div>
 </div>
@@ -206,10 +233,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00030">30</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="renderer_8cpp_source.html#l00047">Renderer::render()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/graphics/<a class="el" href="renderer_8h_source.html">renderer.h</a></li>
+<li>src/graphics/vulkan/<a class="el" href="renderer_8h_source.html">renderer.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

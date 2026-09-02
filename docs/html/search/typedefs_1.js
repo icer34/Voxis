@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['texturehandle_0',['TextureHandle',['../renderer_8h.html#a7512f99979c6326d4620b8ea5484ea64',1,'renderer.h']]]
+  ['texture2dhandle_0',['Texture2DHandle',['../handle_8h.html#aa438bffacb052277f7a24d15e55bc2ca',1,'handle.h']]],
+  ['texture3dhandle_1',['Texture3DHandle',['../handle_8h.html#aaee4647baa50856f36056bba41383440',1,'handle.h']]]
 ];

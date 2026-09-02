@@ -1,0 +1,7 @@
+<map id="ChunkMesher::getMeshData" name="ChunkMesher::getMeshData">
+<area shape="rect" id="Node000001" title="Builds the greedy&#45;meshed geometry for a chunk." alt="" coords="5,32,211,60"/>
+<area shape="rect" id="Node000002" href="$directions_8h.html#a008f5266874a84a65c78c3f1d81284b1" title=" " alt="" coords="259,5,399,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,31,246,29,240,30,211,36"/>
+<area shape="rect" id="Node000003" href="$namespaceVoxisLog.html#a2e83c310dec6f4b5903ca0c238255ca1" title=" " alt="" coords="263,57,394,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,55,251,62,245,62,211,60"/>
+</map>

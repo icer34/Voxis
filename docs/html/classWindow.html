@@ -18,6 +18,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Voxis
    </div>
+   <div id="projectbrief">Small RPG minecraft like game</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +97,9 @@ $(function(){initNavTree('classWindow.html','','classWindow-members'); });
 </div><!--header-->
 <div class="contents">
 
+<p>Wraps the SDL window and gathers input state (keyboard, mouse) and Vulkan surface creation.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="window_8h_source.html">window.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -105,6 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aec3899157c48ed23b52cffee361e82ce" id="r_aec3899157c48ed23b52cffee361e82ce"><td class="memItemLeft" align="right" valign="top">const char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec3899157c48ed23b52cffee361e82ce">getVulkanInstanceExtensions</a> (uint32_t *count)</td></tr>
 <tr class="memitem:ad5d81fac36040b78aa002c11b04c21ca" id="r_ad5d81fac36040b78aa002c11b04c21ca"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5d81fac36040b78aa002c11b04c21ca">width</a> () const</td></tr>
 <tr class="memitem:a6f2f3057137e0d60e4872074985d2e0e" id="r_a6f2f3057137e0d60e4872074985d2e0e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f2f3057137e0d60e4872074985d2e0e">height</a> () const</td></tr>
+<tr class="memitem:a33da65dc333d284ef1ae276d7239235b" id="r_a33da65dc333d284ef1ae276d7239235b"><td class="memItemLeft" align="right" valign="top">SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33da65dc333d284ef1ae276d7239235b">handle</a> () const</td></tr>
 <tr class="memitem:a11a5e150c9c4f6bc0f45c5f1e1666b40" id="r_a11a5e150c9c4f6bc0f45c5f1e1666b40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11a5e150c9c4f6bc0f45c5f1e1666b40">isKeyPressed</a> (<a class="el" href="window_8h.html#ab3c7af4820830f9166ede9e5623c4e73">Key</a> key) const</td></tr>
 <tr class="memitem:ad0e72aed662dfc2e91d6a4a30628a6d1" id="r_ad0e72aed662dfc2e91d6a4a30628a6d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0e72aed662dfc2e91d6a4a30628a6d1">consumeKeyPress</a> (<a class="el" href="window_8h.html#ab3c7af4820830f9166ede9e5623c4e73">Key</a> key)</td></tr>
 <tr class="memitem:a52c1d345a7b8555bfd9813d0731947bf" id="r_a52c1d345a7b8555bfd9813d0731947bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52c1d345a7b8555bfd9813d0731947bf">isButtonPressed</a> (<a class="el" href="window_8h.html#ac1ec3647c005eacad401b06e7e18f711">MouseButton</a> button) const</td></tr>
@@ -145,7 +154,11 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a6daadc261dba6145c86283da717516c4" id="r_a6daadc261dba6145c86283da717516c4"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6daadc261dba6145c86283da717516c4">MAX_KEYS</a> = 350</td></tr>
 <tr class="memitem:a3f860089ff2a198088057db2dee5cd57" id="r_a3f860089ff2a198088057db2dee5cd57"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f860089ff2a198088057db2dee5cd57">MAX_BUTTONS</a> = 8</td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Wraps the SDL window and gathers input state (keyboard, mouse) and Vulkan surface creation. </p>
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00037">37</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a823f4f107d2bd8b07d44207e2af936be" name="a823f4f107d2bd8b07d44207e2af936be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a823f4f107d2bd8b07d44207e2af936be">&#9670;&#160;</a></span>Window()</h2>
 
@@ -170,6 +183,15 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00009">9</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00081">_handle</a>, <a class="el" href="window_8h_source.html#l00078">_height</a>, <a class="el" href="window_8h_source.html#l00079">_title</a>, <a class="el" href="window_8h_source.html#l00077">_width</a>, <a class="el" href="log_8h_source.html#l00008">VoxisLog::critical()</a>, <a class="el" href="window_8h_source.html#l00052">height()</a>, <a class="el" href="log_8h_source.html#l00024">VoxisLog::info()</a>, and <a class="el" href="window_8h_source.html#l00051">width()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classWindow_a823f4f107d2bd8b07d44207e2af936be_cgraph.svg" width="323" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a245d821e6016fa1f6970ccbbedd635f6" name="a245d821e6016fa1f6970ccbbedd635f6"></a>
@@ -186,6 +208,15 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00039">39</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00081">_handle</a>, and <a class="el" href="log_8h_source.html#l00024">VoxisLog::info()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classWindow_a245d821e6016fa1f6970ccbbedd635f6_cgraph.svg" width="315" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -205,6 +236,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00211">211</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00092">_buttonsPressed</a>.</p>
+
 </div>
 </div>
 <a id="ac9d9e3bd6a4633c8466dcb30977d6ab5" name="ac9d9e3bd6a4633c8466dcb30977d6ab5"></a>
@@ -221,6 +256,10 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00219">219</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00095">_dx</a>.</p>
 
 </div>
 </div>
@@ -239,6 +278,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00226">226</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00095">_dy</a>.</p>
+
 </div>
 </div>
 <a id="ad0e72aed662dfc2e91d6a4a30628a6d1" name="ad0e72aed662dfc2e91d6a4a30628a6d1"></a>
@@ -255,6 +298,10 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00198">198</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00089">_keysPressed</a>.</p>
 
 </div>
 </div>
@@ -273,6 +320,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00233">233</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00096">_scrollY</a>.</p>
+
 </div>
 </div>
 <a id="ac02ab23d8a201788ed8dbf0e8cb7d9f2" name="ac02ab23d8a201788ed8dbf0e8cb7d9f2"></a>
@@ -289,6 +340,10 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00270">270</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00092">_buttonsPressed</a>, <a class="el" href="window_8h_source.html#l00099">_inputEnabled</a>, and <a class="el" href="window_8h_source.html#l00089">_keysPressed</a>.</p>
 
 </div>
 </div>
@@ -307,6 +362,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00265">265</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00099">_inputEnabled</a>.</p>
+
 </div>
 </div>
 <a id="ae2b4a6aab8a956d70241ac8644c47e62" name="ae2b4a6aab8a956d70241ac8644c47e62"></a>
@@ -323,6 +382,10 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00240">240</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00094">_mouseX</a>, and <a class="el" href="window_8h_source.html#l00094">_mouseY</a>.</p>
 
 </div>
 </div>
@@ -341,6 +404,8 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00141">141</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
 </div>
 </div>
 <a id="aec3899157c48ed23b52cffee361e82ce" name="aec3899157c48ed23b52cffee361e82ce"></a>
@@ -358,6 +423,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00055">55</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00081">_handle</a>, and <a class="el" href="window_8h_source.html#l00083">_vulkanExtensions</a>.</p>
+
 </div>
 </div>
 <a id="a6bb15597be09f8032fdcee4df5dcd504" name="a6bb15597be09f8032fdcee4df5dcd504"></a>
@@ -374,6 +443,44 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00047">47</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00081">_handle</a>, and <a class="el" href="log_8h_source.html#l00008">VoxisLog::critical()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classWindow_a6bb15597be09f8032fdcee4df5dcd504_cgraph.svg" width="384" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a33da65dc333d284ef1ae276d7239235b" name="a33da65dc333d284ef1ae276d7239235b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33da65dc333d284ef1ae276d7239235b">&#9670;&#160;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Window * Window::handle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00053">53</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00081">_handle</a>.</p>
 
 </div>
 </div>
@@ -400,6 +507,17 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00052">52</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00078">_height</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00009">Window()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classWindow_a6f2f3057137e0d60e4872074985d2e0e_icgraph.svg" width="312" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a52c1d345a7b8555bfd9813d0731947bf" name="a52c1d345a7b8555bfd9813d0731947bf"></a>
@@ -416,6 +534,10 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00206">206</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00091">_buttons</a>.</p>
 
 </div>
 </div>
@@ -434,6 +556,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00260">260</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00097">_cursorToggle</a>.</p>
+
 </div>
 </div>
 <a id="a5093f3e1321be73fefd085c5ab648343" name="a5093f3e1321be73fefd085c5ab648343"></a>
@@ -450,6 +576,10 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00277">277</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00099">_inputEnabled</a>.</p>
 
 </div>
 </div>
@@ -468,6 +598,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00193">193</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00088">_keys</a>.</p>
+
 </div>
 </div>
 <a id="a1ead50ac6dd0ebd25cdedbd61fb1f02b" name="a1ead50ac6dd0ebd25cdedbd61fb1f02b"></a>
@@ -484,6 +618,17 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00245">245</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00095">_dx</a>, and <a class="el" href="window_8h_source.html#l00095">_dy</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00251">setCursorEnabled()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classWindow_a1ead50ac6dd0ebd25cdedbd61fb1f02b_icgraph.svg" width="410" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -502,6 +647,15 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00251">251</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00097">_cursorToggle</a>, <a class="el" href="window_8h_source.html#l00081">_handle</a>, and <a class="el" href="window_8cpp_source.html#l00245">resetMouse()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classWindow_a0743026471b6197e6c2a313bc70c858e_cgraph.svg" width="410" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="ae779be3a5327f62c5e86a3e3d8a37289" name="ae779be3a5327f62c5e86a3e3d8a37289"></a>
@@ -519,6 +673,10 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00136">136</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00082">_shouldClose</a>.</p>
+
 </div>
 </div>
 <a id="a59515fc5a56e86d5a46d771595daac55" name="a59515fc5a56e86d5a46d771595daac55"></a>
@@ -535,6 +693,10 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00067">67</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00091">_buttons</a>, <a class="el" href="window_8h_source.html#l00092">_buttonsPressed</a>, <a class="el" href="window_8h_source.html#l00095">_dx</a>, <a class="el" href="window_8h_source.html#l00095">_dy</a>, <a class="el" href="window_8h_source.html#l00078">_height</a>, <a class="el" href="window_8h_source.html#l00088">_keys</a>, <a class="el" href="window_8h_source.html#l00089">_keysPressed</a>, <a class="el" href="window_8h_source.html#l00094">_mouseX</a>, <a class="el" href="window_8h_source.html#l00094">_mouseY</a>, <a class="el" href="window_8h_source.html#l00096">_scrollY</a>, <a class="el" href="window_8h_source.html#l00082">_shouldClose</a>, <a class="el" href="window_8h_source.html#l00077">_width</a>, <a class="el" href="window_8h_source.html#l00086">MAX_BUTTONS</a>, and <a class="el" href="window_8h_source.html#l00085">MAX_KEYS</a>.</p>
 
 </div>
 </div>
@@ -561,6 +723,17 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00051">51</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">References <a class="el" href="window_8h_source.html#l00077">_width</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00009">Window()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classWindow_ad5d81fac36040b78aa002c11b04c21ca_icgraph.svg" width="308" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
@@ -584,6 +757,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00091">91</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00206">isButtonPressed()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
+
 </div>
 </div>
 <a id="a415a4d0800895bc602ab24779f28add4" name="a415a4d0800895bc602ab24779f28add4"></a>
@@ -605,6 +782,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00092">92</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00211">consumeButtonPress()</a>, <a class="el" href="window_8cpp_source.html#l00270">disableInput()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
 
 </div>
 </div>
@@ -628,6 +809,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00097">97</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00260">isCursorEnabled()</a>, and <a class="el" href="window_8cpp_source.html#l00251">setCursorEnabled()</a>.</p>
+
 </div>
 </div>
 <a id="ab31a0692a5df37d2dad12d2c7429c728" name="ab31a0692a5df37d2dad12d2c7429c728"></a>
@@ -649,6 +834,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00095">95</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00219">consumeDx()</a>, <a class="el" href="window_8cpp_source.html#l00245">resetMouse()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
 
 </div>
 </div>
@@ -672,6 +861,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00095">95</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00226">consumeDy()</a>, <a class="el" href="window_8cpp_source.html#l00245">resetMouse()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
+
 </div>
 </div>
 <a id="ac348110567bd0340d22cc863ab3b1c06" name="ac348110567bd0340d22cc863ab3b1c06"></a>
@@ -693,6 +886,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00081">81</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00055">getVulkanInstanceExtensions()</a>, <a class="el" href="window_8cpp_source.html#l00047">getVulkanSurface()</a>, <a class="el" href="window_8h_source.html#l00053">handle()</a>, <a class="el" href="window_8cpp_source.html#l00251">setCursorEnabled()</a>, <a class="el" href="window_8cpp_source.html#l00009">Window()</a>, and <a class="el" href="window_8cpp_source.html#l00039">~Window()</a>.</p>
 
 </div>
 </div>
@@ -716,6 +913,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00078">78</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8h_source.html#l00052">height()</a>, <a class="el" href="window_8cpp_source.html#l00067">update()</a>, and <a class="el" href="window_8cpp_source.html#l00009">Window()</a>.</p>
+
 </div>
 </div>
 <a id="a7a84ed534eda362637d007f9048517e5" name="a7a84ed534eda362637d007f9048517e5"></a>
@@ -737,6 +938,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00099">99</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00270">disableInput()</a>, <a class="el" href="window_8cpp_source.html#l00265">enableInput()</a>, and <a class="el" href="window_8cpp_source.html#l00277">isInputEnabled()</a>.</p>
 
 </div>
 </div>
@@ -760,6 +965,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00088">88</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00193">isKeyPressed()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
+
 </div>
 </div>
 <a id="a93a9050128393179650391f1eac3de3e" name="a93a9050128393179650391f1eac3de3e"></a>
@@ -781,6 +990,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00089">89</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00198">consumeKeyPress()</a>, <a class="el" href="window_8cpp_source.html#l00270">disableInput()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
 
 </div>
 </div>
@@ -804,6 +1017,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00094">94</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00240">getCursorPos()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
+
 </div>
 </div>
 <a id="a0dcdcd2a576eb058bf4dac3301d5c299" name="a0dcdcd2a576eb058bf4dac3301d5c299"></a>
@@ -825,6 +1042,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00094">94</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00240">getCursorPos()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
 
 </div>
 </div>
@@ -848,6 +1069,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00096">96</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00233">consumeScroll()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
+
 </div>
 </div>
 <a id="a09ec23e92a7617a630ac1655d7152d0b" name="a09ec23e92a7617a630ac1655d7152d0b"></a>
@@ -869,6 +1094,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00082">82</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00136">shouldClose()</a>, and <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
 
 </div>
 </div>
@@ -892,6 +1121,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00079">79</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00009">Window()</a>.</p>
+
 </div>
 </div>
 <a id="a4b18be9322b7b112c9c4db273a6da638" name="a4b18be9322b7b112c9c4db273a6da638"></a>
@@ -913,6 +1146,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00083">83</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00055">getVulkanInstanceExtensions()</a>.</p>
 
 </div>
 </div>
@@ -936,6 +1173,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00077">77</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00067">update()</a>, <a class="el" href="window_8h_source.html#l00051">width()</a>, and <a class="el" href="window_8cpp_source.html#l00009">Window()</a>.</p>
+
 </div>
 </div>
 <a id="a3f860089ff2a198088057db2dee5cd57" name="a3f860089ff2a198088057db2dee5cd57"></a>
@@ -957,6 +1198,10 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00086">86</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
 
 </div>
 </div>
@@ -980,11 +1225,15 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00085">85</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="window_8cpp_source.html#l00067">update()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/plateform/<a class="el" href="window_8h_source.html">window.h</a></li>
-<li>src/plateform/<a class="el" href="window_8cpp.html">window.cpp</a></li>
+<li>src/platform/<a class="el" href="window_8h_source.html">window.h</a></li>
+<li>src/platform/<a class="el" href="window_8cpp_source.html">window.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
