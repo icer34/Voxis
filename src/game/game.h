@@ -32,10 +32,17 @@ private:
     Hud _hud;
 
     double _lastFrameTime = 0.0;
-    float _dt = 0.0f;
+    double _dt = 0.0;
+
+    // fixed-rate world/game logic ticks, independent of (and slower than) the render framerate
+    constexpr static double TICK_RATE = 20.0;
+    constexpr static double TICK_DT = 1.0 / TICK_RATE;
+    constexpr static double MAX_ACCUMULATED_TIME = 0.25; // caps catch-up ticks after a long stall
+    double _tickAccumulator = 0.0;
 
     void init();
     void update();
+    void tick();
     void render();
     void shutdown();
 };

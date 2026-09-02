@@ -1,30 +1,46 @@
 #include "chunk_mesher.h"
 
 #include "directions.h"
+#include "log.h"
 
 #include <array>
 #include <vector>
 #include <bit>
+#include <utility>
 
 namespace
 {
+// for a given axis, which of the 6 neighbor directions is the negative-side one and which is the
+// positive-side one (X: West/East, Y: Down/Up, Z: North/South)
+constexpr std::array<std::pair<Direction, Direction>, 3> AXIS_NEIGHBOR_DIRS{
+    std::pair{ Direction::WEST, Direction::EAST },
+    std::pair{ Direction::DOWN, Direction::UP },
+    std::pair{ Direction::NORTH, Direction::SOUTH },
+};
+
 /**
- * @brief get the binary columns relkative to a given pair of axis
+ * @brief get the binary columns relative to a given pair of axis, widened by 1 bit on each end
+ * with the neighbor chunks' boundary voxel (bit 0 = negative-neighbor, bits 1..SIZE = this chunk's
+ * own voxels, bit SIZE+1 = positive-neighbor) - lets visibility/AO see across chunk boundaries
+ * instead of always treating them as air
  *
  * @param chunk
+ * @param negNeighbor the chunk on the negative side along axisMain, or nullptr if none
+ * @param posNeighbor the chunk on the positive side along axisMain, or nullptr if none
  * @param axisA
  * @param axisB
  * @return an array containing all the columns
  */
-std::array<uint16_t, Chunk::SIZE * Chunk::SIZE> getBinColumns(Chunk& chunk, int axisA, int axisB, int axisMain)
+std::array<uint32_t, Chunk::SIZE * Chunk::SIZE>
+getBinColumns(Chunk& chunk, const Chunk* negNeighbor, const Chunk* posNeighbor, int axisA, int axisB, int axisMain)
 {
-    std::array<uint16_t, Chunk::SIZE * Chunk::SIZE> columns;
+    std::array<uint32_t, Chunk::SIZE * Chunk::SIZE> columns;
 
     for (size_t a = 0; a < Chunk::SIZE; a++)
     {
         for (size_t b = 0; b < Chunk::SIZE; b++)
         {
-            uint16_t col = 0;
+            uint32_t col = 0;
             for (size_t c = 0; c < Chunk::SIZE; c++)
             {
                 glm::ivec3 pos{};
@@ -32,10 +48,28 @@ std::array<uint16_t, Chunk::SIZE * Chunk::SIZE> getBinColumns(Chunk& chunk, int 
                 pos[axisA] = static_cast<int>(a);
                 pos[axisB] = static_cast<int>(b);
 
-                if (chunk.getBlock(pos) == 0)
-                    continue;
+                if (chunk.getBlock(pos) != 0)
+                    col |= (1u << (c + 1));
+            }
 
-                col |= (1u << c);
+            if (negNeighbor != nullptr)
+            {
+                glm::ivec3 negPos{};
+                negPos[axisMain] = static_cast<int>(Chunk::SIZE) - 1;
+                negPos[axisA] = static_cast<int>(a);
+                negPos[axisB] = static_cast<int>(b);
+                if (negNeighbor->getBlock(negPos) != 0)
+                    col |= 1u;
+            }
+
+            if (posNeighbor != nullptr)
+            {
+                glm::ivec3 posPos{};
+                posPos[axisMain] = 0;
+                posPos[axisA] = static_cast<int>(a);
+                posPos[axisB] = static_cast<int>(b);
+                if (posNeighbor->getBlock(posPos) != 0)
+                    col |= (1u << (Chunk::SIZE + 1));
             }
 
             columns[a + b * Chunk::SIZE] = col;
@@ -47,8 +81,8 @@ std::array<uint16_t, Chunk::SIZE * Chunk::SIZE> getBinColumns(Chunk& chunk, int 
 
 /**
  * @brief extract a single layer out of a packed column array (bit `layer` of every column) as a 2D
- * grid, one row per "a" coordinate, one bit per "b" coordinate - used both for the visibility grid
- * and the raw-solidity grid (AO neighbor queries)
+ * grid, one row per "a" coordinate, one bit per "b" coordinate - used for the visibility grid,
+ * layer must be within [0, SIZE)
  */
 std::array<uint16_t, Chunk::SIZE> extractLayer(const std::array<uint16_t, Chunk::SIZE * Chunk::SIZE>& source,
                                                uint32_t layer)
@@ -59,6 +93,26 @@ std::array<uint16_t, Chunk::SIZE> extractLayer(const std::array<uint16_t, Chunk:
         for (uint32_t b = 0; b < Chunk::SIZE; b++)
         {
             if (source[a + b * Chunk::SIZE] & (1u << layer))
+                result[a] |= (1u << b);
+        }
+    }
+    return result;
+}
+
+/**
+ * @brief same idea, but for the widened 18-bit-wide column array (see getBinColumns) - `layer` may
+ * range from -1 (negative neighbor's boundary voxel) to SIZE (positive neighbor's) inclusive, used
+ * for the raw-solidity grid feeding AO neighbor queries
+ */
+std::array<uint16_t, Chunk::SIZE> extractLayer(const std::array<uint32_t, Chunk::SIZE * Chunk::SIZE>& source, int layer)
+{
+    std::array<uint16_t, Chunk::SIZE> result{};
+    uint32_t bit = 1u << (layer + 1);
+    for (uint32_t a = 0; a < Chunk::SIZE; a++)
+    {
+        for (uint32_t b = 0; b < Chunk::SIZE; b++)
+        {
+            if (source[a + b * Chunk::SIZE] & bit)
                 result[a] |= (1u << b);
         }
     }
@@ -218,19 +272,32 @@ void addQuad(MeshData& mesh,
 }
 } // namespace
 
+/**
+ * @brief Using binary greedy meshing to generate the chunk meshes
+ *
+ */
 namespace ChunkMesher
 {
-MeshData getMeshData(Chunk& chunk, const BlockRegistry& registry)
+MeshData getMeshData(Chunk& chunk, std::array<const Chunk*, 6> neighbors)
 {
     MeshData mesh;
 
-    // build the columns binary masks for each axis
-    std::array<std::array<uint16_t, Chunk::SIZE * Chunk::SIZE>, 3> binColumns;
+    // build the columns binary masks for each axis, widened with the relevant neighbors' boundary
+    // voxels so visibility/AO can see across chunk boundaries
+    std::array<std::array<uint32_t, Chunk::SIZE * Chunk::SIZE>, 3> binColumns;
     for (int axis = 0; axis < 3; axis++)
     {
         int axisA = (axis + 1) % 3;
         int axisB = (axis + 2) % 3;
-        binColumns[static_cast<size_t>(axis)] = getBinColumns(chunk, axisA, axisB, axis);
+
+        auto [negDir, posDir] = AXIS_NEIGHBOR_DIRS[static_cast<size_t>(axis)];
+        const Chunk* negNeighbor = neighbors[static_cast<size_t>(negDir)];
+        const Chunk* posNeighbor = neighbors[static_cast<size_t>(posDir)];
+
+        if (negNeighbor == nullptr || posNeighbor == nullptr)
+            VoxisLog::critical("Gave nullptr chunk neighbors to the chunk mesher");
+
+        binColumns[static_cast<size_t>(axis)] = getBinColumns(chunk, negNeighbor, posNeighbor, axisA, axisB, axis);
     }
 
     // apply binary greedy meshing algorithm
@@ -238,14 +305,16 @@ MeshData getMeshData(Chunk& chunk, const BlockRegistry& registry)
     {
         auto [axis, sign] = axisFromDirection(dir);
 
-        // get the visibility masks (is the block solid && the block next is air)
+        // get the visibility masks (is the block solid && the block next is air), computed on the
+        // widened column then narrowed back to this chunk's own SIZE bits (bits 1..SIZE)
         std::array<uint16_t, Chunk::SIZE * Chunk::SIZE> visibility;
         for (uint32_t a = 0; a < Chunk::SIZE; a++)
         {
             for (uint32_t b = 0; b < Chunk::SIZE; b++)
             {
-                uint16_t col = binColumns[static_cast<size_t>(axis)][a + b * Chunk::SIZE];
-                visibility[a + b * Chunk::SIZE] = (sign == 1) ? (col & ~(col >> 1)) : (col & ~(col << 1));
+                uint32_t col = binColumns[static_cast<size_t>(axis)][a + b * Chunk::SIZE];
+                uint32_t vis = (sign == 1) ? (col & ~(col >> 1)) : (col & ~(col << 1));
+                visibility[a + b * Chunk::SIZE] = static_cast<uint16_t>((vis >> 1) & 0xFFFFu);
             }
         }
 
@@ -264,12 +333,12 @@ MeshData getMeshData(Chunk& chunk, const BlockRegistry& registry)
             std::array<uint16_t, Chunk::SIZE> grid = extractLayer(visibility, c);
 
             // raw solidity of the layer the face actually opens into (the "outside" layer, same one
-            // used to derive visibility above) - not the solid voxel's own layer, which would find
-            // every same-height neighbor solid on any flat surface and read as fully occluded
+            // used to derive visibility above) - may be one past this chunk's own edge (-1 or
+            // SIZE), in which case it now reads the neighbor chunk's boundary voxel instead of
+            // assuming air
             int neighborLayer = (sign == 1) ? static_cast<int>(c) + 1 : static_cast<int>(c) - 1;
-            std::array<uint16_t, Chunk::SIZE> solidLayer{};
-            if (neighborLayer >= 0 && neighborLayer < static_cast<int>(Chunk::SIZE))
-                solidLayer = extractLayer(binColumns[static_cast<size_t>(axis)], static_cast<uint32_t>(neighborLayer));
+            std::array<uint16_t, Chunk::SIZE> solidLayer = extractLayer(binColumns[static_cast<size_t>(axis)],
+                                                                        neighborLayer);
 
             auto aoGrid = computeAOGrid(solidLayer);
 

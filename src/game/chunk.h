@@ -8,6 +8,18 @@
 #include "graphics/handle.h"
 
 /**
+ * @brief Holds the chunk status, used for synchronization between generation / meshing
+ *
+ */
+enum class ChunkState
+{
+    NOT_GENERATED, // default state, has just been created and its terrain is not generated
+    GENERATED,     // chunk terrain is generated but not yet meshed
+    MESHED,        // meshed, ready to be rendered
+    DIRTY          // valid terrain but modified since last mesh --> needs remesh
+};
+
+/**
  * @brief A fixed-size cube of blocks that makes up a portion of the world
  *
  */
@@ -30,12 +42,8 @@ public:
     void setBlock(glm::ivec3 lCoords, uint16_t blockID);
     uint16_t getBlock(glm::ivec3 lCoords) const;
 
-    /**
-     * @brief Whether the chunk's blocks changed since its mesh/data texture were last (re)built -
-     * both must be rebuilt together, since they're both derived from the same block data
-     */
-    bool isDirty() const;
-    void clearDirty();
+    void setState(ChunkState state);
+    ChunkState state() const;
 
     glm::ivec3 coords() const;
 
@@ -52,5 +60,6 @@ private:
 
     std::optional<MeshHandle> _meshHandle;
     std::optional<Texture3DHandle> _dataTextureHandle;
-    bool _dirty = true;
+
+    ChunkState _state = ChunkState::NOT_GENERATED;
 };

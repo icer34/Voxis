@@ -2,6 +2,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_vulkan.h>
+#include <imgui_impl_sdl2.h>
 
 #include "log.h"
 
@@ -68,6 +69,8 @@ void Window::update()
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
+        ImGui_ImplSDL2_ProcessEvent(&event);
+
         switch (event.type)
         {
         case SDL_QUIT:

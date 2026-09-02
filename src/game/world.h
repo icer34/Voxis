@@ -6,11 +6,12 @@
 #include <unordered_map>
 #include <cstdint>
 
-#include "chunk.h"
-#include "block_registry.h"
+#include "terrain_generator.h"
 
 class BlockAtlas;
 class Renderer;
+class BlockRegistry;
+class Chunk;
 
 namespace std
 {
@@ -34,27 +35,26 @@ template <> struct hash<glm::ivec3>
 class World
 {
 public:
-    World(const uint64_t seed, const BlockRegistry& registry, const BlockAtlas& atlas, Renderer& renderer);
+    World(const uint64_t seed, BlockRegistry& registry, BlockAtlas& atlas, Renderer& renderer);
     ~World();
 
-    void update(double dt);
+    void update(double dt, glm::vec3 playerPos);
 
-    std::vector<const Chunk*> getChunks() const;
+    std::vector<const Chunk*> getRenderableChunks() const;
 
 private:
-    constexpr static uint32_t RENDER_DISTANCE = 10;
-
-    // very basic placeholder terrain shape - a single sine wave along X, no actual noise yet
-    constexpr static float TERRAIN_FREQUENCY = 0.1f;
-    constexpr static float TERRAIN_AMPLITUDE = 4.0f;
-    constexpr static float TERRAIN_BASE_HEIGHT = 8.0f;
+    constexpr static int RENDER_DISTANCE = 10;
+    constexpr static uint32_t MAX_CHUNK_LOADS_PER_TICK = 50;
 
     uint64_t _seed;
-    const BlockRegistry& _registry;
-    const BlockAtlas& _atlas;
+
+    TerrainGenerator _terrainGenerator;
     Renderer& _renderer;
+    BlockAtlas& _atlas;
+    BlockRegistry& _registry;
+
     std::unordered_map<glm::ivec3, Chunk> _chunks;
 
-    void generate();
-    void generateTerrain(Chunk& chunk) const;
+    void scheduleChunkGeneration(glm::ivec3 coords);
+    void scheduleChunkMeshing(Chunk& chunk, std::array<const Chunk*, 6> neighbors);
 };

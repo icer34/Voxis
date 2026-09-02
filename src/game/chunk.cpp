@@ -22,7 +22,7 @@ Chunk::~Chunk() {}
 void Chunk::setBlock(glm::ivec3 lCoords, uint16_t blockID)
 {
     _blockIDs[idx(lCoords)] = blockID;
-    _dirty = true;
+    _state = ChunkState::DIRTY;
 }
 
 uint16_t Chunk::getBlock(glm::ivec3 lCoords) const
@@ -60,14 +60,14 @@ bool Chunk::hasDataTexture() const
     return _dataTextureHandle.has_value();
 }
 
-bool Chunk::isDirty() const
+void Chunk::setState(ChunkState state)
 {
-    return _dirty;
+    _state = state;
 }
 
-void Chunk::clearDirty()
+ChunkState Chunk::state() const
 {
-    _dirty = false;
+    return _state;
 }
 
 glm::ivec3 Chunk::coords() const

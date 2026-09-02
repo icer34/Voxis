@@ -1,5 +1,7 @@
 #include "game.h"
 
+#include <algorithm>
+
 #include <glm/gtc/matrix_transform.hpp>
 
 Game::Game() {}
@@ -38,7 +40,7 @@ void Game::update()
     }
 
     double now = _window->getTime();
-    _dt = static_cast<float>(now - _lastFrameTime);
+    _dt = now - _lastFrameTime;
     _lastFrameTime = now;
 
     float dx = static_cast<float>(_window->consumeDx());
@@ -63,12 +65,30 @@ void Game::update()
             moveDir -= _camera->getUp();
 
         if (glm::length(moveDir) > 0.0f)
-            _camera->move(glm::normalize(moveDir) * MOVE_SPEED * _dt);
+            _camera->move(glm::normalize(moveDir) * MOVE_SPEED * static_cast<float>(_dt));
 
         _camera->rotate(dx, dy);
     }
 
     _window->update();
+
+    // fixed-rate logic ticks: accumulate real time elapsed and drain it in TICK_DT increments, so
+    // world logic always advances by the same amount per tick regardless of the render framerate
+    _tickAccumulator += _dt;
+    _tickAccumulator = std::min(_tickAccumulator, MAX_ACCUMULATED_TIME);
+
+    while (_tickAccumulator >= TICK_DT)
+    {
+        tick();
+        _tickAccumulator -= TICK_DT;
+    }
+}
+
+void Game::tick()
+{
+    double tickStart = _window->getTime();
+    _world->update(TICK_DT, _camera->getPos());
+    _hud.recordTick(_window->getTime() - tickStart);
 }
 
 void Game::render()
@@ -77,7 +97,7 @@ void Game::render()
     _hud.draw(_dt);
 
     std::vector<std::pair<const Chunk*, PushConstants>> renderData;
-    for (auto chunk : _world->getChunks())
+    for (auto chunk : _world->getRenderableChunks())
     {
         PushConstants pc;
         glm::vec3 worldPos = glm::vec3(chunk->coords() * static_cast<int>(Chunk::SIZE));
