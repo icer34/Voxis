@@ -6,7 +6,7 @@
 
 #include <algorithm>
 
-#include "plateform/window.h"
+#include "platform/window.h"
 #include "camera.h"
 #include "block_atlas.h"
 #include "log.h"

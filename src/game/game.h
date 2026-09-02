@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "plateform/window.h"
+#include "platform/window.h"
 #include "graphics/renderer.h"
 #include "graphics/camera.h"
 #include "graphics/block_atlas.h"
