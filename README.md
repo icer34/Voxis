@@ -1,10 +1,10 @@
-# %Voxis {#mainpage}
+# Voxis
 
 <p align="center">
-  <img src="logo.png" alt="Voxis logo" width="400"/>
+  <img src="docs/logo.png" alt="Voxis logo" width="400"/>
 </p>
 
-%Voxis is a small Minecraft-like voxel RPG game, written in C++20.
+Voxis is a small Minecraft-like voxel RPG game, written in C++20.
 
 ## Architecture
 

@@ -5,8 +5,11 @@
 #include <vector>
 #include <unordered_map>
 #include <cstdint>
+#include <future>
 
+#include "graphics/mesh.h"
 #include "terrain_generator.h"
+#include "util/thread_pool.h"
 
 class BlockAtlas;
 class Renderer;
@@ -16,7 +19,8 @@ class Chunk;
 namespace std
 {
 // define a hashing function for an integer vec3 (used for chunk coords)
-template <> struct hash<glm::ivec3>
+template <>
+struct hash<glm::ivec3>
 {
     size_t operator()(const glm::ivec3& v) const noexcept
     {
@@ -27,6 +31,12 @@ template <> struct hash<glm::ivec3>
     }
 };
 } // namespace std
+
+struct MeshJobResult
+{
+    MeshData mesh;
+    std::vector<uint16_t> tileIndices;
+};
 
 /**
  * @brief Holds and manages the chunks that make up the game world
@@ -44,17 +54,20 @@ public:
 
 private:
     constexpr static int RENDER_DISTANCE = 10;
-    constexpr static uint32_t MAX_CHUNK_LOADS_PER_TICK = 50;
+    constexpr static uint32_t MAX_CHUNK_LOADS_PER_TICK = 100;
 
     uint64_t _seed;
 
-    TerrainGenerator _terrainGenerator;
     Renderer& _renderer;
     BlockAtlas& _atlas;
     BlockRegistry& _registry;
 
+    TerrainGenerator _terrainGenerator;
+
+    ThreadPool _threadPool;
+
     std::unordered_map<glm::ivec3, Chunk> _chunks;
 
-    void scheduleChunkGeneration(glm::ivec3 coords);
-    void scheduleChunkMeshing(Chunk& chunk, std::array<const Chunk*, 6> neighbors);
+    std::future<void> scheduleChunkGeneration(glm::ivec3 coords);
+    std::future<MeshJobResult> scheduleChunkMeshing(Chunk& chunk, std::array<const Chunk*, 6> neighbors);
 };

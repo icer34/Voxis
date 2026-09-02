@@ -13,7 +13,8 @@ World::World(const uint64_t seed, BlockRegistry& registry, BlockAtlas& atlas, Re
       _terrainGenerator(_seed, registry),
       _renderer(renderer),
       _atlas(atlas),
-      _registry(registry)
+      _registry(registry),
+      _threadPool(std::thread::hardware_concurrency() - 1)
 {
 }
 
@@ -43,9 +44,9 @@ void World::update(double dt, glm::vec3 playerPos)
         _chunks.erase(coords);
     }
 
-    // generate the chunks - the budget check is repeated in every loop level so reaching it
-    // actually stops the whole sweep, not just the innermost z loop
+    // sne dthe chunk generation jobs to the thread pool
     uint32_t generatedChunks = 0;
+    std::vector<std::pair<glm::ivec3, std::future<void>>> generationJobs;
     for (int r = 0; r < RENDER_DISTANCE && generatedChunks < MAX_CHUNK_LOADS_PER_TICK; r++)
     {
         for (int x = -r; x <= r && generatedChunks < MAX_CHUNK_LOADS_PER_TICK; x++)
@@ -61,7 +62,7 @@ void World::update(double dt, glm::vec3 playerPos)
                     if (_chunks.contains(chunkCoord))
                         continue;
 
-                    scheduleChunkGeneration(chunkCoord);
+                    generationJobs.emplace_back(chunkCoord, scheduleChunkGeneration(chunkCoord));
 
                     generatedChunks++;
                 }
@@ -69,8 +70,16 @@ void World::update(double dt, glm::vec3 playerPos)
         }
     }
 
+    // wait for all the generation to be finished before meshing
+    for (auto& [coords, future] : generationJobs)
+    {
+        future.get();
+        _chunks.at(coords).setState(ChunkState::GENERATED);
+    }
+
     // generate the meshes
     uint32_t meshedChunks = 0;
+    std::vector<std::pair<glm::ivec3, std::future<MeshJobResult>>> meshingJobs;
     for (auto& [coords, chunk] : _chunks)
     {
         if (meshedChunks > MAX_CHUNK_LOADS_PER_TICK)
@@ -99,41 +108,54 @@ void World::update(double dt, glm::vec3 playerPos)
         if (!shouldMesh)
             continue;
 
-        scheduleChunkMeshing(chunk, neighbors);
+        meshingJobs.emplace_back(coords, scheduleChunkMeshing(chunk, neighbors));
         meshedChunks++;
+    }
+
+    // wait for the meshing to be done to upload results to the GPU
+    for (auto& [coords, future] : meshingJobs)
+    {
+        MeshJobResult result = future.get();
+        Chunk& chunk = _chunks.at(coords);
+
+        // a chunk fully enclosed by solid neighbors has no visible faces at all - don't create a GPU
+        // mesh/texture for it (a 0-vertex mesh is an invalid Vulkan buffer size), it just won't render
+        if (!result.mesh.vertices.empty())
+        {
+            chunk.setMeshHandle(_renderer.createMesh(result.mesh.vertices, result.mesh.indices));
+            chunk.setDataTextureHandle(ChunkDataTexture::upload(result.tileIndices, _renderer));
+        }
+
+        chunk.setState(ChunkState::MESHED);
     }
 }
 
-void World::scheduleChunkGeneration(glm::ivec3 coords)
+std::future<void> World::scheduleChunkGeneration(glm::ivec3 coords)
 {
     // place a dummy chunk in the _chunks map
     auto [it, result] = _chunks.try_emplace(coords, coords);
     if (!result)
         VoxisLog::critical("Failed to insert chunk, coords = [{}, {}, {}]", coords.x, coords.y, coords.z);
 
-    // start a worker job to generate the actual chunk data (sequential for now for testing purposes)
-    _terrainGenerator.generate(it->second);
-    it->second.setState(ChunkState::GENERATED);
+    Chunk& chunk = it->second;
+    return _threadPool.submit([this, &chunk] { _terrainGenerator.generate(chunk); });
 }
 
-void World::scheduleChunkMeshing(Chunk& chunk, std::array<const Chunk*, 6> neighbors)
+std::future<MeshJobResult> World::scheduleChunkMeshing(Chunk& chunk, std::array<const Chunk*, 6> neighbors)
 {
     if (chunk.hasMesh())
         _renderer.destroyMesh(chunk.meshHandle());
     if (chunk.hasDataTexture())
         _renderer.destroyTexture3D(chunk.dataTextureHandle());
 
-    MeshData mesh = ChunkMesher::getMeshData(chunk, neighbors);
-
-    // a chunk fully enclosed by solid neighbors has no visible faces at all - don't create a GPU
-    // mesh/texture for it (a 0-vertex mesh is an invalid Vulkan buffer size), it just won't render
-    if (!mesh.vertices.empty())
-    {
-        chunk.setMeshHandle(_renderer.createMesh(mesh.vertices, mesh.indices));
-        chunk.setDataTextureHandle(ChunkDataTexture::build(chunk, _registry, _atlas, _renderer));
-    }
-
-    chunk.setState(ChunkState::MESHED);
+    return _threadPool.submit(
+        [this, &chunk, neighbors]
+        {
+            MeshJobResult result;
+            result.mesh = ChunkMesher::getMeshData(chunk, neighbors);
+            result.tileIndices = ChunkDataTexture::build(chunk, _registry, _atlas);
+            return result;
+        });
 }
 
 std::vector<const Chunk*> World::getRenderableChunks() const

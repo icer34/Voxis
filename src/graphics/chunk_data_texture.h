@@ -2,6 +2,8 @@
 
 #include "handle.h"
 
+#include <vector>
+
 class Chunk;
 class BlockRegistry;
 class BlockAtlas;
@@ -14,5 +16,6 @@ class Renderer;
  */
 namespace ChunkDataTexture
 {
-Texture3DHandle build(Chunk& chunk, const BlockRegistry& registry, const BlockAtlas& atlas, Renderer& renderer);
+std::vector<uint16_t> build(Chunk& chunk, const BlockRegistry& registry, const BlockAtlas& atlas);
+Texture3DHandle upload(const std::vector<uint16_t>& texTileIdx, Renderer& renderer);
 } // namespace ChunkDataTexture

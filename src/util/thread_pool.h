@@ -1,11 +1,13 @@
 #pragma once
 
+#include <cassert>
 #include <functional>
 #include <future>
 #include <queue>
 #include <mutex>
 #include <condition_variable>
 #include <thread>
+#include <vector>
 
 /**
  * @brief generic class that allows to submit tasks to a thread pool of a given size
@@ -24,9 +26,11 @@ public:
 
     ~ThreadPool()
     {
-        std::unique_lock<std::mutex> lock(_mutex);
+        {
+            std::lock_guard<std::mutex> lock(_mutex);
+            _stop = true;
+        }
 
-        _stop = true;
         _condition.notify_all();
 
         for (auto& thread : _workers)
@@ -36,7 +40,22 @@ public:
     template <typename F, typename... Args>
     auto submit(F&& f, Args&&... args) -> std::future<std::invoke_result_t<F, Args...>>
     {
-        // TODO: implemnt submit method
+        using ReturnType = std::invoke_result_t<F, Args...>;
+
+        auto task = std::make_shared<std::packaged_task<ReturnType()>>(
+            [func = std::forward<F>(f), ...capturedArgs = std::forward<Args>(args)]() mutable
+            { return std::invoke(func, capturedArgs...); });
+
+        std::future<ReturnType> result = task->get_future();
+
+        {
+            std::unique_lock<std::mutex> lock(_mutex);
+            assert(!_stop && "ThreadPool::submit() called after the pool has started shutting down");
+            _tasks.emplace([task] { (*task)(); });
+        }
+
+        _condition.notify_one();
+        return result;
     }
 
 private:

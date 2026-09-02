@@ -114,14 +114,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Voxis </div></div>
+  <div class="headertitle"><div class="title"><a class="el" href="namespace_voxis.html">Voxis</a> </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
 <p align="center"></p>
-<p><img src="logo.png" alt="Voxis logo" width="400" class="inline"/> </p>
-<p>Voxis is a small Minecraft-like voxel RPG game, written in C++20.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+<p><img src="docs/logo.png" alt="Voxis logo" width="400" class="inline"/> </p>
+<p><a class="el" href="namespace_voxis.html">Voxis</a> is a small Minecraft-like voxel RPG game, written in C++20.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 Architecture</h1>
 <p>The project is organized into three main parts, under <span class="tt">src/</span>:</p>
 <ul>
@@ -129,7 +129,7 @@ Architecture</h1>
 <li><b>graphics/</b> — Vulkan rendering: <span class="tt"><a class="el" href="class_renderer.html" title="Vulkan renderer: owns the swapchain and pipeline, and manages meshes, textures and frame rendering.">Renderer</a></span>, <span class="tt"><a class="el" href="class_camera.html" title="A first-person camera providing view/projection matrices, movement, rotation and zoom.">Camera</a></span>, <span class="tt"><a class="el" href="class_mesh.html" title="GPU-side vertex and index buffers for a renderable mesh, allocated via VMA.">Mesh</a></span>, <span class="tt"><a class="el" href="class_texture.html" title="GPU-side texture: owns the Vulkan image, image view and sampler, allocated via VMA.">Texture</a></span>, <span class="tt"><a class="el" href="namespace_chunk_mesher.html">ChunkMesher</a></span></li>
 <li><b>plateform/</b> — window and input (everything plateform specific): <span class="tt"><a class="el" href="class_window.html" title="Wraps the SDL window and gathers input state (keyboard, mouse) and Vulkan surface creation.">Window</a></span></li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Tech stack</h1>
 <ul>
 <li><b>Vulkan</b> (via <a href="https://github.com/zeux/volk">volk</a>) for graphics rendering</li>
@@ -140,13 +140,13 @@ Tech stack</h1>
 <li><b>shaderc</b> for shader compilation</li>
 <li><b>spdlog</b> for logging</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 Building</h1>
 <p>The project uses CMake (&gt;= 3.24) and CMake Presets.</p>
 <div class="fragment"><div class="line">cmake --preset &lt;preset&gt;</div>
 <div class="line">cmake --build --preset &lt;preset&gt;</div>
 </div><!-- fragment --><p>Dependencies are fetched automatically via <span class="tt">cmake/Dependencies.cmake</span>.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Documentation</h1>
 <p>This documentation is generated with Doxygen from the comments in the source code (<span class="tt">src/</span>). </p>
 </div></div><!-- PageDoc -->

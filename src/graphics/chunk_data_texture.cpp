@@ -9,7 +9,7 @@
 
 namespace ChunkDataTexture
 {
-Texture3DHandle build(Chunk& chunk, const BlockRegistry& registry, const BlockAtlas& atlas, Renderer& renderer)
+std::vector<uint16_t> build(Chunk& chunk, const BlockRegistry& registry, const BlockAtlas& atlas)
 {
     constexpr int SIZE = static_cast<int>(Chunk::SIZE);
 
@@ -32,7 +32,16 @@ Texture3DHandle build(Chunk& chunk, const BlockRegistry& registry, const BlockAt
         }
     }
 
-    const unsigned char* mip0 = reinterpret_cast<const unsigned char*>(tileIndices.data());
-    return renderer.createTexture3D({ SIZE, SIZE, SIZE }, 1, VK_FORMAT_R16_UINT, sizeof(uint16_t), &mip0);
+    return tileIndices;
+}
+
+Texture3DHandle upload(const std::vector<uint16_t>& texTileIdx, Renderer& renderer)
+{
+    const unsigned char* mip0 = reinterpret_cast<const unsigned char*>(texTileIdx.data());
+    return renderer.createTexture3D({ Chunk::SIZE, Chunk::SIZE, Chunk::SIZE },
+                                    1,
+                                    VK_FORMAT_R16_UINT,
+                                    sizeof(uint16_t),
+                                    &mip0);
 }
 } // namespace ChunkDataTexture

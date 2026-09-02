@@ -2,13 +2,11 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="119,5,244,31"/>
 <area shape="rect" id="Node000002" href="$chunk_8cpp.html" title=" " alt="" coords="5,86,145,112"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,42,93,88,90,84,155,38"/>
-<area shape="rect" id="Node000003" href="$game_8cpp.html" title=" " alt="" coords="99,175,235,201"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,46,171,176,166,174,177,48"/>
-<area shape="rect" id="Node000004" href="$chunk__mesher_8h.html" title=" " alt="" coords="245,79,377,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="214,37,282,78,276,79,214,42"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="268,127,188,177,186,172,263,129"/>
-<area shape="rect" id="Node000005" href="$chunk__mesher_8cpp.html" title=" " alt="" coords="259,168,390,208"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="318,133,324,169,319,166,315,137"/>
-<area shape="rect" id="Node000006" href="$renderer_8cpp.html" title=" " alt="" coords="414,175,581,201"/>
-<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="368,124,474,175,469,175,367,129"/>
+<area shape="rect" id="Node000003" href="$game_8cpp.html" title=" " alt="" coords="114,175,250,201"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,45,184,175,179,174,179,48"/>
+<area shape="rect" id="Node000004" href="$chunk__mesher_8h.html" title=" " alt="" coords="219,79,350,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="210,38,262,78,256,79,209,43"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="252,129,197,177,194,173,247,131"/>
+<area shape="rect" id="Node000005" href="$chunk__mesher_8cpp.html" title=" " alt="" coords="273,168,405,208"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="306,131,329,168,324,166,304,135"/>
 </map>
