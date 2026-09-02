@@ -1,6 +1,6 @@
 #include "texture.h"
 
-#include "log.h"
+#include "util/log.h"
 
 Texture::Texture(VkImage image,
                  VmaAllocation alloc,

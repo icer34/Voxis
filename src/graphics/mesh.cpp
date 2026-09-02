@@ -1,6 +1,6 @@
 #include "mesh.h"
 
-#include "log.h"
+#include "util/log.h"
 
 Mesh::Mesh(std::span<const Vertex> vertices, std::span<const uint32_t> indices, VmaAllocator vmaAllocator)
 {

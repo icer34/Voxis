@@ -4,7 +4,7 @@
 #include <SDL2/SDL_vulkan.h>
 #include <imgui_impl_sdl2.h>
 
-#include "log.h"
+#include "util/log.h"
 
 Window::Window(uint32_t width, uint32_t height, const std::string& title)
 {

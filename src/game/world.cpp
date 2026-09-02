@@ -5,8 +5,8 @@
 #include "graphics/chunk_data_texture.h"
 #include "graphics/chunk_mesher.h"
 #include "graphics/renderer.h"
-#include "directions.h"
-#include "log.h"
+#include "util/directions.h"
+#include "util/log.h"
 
 World::World(const uint64_t seed, BlockRegistry& registry, BlockAtlas& atlas, Renderer& renderer)
     : _seed(seed),

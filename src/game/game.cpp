@@ -48,7 +48,7 @@ void Game::update()
 
     if (!_window->isCursorEnabled())
     {
-        constexpr float MOVE_SPEED = 5.0f;
+        constexpr float MOVE_SPEED = 20.0f;
 
         glm::vec3 moveDir(0.0f);
         if (_window->isKeyPressed(Key::W))
@@ -60,9 +60,9 @@ void Game::update()
         if (_window->isKeyPressed(Key::A))
             moveDir -= _camera->getRight();
         if (_window->isKeyPressed(Key::Space))
-            moveDir += _camera->getUp();
+            moveDir += glm::vec3(0.0f, 1.0f, 0.0f);
         if (_window->isKeyPressed(Key::LShift))
-            moveDir -= _camera->getUp();
+            moveDir -= glm::vec3(0.0f, 1.0f, 0.0f);
 
         if (glm::length(moveDir) > 0.0f)
             _camera->move(glm::normalize(moveDir) * MOVE_SPEED * static_cast<float>(_dt));
@@ -104,6 +104,7 @@ void Game::render()
         pc.modelMat = glm::translate(glm::mat4(1.0f), worldPos);
         pc.blockAtlasTextureIndex = _blockAtlas->handle().value;
         pc.chunkDataTextureIndex = chunk->dataTextureHandle().value;
+        pc.atlasTilesPerRow = _blockAtlas->tilesPerRow();
 
         renderData.push_back({ chunk, pc });
     }

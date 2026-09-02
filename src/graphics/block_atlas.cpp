@@ -9,7 +9,7 @@
 #include <filesystem>
 #include <vector>
 
-#include "log.h"
+#include "util/log.h"
 
 namespace fs = std::filesystem;
 
@@ -59,6 +59,7 @@ BlockAtlas::BlockAtlas(Renderer& renderer)
     uint32_t numTiles = static_cast<uint32_t>(paths.size());
     uint32_t gridSize = static_cast<uint32_t>(std::ceil(std::sqrt(static_cast<double>(numTiles))));
     uint32_t atlasSize = gridSize * CELL_STRIDE;
+    _tilesPerRow = gridSize;
 
     std::array<std::vector<unsigned char>, MIP_LEVELS> levels;
     for (uint32_t lvl = 0; lvl < MIP_LEVELS; lvl++)
@@ -80,11 +81,24 @@ BlockAtlas::BlockAtlas(Renderer& renderer)
             continue;
         }
 
-        std::vector<unsigned char> lvlData(data, data + (static_cast<size_t>(width) * static_cast<size_t>(height) * 4));
+        // crop to the top-left TEXTURE_SIZE x TEXTURE_SIZE tile - handles animated textures
+        // (stored as a tall vertical strip of frames, e.g. water_still.png is 16x640 for 40
+        // frames - this takes just the first frame) and any other non-standard resolution
+        uint32_t srcW = static_cast<uint32_t>(width);
+        uint32_t srcH = static_cast<uint32_t>(height);
+        std::vector<unsigned char> lvlData(static_cast<size_t>(TEXTURE_SIZE) * TEXTURE_SIZE * 4, 0);
+        for (uint32_t y = 0; y < TEXTURE_SIZE && y < srcH; y++)
+        {
+            for (uint32_t x = 0; x < TEXTURE_SIZE && x < srcW; x++)
+            {
+                for (uint32_t c = 0; c < 4; c++)
+                    lvlData[(x + y * TEXTURE_SIZE) * 4 + c] = data[(x + y * srcW) * 4 + c];
+            }
+        }
         stbi_image_free(data);
 
-        uint32_t lvlW = static_cast<uint32_t>(width);
-        uint32_t lvlH = static_cast<uint32_t>(height);
+        uint32_t lvlW = TEXTURE_SIZE;
+        uint32_t lvlH = TEXTURE_SIZE;
 
         for (uint32_t lvl = 0; lvl < MIP_LEVELS; lvl++)
         {
@@ -156,4 +170,9 @@ Texture2DHandle BlockAtlas::handle() const
 uint32_t BlockAtlas::tileIndex(const std::string& name) const
 {
     return _nameToIndex.at(name);
+}
+
+uint32_t BlockAtlas::tilesPerRow() const
+{
+    return _tilesPerRow;
 }

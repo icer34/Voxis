@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "minecraft:block/nether_quartz_ore_top",
+    "side": "minecraft:block/nether_quartz_ore",
+    "top": "minecraft:block/nether_quartz_ore_top"
+  }
+}

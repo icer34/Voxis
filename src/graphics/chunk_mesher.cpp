@@ -1,7 +1,7 @@
 #include "chunk_mesher.h"
 
-#include "directions.h"
-#include "log.h"
+#include "util/directions.h"
+#include "util/log.h"
 
 #include <array>
 #include <vector>

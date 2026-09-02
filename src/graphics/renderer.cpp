@@ -9,8 +9,8 @@
 #include "platform/window.h"
 #include "camera.h"
 #include "block_atlas.h"
-#include "log.h"
-#include "util.h"
+#include "util/log.h"
+#include "util/util.h"
 #include "deletion_queue.h"
 #include "game/chunk.h"
 
@@ -74,7 +74,7 @@ void Renderer::render(Camera& cam, std::span<std::pair<const Chunk*, PushConstan
 
 MeshHandle Renderer::createMesh(std::span<const Vertex> vertices, std::span<const uint32_t> indices)
 {
-    MeshHandle handle{ static_cast<uint32_t>(_meshes.size()) + 1 };
+    MeshHandle handle{ _nextMeshHandleValue++ };
     auto result = _meshes.try_emplace(handle, vertices, indices, _vmaAllocator);
     if (!result.second)
         VoxisLog::critical("Failed to insert mesh with handle: {}", handle.value);
@@ -947,7 +947,7 @@ void Renderer::createGrpahicsPipeline()
 
     VkPipelineRasterizationStateCreateInfo rasterizationInfo{};
     rasterizationInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;
-    rasterizationInfo.polygonMode = VK_POLYGON_MODE_LINE;
+    rasterizationInfo.polygonMode = VK_POLYGON_MODE_FILL;
     rasterizationInfo.cullMode = VK_CULL_MODE_BACK_BIT;
     rasterizationInfo.frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE;
     rasterizationInfo.lineWidth = 1.0f;

@@ -40,6 +40,9 @@ struct PushConstants
     glm::mat4 modelMat;
     uint32_t blockAtlasTextureIndex;
     uint32_t chunkDataTextureIndex;
+    // BlockAtlas discovers this at runtime (scans the texture folder), after shaders are already
+    // compiled, so it can't be a shader compile-time constant like TEXTURE_SIZE/PADDING/CELL_STRIDE
+    uint32_t atlasTilesPerRow;
 };
 
 // forward declarations
@@ -148,6 +151,7 @@ private:
 
     Window& _window;
     std::unordered_map<MeshHandle, Mesh> _meshes;
+    uint32_t _nextMeshHandleValue = 1;
     DeletionQueue _deletionQueue;
     std::unordered_map<Texture2DHandle, Texture> _textures2D;
     std::unordered_map<Texture3DHandle, Texture> _textures3D;

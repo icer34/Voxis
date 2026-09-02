@@ -39,6 +39,14 @@ public:
      */
     uint32_t tileIndex(const std::string& name) const;
 
+    /**
+     * @brief How many tiles per row the atlas grid has - the shader needs this to convert a tile
+     * index into a (col, row) position, but can't know it at compile time (the number of texture
+     * files is only discovered at runtime, after shaders are already compiled), so it's passed
+     * through PushConstants instead
+     */
+    uint32_t tilesPerRow() const;
+
     // shared with the shaders (injected as macro definitions at shader-compile time by Renderer,
     // see createShaderModule) - single source of truth, don't duplicate these values in GLSL
     constexpr static uint32_t TEXTURE_SIZE = 16;
@@ -51,5 +59,6 @@ private:
 
     Renderer& _renderer;
     Texture2DHandle _handle{};
+    uint32_t _tilesPerRow = 0;
     std::unordered_map<std::string, uint32_t> _nameToIndex;
 };
